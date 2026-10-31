@@ -212,6 +212,19 @@ details.faq p{padding:0 22px 20px;margin:0;color:var(--muted)}
 .guide-list a:hover span{color:#b9bcb6}
 .guide-list .i{width:28px;height:28px;color:var(--green-d)}
 
+/* city links (hub pages) */
+.near-h{margin:44px 0 16px;font-size:30px}
+.city-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:22px}
+.city-links a{display:block;background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--green);padding:14px 18px;text-decoration:none;transition:background .15s}
+.city-links a:hover{background:var(--black);color:#fff}
+.city-links strong{display:block;font:italic 800 22px/1.05 var(--head);text-transform:uppercase}
+.city-links span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+.city-links a:hover span{color:#b9bcb6}
+
+/* language switch */
+.lang{display:grid;place-items:center;min-width:40px;height:34px;padding:0 8px;border:2px solid var(--green);color:#fff;text-decoration:none;font:italic 800 17px/1 var(--head);letter-spacing:.04em}
+.lang:hover{background:var(--green);color:var(--black)}
+
 /* cta band */
 .cta-band{position:relative;background:var(--green);padding:54px 0;overflow:hidden;isolation:isolate}
 .cta-band:before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(-60deg,transparent 0 26px,rgba(0,0,0,.05) 26px 52px)}
@@ -245,6 +258,8 @@ details.faq p{padding:0 22px 20px;margin:0;color:var(--muted)}
   .dd-menu{position:static;box-shadow:none;border:0;background:var(--char2);margin:6px 0}
   .menu-btn{display:grid;margin-left:auto}
   .head-call{display:none}
+  .lang{margin-left:auto}
+  .lang+.head-call+.menu-btn,.lang~.menu-btn{margin-left:10px}
   .g4{grid-template-columns:repeat(2,1fr)}
   .g3{grid-template-columns:repeat(2,1fr)}
   .foot{grid-template-columns:1fr 1fr}

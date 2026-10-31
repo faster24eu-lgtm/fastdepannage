@@ -264,6 +264,138 @@ function Read-Page($file, $lang) {
 $all = @()
 Get-ChildItem "$src\pages\*.html" | ForEach-Object { $all += Read-Page $_ 'nl' }
 Get-ChildItem "$src\pages\fr\*.html" | ForEach-Object { $all += Read-Page $_ 'fr' }
+# ---------- city pages from _src/cities.json ----------
+$cityFile = "$src\cities.json"
+$cities = [IO.File]::ReadAllText($cityFile, $utf8) | ConvertFrom-Json
+$hubs = @{
+  'brussel'         = @{ nl = @('Brussel', '/brussel/');                 fr = @('Bruxelles', '/fr/bruxelles/') }
+  'rand'            = @{ nl = @('Vlaamse Rand', '/vlaamse-rand/');       fr = @('Périphérie flamande', '/fr/peripherie-flamande/') }
+  'leuven-mechelen' = @{ nl = @('Leuven &amp; Mechelen', '/leuven-mechelen/'); fr = @('Louvain &amp; Malines', '/fr/louvain-malines/') }
+}
+$cityImgs = @(
+  @{ src = '/assets/img/depanneuse-double-chargement.jpg'; w = 1600; h = 1200; nl = 'Takelwagen met een wagen op het plateau en een bestelwagen erachter'; fr = 'Dépanneuse avec une voiture sur le plateau et une camionnette en remorque' },
+  @{ src = '/assets/img/chargement-camionnette.jpg'; w = 1288; h = 966; nl = 'Bestelwagen die op een schuin plateau geladen wordt'; fr = 'Camionnette hissée sur un plateau incliné' },
+  @{ src = '/assets/img/remorquage-porsche-plateau.jpg'; w = 1600; h = 1200; nl = 'Sportwagen met spanbanden over de wielen op een plateau'; fr = 'Voiture de sport sanglée par les roues sur un plateau' },
+  @{ src = '/assets/img/intervention-atelier.jpg'; w = 1288; h = 966; nl = 'Pechverhelping aan een wagen'; fr = 'Intervention de dépannage sur une voiture' }
+)
+$CT = @{}
+$CT.nl = @{
+  prefix = '/takeldienst/'
+  title = 'Takeldienst {0} 24/7 | Fast Dépannage'
+  desc = 'Takeldienst in {0}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
+  h1 = 'Takeldienst <em>{0}</em>'; btn = 'Stuur mijn locatie'
+  know = 'Pech in {0}: wat u moet weten'; area = 'Wijken en deelgemeenten'; roads = 'Wegen en plekken die we kennen'
+  svc = 'Wat we doen in {0}'
+  cards = @(
+    @('/takelen/', 'truck', 'Takelen', 'Op het plateau naar de garage van uw keuze.'),
+    @('/pechverhelping/', 'battery-automotive', 'Pechverhelping', 'Batterij, band, brandstof: vaak ter plaatse opgelost.'),
+    @('/pech-snelweg/', 'road', 'Pech op de snelweg', 'Wat u moet doen, en hoe het FAST-systeem werkt.'),
+    @('/tarieven/', 'route', 'Tarieven', 'Wat de prijs bepaalt. U krijgt een vaste prijs vooraf.')
+  )
+  faqH = 'Veelgestelde vragen'
+  q1 = 'Wat kost een takeldienst in {0}?'
+  a1 = 'Dat hangt af van waar de wagen staat, wat er mis is, waar hij naartoe moet en het uur. Stuur ons uw locatie en een foto via WhatsApp: u krijgt een vaste prijs, alles inbegrepen, voor de takelwagen vertrekt.'
+  q2 = 'Kunnen jullie mijn wagen van {0} naar een garage elders brengen?'
+  a2 = 'Ja. Naar uw vaste garage, de dealer, uw huis of een andere stad in België. We spreken de prijs voor de hele rit af voor vertrek, en we praten met de garagist in het Nederlands of het Frans.'
+  near = 'Ook in de buurt'; more = 'Meer info'
+}
+$CT.fr = @{
+  prefix = '/fr/depannage/'
+  title = 'Dépannage {0} 24h/24 | Fast Dépannage'
+  desc = 'Dépanneuse à {0}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Envoyez votre position sur WhatsApp, prix fixé avant le départ.'
+  h1 = 'Dépannage à <em>{0}</em>'; btn = 'Envoyer ma position'
+  know = 'En panne à {0} : ce qu''il faut savoir'; area = 'Quartiers'; roads = 'Routes et lieux qu''on connaît'
+  svc = 'Ce qu''on fait à {0}'
+  cards = @(
+    @('/fr/remorquage/', 'truck', 'Remorquage', 'Sur plateau, jusqu''au garage de votre choix.'),
+    @('/fr/depannage-sur-place/', 'battery-automotive', 'Dépannage sur place', 'Batterie, pneu, carburant : souvent réglé sur place.'),
+    @('/fr/panne-autoroute/', 'road', 'Panne sur l''autoroute', 'Les bons réflexes et le système FAST en Flandre.'),
+    @('/fr/tarifs/', 'route', 'Tarifs', 'Ce qui fait le prix. Prix ferme avant le départ.')
+  )
+  faqH = 'Questions fréquentes'
+  q1 = 'Combien coûte un dépannage à {0} ?'
+  a1 = 'Cela dépend de l''endroit où se trouve la voiture, de la panne, de la destination et de l''heure. Envoyez-nous votre position et une photo sur WhatsApp : vous recevez un prix ferme, tout compris, avant le départ du camion.'
+  q2 = 'Pouvez-vous emmener ma voiture de {0} vers un garage ailleurs ?'
+  a2 = 'Oui. Vers votre garage habituel, le concessionnaire, chez vous ou une autre ville de Belgique. Le prix du trajet complet est fixé avant le départ, et on parle au garagiste en français ou en néerlandais.'
+  near = 'Aussi dans les environs'; more = 'En savoir plus'
+}
+$byId = @{}; foreach ($c in $cities) { $byId[$c.id] = $c }
+$hx = { param($s) $s.Replace('&', '&amp;') }
+$i = 0
+foreach ($c in $cities) {
+  $img = $cityImgs[$i % $cityImgs.Count]; $i++
+  foreach ($lang in 'nl', 'fr') {
+    $S = $CT[$lang]; $d = $c.$lang; $hub = $hubs[$c.hub][$lang]; $hm = $L[$lang].home
+    $name = & $hx $d.name
+    $local = ($d.local | ForEach-Object { '<p>' + (& $hx $_) + '</p>' }) -join "`n      "
+    $roads = ($c.roads | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join ''
+    $cards = ($S.cards | ForEach-Object { "<a class=""card card-link"" href=""$($_[0])""><span class=""ic"">{{icon:$($_[1])}}</span><h3>$($_[2])</h3><p>$(& $hx $_[3])</p><span class=""more"">$($S.more) {{icon:arrow-right}}</span></a>" }) -join "`n      "
+    $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$($S.prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
+    $body = @"
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="$hm">$($L[$lang].homeName)</a> / <a href="$($hub[1])">$($hub[0])</a> / $name</div>
+    <h1>$($S.h1 -f $name)</h1>
+    <p class="lead">$(& $hx $d.intro)</p>
+    <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}$($S.btn)</a></div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="wrap split">
+    <div class="prose">
+      <h2>$($S.know -f $name)</h2>
+      $local
+      <h3>$($S.area)</h3>
+      <p>$(& $hx $d.area)</p>
+      <h3>$($S.roads)</h3>
+      <ul class="chips">$roads</ul>
+    </div>
+    <figure class="photo">
+      <img src="$($img.src)" width="$($img.w)" height="$($img.h)" alt="$($img[$lang])" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>$($S.svc -f $name)</h2></div>
+    <div class="grid g4">
+      $cards
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="wrap">
+    <div class="sec-head"><h2>$($S.faqH)</h2></div>
+    <div class="faqs">
+      <details class="faq">
+        <summary>$($S.q1 -f $name)</summary>
+        <p>$($S.a1)</p>
+      </details>
+      <details class="faq">
+        <summary>$($S.q2 -f $name)</summary>
+        <p>$($S.a2)</p>
+      </details>
+    </div>
+    <h2 class="near-h">$($S.near)</h2>
+    <div class="city-links">$near</div>
+  </div>
+</section>
+"@
+    $meta = @{ path = "$($S.prefix)$($d.slug)/"; title = ($S.title -f $d.name); description = ($S.desc -f $d.name); crumb = $d.name; image = $img.src }
+    $all += [pscustomobject]@{ lang = $lang; key = "city-$($c.id)"; file = $cityFile; meta = $meta; body = $body }
+  }
+}
+# {{cities:hub}} in hub pages -> list of that hub's city pages
+$cityList = @{}
+foreach ($lang in 'nl', 'fr') {
+  foreach ($h in $hubs.Keys) {
+    $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h } | ForEach-Object { $n = $_.$lang; "<a href=""$($CT[$lang].prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
+  }
+}
 $byKey = @{}
 foreach ($p in $all) { if (-not $byKey[$p.key]) { $byKey[$p.key] = @{} }; $byKey[$p.key][$p.lang] = $p }
 
@@ -337,6 +469,7 @@ $ld
   $waUrl = 'https://wa.me/' + $wa + '?text=' + [uri]::EscapeDataString($T.waText)
   $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt).Replace('href="{{wa}}"', 'href="' + $waUrl + '" target="_blank" rel="noopener"')
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
+  $html = [regex]::Replace($html, '\{\{cities:([a-z-]+)\}\}', { param($m) $cityList["$($p.lang)|$($m.Groups[1].Value)"] })
   if ($html -match '\{\{') { throw "$($p.lang)/$($p.key): unreplaced token" }
   if ($base) { $html = [regex]::Replace($html, '(href|src)="/(?!/)', "`$1=`"$base/") }
 
