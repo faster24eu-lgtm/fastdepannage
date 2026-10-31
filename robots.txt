@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://faster24eu-lgtm.github.io/fastdepannage/sitemap.xml
+Sitemap: https://fastdepannage.com/sitemap.xml
