@@ -85,7 +85,7 @@
       "faq": [["Venez-vous aussi à Ruddervoorde et Waardamme ?", "Oui, dans toutes les sections d'Oostkamp, et à Beernem, Zedelgem et Assebroek tout près."], ["Pouvez-vous conduire la voiture à Gand ou Bruxelles ?", "Oui, par l'E40. Le prix du trajet complet est fixé à l'avance."]] }
   },
   {
-    "id": "middelkerke", "hub": "west-vlaanderen",
+    "id": "middelkerke", "hub": "kust",
     "roads": ["E40 (afrit Middelkerke)", "N318 Middelkerke-E40", "Koninklijke Baan (N34)", "Kusttram", "Polderwegen naar Leffinge"],
     "near": ["westhoek", "oostkamp", "roeselare", "west-vlaanderen"],
     "nl": { "name": "Middelkerke", "slug": "middelkerke", "area": "Middelkerke-Bad, Westende, Lombardsijde, Leffinge, Slijpe, Mannekensvere, Schore, Sint-Pieters-Kapelle, Wilskerke",

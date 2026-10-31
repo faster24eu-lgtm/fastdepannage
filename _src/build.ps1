@@ -7,7 +7,9 @@
 $ErrorActionPreference = 'Stop'
 $src  = if ($PSScriptRoot) { $PSScriptRoot } else { 'C:\Users\Karim\Documents\fastdepannage\_src' }
 $root = Split-Path $src -Parent
-$site = 'https://fastdepannage.com'
+# Public origin for canonical, hreflang, sitemap and schema URLs. Set FD_SITE (with the
+# subfolder) when the site is served somewhere else, e.g. on github.io before the domain is live
+$site = if ($env:FD_SITE) { $env:FD_SITE.TrimEnd('/') } else { 'https://fastdepannage.com' }
 $utf8 = New-Object System.Text.UTF8Encoding $false
 # Path prefix for hosting in a subfolder (e.g. '/fastdepannage' on github.io); empty on the real domain
 $base = if ($env:FD_BASE) { $env:FD_BASE.TrimEnd('/') } else { '' }
@@ -241,8 +243,9 @@ $L.nl = @{
 }
 
 $business = @'
-{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":["Bruxelles","Brussel","Vlaams-Brabant","Antwerpen","Gent","Brugge","Oostende","Leuven","Mechelen"]}
+{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}]}
 '@
+$business = $business.Replace('https://fastdepannage.com', $site)
 
 $ads = @'
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963026341"></script>
@@ -292,6 +295,8 @@ $hubs = @{
   'brussel' = @{ nl = @('Brussel', '/brussel/');           fr = @('Bruxelles', '/fr/bruxelles/') }
   'rand'    = @{ nl = @('Vlaamse Rand', '/vlaamse-rand/'); fr = @('Périphérie flamande', '/fr/peripherie-flamande/') }
   'streken' = @{ nl = @('Platteland', '/platteland/');     fr = @('Zones rurales', '/fr/zones-rurales/') }
+  'antwerpen' = @{ nl = @('Antwerpen', '/antwerpen/');     fr = @('Anvers', '/fr/anvers/') }
+  'kust'    = @{ nl = @('Brugge & de Kust', '/brugge-kust/'); fr = @('Bruges & la Côte', '/fr/bruges-cote/') }
 }
 $cityImgs = @(
   @{ src = '/assets/img/depanneuse-double-chargement.jpg'; w = 1600; h = 1200; nl = 'Takelwagen met een wagen op het plateau en een bestelwagen erachter'; fr = 'Dépanneuse avec une voiture sur le plateau et une camionnette en remorque' },
@@ -304,6 +309,7 @@ $CT = @{}
 $CT.nl = @{
   prefix = '/takeldienst/'; prep = 'in'; tarifs = '/tarieven/'
   title = 'Takeldienst {0} 24/7 | Fast Dépannage'
+  descShort = 'Takeldienst {1}, dag en nacht. Ter plaatse of naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
   desc = 'Takeldienst {1}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
   h1 = 'Takeldienst <em>{0}</em>'; btn = 'Stuur mijn locatie'
   know = 'Pech {1}: wat u moet weten'; area = 'Wijken en deelgemeenten'; areaR = 'Gemeenten'; around = 'Ook in deze dorpen'; roads = 'Wegen en plekken die we kennen'
@@ -337,6 +343,7 @@ $CT.nl = @{
 $CT.fr = @{
   prefix = '/fr/depannage/'; prep = 'à'; tarifs = '/fr/tarifs/'
   title = 'Dépannage {0} 24h/24 | Fast Dépannage'
+  descShort = 'Dépanneuse {1}, 24h/24. Sur place ou vers votre garage. Envoyez votre position sur WhatsApp, prix fixé à l''avance.'
   desc = 'Dépanneuse {1}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Envoyez votre position sur WhatsApp, prix fixé avant le départ.'
   h1 = 'Dépannage {2} <em>{0}</em>'; btn = 'Envoyer ma position'
   know = 'En panne {1} : ce qu''il faut savoir'; area = 'Quartiers'; areaR = 'Communes'; around = 'Aussi dans ces villages'; roads = 'Routes et lieux qu''on connaît'
@@ -379,7 +386,7 @@ foreach ($c in $cities) {
     $loc = "$prep $name"
     $fmt = { param($t) $t -f $name, $loc, $prep }
     $crumbs = "<a href=""$hm"">$($L[$lang].homeName)</a> / "
-    if ($hubs[$c.hub]) { $hub = $hubs[$c.hub][$lang]; $crumbs += "<a href=""$($hub[1])"">$($hub[0])</a> / " }
+    if ($hubs[$c.hub]) { $hub = $hubs[$c.hub][$lang]; $crumbs += "<a href=""$($hub[1])"">$(& $hx $hub[0])</a> / " }
     elseif ($c.hub) { $r = $byId[$c.hub].$lang; $crumbs += "<a href=""$($S.prefix)$($r.slug)/"">$(& $hx $r.name)</a> / " }
     $local = ($d.local | ForEach-Object { '<p>' + (& $hx $_) + '</p>' }) -join "`n      "
     $roads = ($c.roads | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join ''
@@ -478,6 +485,11 @@ $towns
 "@
     $meta = @{ path = "$($S.prefix)$($d.slug)/"; title = (& $fmt $S.title); description = (& $fmt $S.desc).Replace('&amp;', '&'); crumb = $d.name; image = $img.src }
     $meta.title = $meta.title.Replace('&amp;', '&')
+    if ($meta.description.Length -gt 160) { $meta.description = (& $fmt $S.descShort).Replace('&amp;', '&') }
+    # long names: drop the brand suffix rather than get cut off in the results
+    if ($meta.title.Length -gt 60) { $meta.title = $meta.title.Split('|')[0].Trim() }
+    $isRegion = $c.hub -eq 'streken'
+    $meta.service = @($(if ($lang -eq 'nl') { 'Takeldienst' } else { 'Dépannage et remorquage' }), $(if ($isRegion) { 'AdministrativeArea' } else { 'City' }), $d.name)
     $all += [pscustomobject]@{ lang = $lang; key = "city-$($c.id)"; file = $c.file; meta = $meta; body = $body }
   }
 }
@@ -487,6 +499,8 @@ foreach ($lang in 'nl', 'fr') {
   foreach ($h in $hubs.Keys) {
     $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h } | ForEach-Object { $n = $_.$lang; "<a href=""$($CT[$lang].prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
   }
+  # {{cities:towns}} -> every town that sits under a region page, alphabetical, as compact links
+  $cityList["$lang|towns"] = '<ul class="chips chip-links">' + (($cities | Where-Object { $_.hub -and $byId[$_.hub] } | Sort-Object { $_.$lang.name } | ForEach-Object { $n = $_.$lang; "<li><a href=""$($CT[$lang].prefix)$($n.slug)/"">$(& $hx $n.name)</a></li>" }) -join '') + '</ul>'
 }
 
 $byKey = @{}
@@ -512,9 +526,18 @@ foreach ($p in $all) {
   }
 
   $ld = '<script type="application/ld+json">' + $business.Trim() + '</script>'
-  if ($meta.crumb) {
-    $crumbs = '{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"' + $T.homeName + '","item":"' + $site + $T.home + '"},{"@type":"ListItem","position":2,"name":"' + $meta.crumb + '","item":"' + $url + '"}]}'
-    $ld += "`n" + '<script type="application/ld+json">' + $crumbs + '</script>'
+  # BreadcrumbList from the visible crumbs: <a href="/x/">Name</a> / ... / current page
+  $cm = [regex]::Match($p.body, '<div class="crumbs">([\s\S]*?)</div>')
+  if ($cm.Success -and $meta.crumb) {
+    $jsn = { param($s) [Net.WebUtility]::HtmlDecode($s).Replace('\', '\\').Replace('"', '\"') }
+    $li = @(); $pos = 0
+    foreach ($a in [regex]::Matches($cm.Groups[1].Value, '<a href="([^"]+)">([^<]+)</a>')) { $pos++; $li += '{"@type":"ListItem","position":' + $pos + ',"name":"' + (& $jsn $a.Groups[2].Value) + '","item":"' + $site + $a.Groups[1].Value + '"}' }
+    $pos++; $li += '{"@type":"ListItem","position":' + $pos + ',"name":"' + (& $jsn $meta.crumb) + '","item":"' + $url + '"}'
+    $ld += "`n" + '<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[' + ($li -join ',') + ']}</script>'
+  }
+  # Service schema on town and region pages
+  if ($meta.service) {
+    $ld += "`n" + '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"' + $meta.service[0] + '","name":"' + $meta.title.Split('|')[0].Trim() + '","url":"' + $url + '","provider":{"@id":"' + $site + '/#entreprise"},"areaServed":{"@type":"' + $meta.service[1] + '","name":"' + $meta.service[2] + '"},"availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://wa.me/' + $wa + '"}}</script>'
   }
   # FAQ schema from <details class="faq"><summary>Q</summary><p>A</p></details>
   $faqs = [regex]::Matches($p.body, '<details class="faq">\s*<summary>([\s\S]*?)</summary>\s*<p>([\s\S]*?)</p>\s*</details>')
