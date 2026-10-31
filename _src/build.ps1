@@ -1,6 +1,6 @@
-﻿# Builds the static site in two languages: French at the root (_src/pages/*.html)
-# and Dutch under /nl/ (_src/pages/nl/*.html). A Dutch page is the translation of
-# the French page with the same file name; the pair gets hreflang links and a
+﻿# Builds the static site in two languages: Dutch at the root (_src/pages/*.html)
+# and French under /fr/ (_src/pages/fr/*.html). A French page is the translation of
+# the Dutch page with the same file name; the pair gets hreflang links and a
 # language switch. Writes <path>/index.html, sitemap.xml and robots.txt.
 # Run from PowerShell:  & .\_src\build.ps1   (keep this file UTF-8 with BOM)
 
@@ -9,6 +9,8 @@ $src  = if ($PSScriptRoot) { $PSScriptRoot } else { 'C:\Users\Karim\Documents\fa
 $root = Split-Path $src -Parent
 $site = 'https://fastdepannage.com'
 $utf8 = New-Object System.Text.UTF8Encoding $false
+# Path prefix for hosting in a subfolder (e.g. '/fastdepannage' on github.io); empty on the real domain
+$base = if ($env:FD_BASE) { $env:FD_BASE.TrimEnd('/') } else { '' }
 
 # WhatsApp number (digits only, with country code): change it here only.
 # Placeholder until the site's own number arrives.
@@ -336,6 +338,7 @@ $ld
   $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt).Replace('href="{{wa}}"', 'href="' + $waUrl + '" target="_blank" rel="noopener"')
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
   if ($html -match '\{\{') { throw "$($p.lang)/$($p.key): unreplaced token" }
+  if ($base) { $html = [regex]::Replace($html, '(href|src)="/(?!/)', "`$1=`"$base/") }
 
   if ($path -eq '/404.html') { $out = Join-Path $root '404.html' }
   else {
@@ -356,7 +359,7 @@ $sm += '</urlset>' + "`n"
 Write-Host "$($sitemap.Count) pages in sitemap"
 # Until the Dutch home page exists, send / to the French site
 if (-not ($byKey['index'] -and $byKey['index']['nl'])) {
-  [IO.File]::WriteAllText((Join-Path $root 'index.html'), '<!doctype html><meta charset="utf-8"><title>Fast Dépannage</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/fr/"><link rel="canonical" href="' + $site + '/fr/"><a href="/fr/">Fast Dépannage</a>', $utf8)
+  [IO.File]::WriteAllText((Join-Path $root 'index.html'), '<!doctype html><meta charset="utf-8"><title>Fast Dépannage</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=' + $base + '/fr/"><link rel="canonical" href="' + $site + '/fr/"><a href="' + $base + '/fr/">Fast Dépannage</a>', $utf8)
 }
 
 exit 0
