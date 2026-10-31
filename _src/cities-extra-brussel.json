@@ -1,0 +1,314 @@
+{
+  "brussel-stad": {
+    "nl": {
+      "cases": [
+        ["car-garage", "Lege batterij in een openbare parking", "Na een avond in het centrum start de wagen niet meer, drie niveaus onder de grond. Stuur ons de naam van de parking, het niveau en de maximale hoogte aan de inrit. Met een booster raakt u meestal zelf weer naar buiten."],
+        ["alert-triangle", "Pech na een evenement aan de Heizel", "Na een match in het Koning Boudewijnstadion of een beurs in Brussels Expo lopen de parkings in één keer leeg, en dan blijkt de batterij leeg. Wacht rustig op de parking, we komen zodra het verkeer het toelaat."],
+        ["truck", "Bestelwagen stil in de Noordwijk", "Tussen het kanaal en het Noordstation rijden veel bestelwagens. Valt er een stil, dan laden we hem op dezelfde plateauwagen en brengen we hem naar uw garage of uw depot."]
+      ],
+      "faq": [
+        ["Mijn wagen staat in de voetgangerszone, kunnen jullie daar komen?", "Soms wel, met toelating, maar vaak is het eenvoudiger om de wagen tot aan de rand van de zone te duwen of te laten rollen. Stuur ons de exacte straat, dan zeggen we wat het snelst gaat."],
+        ["Ik woon in Laken of Neder-Over-Heembeek, is dat ook Brussel-Stad?", "Ja. Laken, Neder-Over-Heembeek en Haren horen bij de stad Brussel. Daar is meestal meer plaats dan in het centrum, en dus kunnen we de wagen vaak meteen laden."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["car-garage", "Batterie à plat dans un parking public", "Après une soirée en ville, la voiture ne démarre plus, trois niveaux sous terre. Envoyez-nous le nom du parking, l'étage et la hauteur maximale à l'entrée. Avec un booster, vous ressortez en général par vous-même."],
+        ["alert-triangle", "Panne après un événement au Heysel", "Après un match au stade Roi Baudouin ou un salon à Brussels Expo, les parkings se vident d'un coup, et c'est là que la batterie lâche. Attendez tranquillement sur le parking, on arrive dès que la circulation le permet."],
+        ["truck", "Camionnette immobilisée dans le quartier Nord", "Entre le canal et la gare du Nord, les camionnettes sont nombreuses. Si l'une d'elles tombe en panne, on la charge sur le même plateau et on la conduit à votre garage ou à votre dépôt."]
+      ],
+      "faq": [
+        ["Ma voiture est dans le piétonnier, pouvez-vous y venir ?", "Parfois, avec une autorisation, mais il est souvent plus simple de pousser la voiture jusqu'au bord de la zone. Envoyez-nous la rue exacte, on vous dit ce qui est le plus rapide."],
+        ["J'habite à Laeken ou à Neder-Over-Heembeek, c'est aussi Bruxelles-Ville ?", "Oui. Laeken, Neder-Over-Heembeek et Haren font partie de la Ville de Bruxelles. Il y a en général plus de place qu'au centre, donc on charge souvent la voiture directement."]
+      ]
+    }
+  },
+  "anderlecht": {
+    "nl": {
+      "cases": [
+        ["truck", "Bedrijfswagen met pech langs het kanaal", "In de bedrijvenzones langs het kanaal valt een bestelwagen al eens stil tijdens het laden. We takelen hem naar uw garage of de dealer en factureren op naam van het bedrijf."],
+        ["alert-triangle", "Wagen start niet na een match", "Rond het stadion van Anderlecht staan op matchdagen de straten vol. Start de wagen niet na de match, wacht dan tot het drukste verkeer weg is en stuur ons uw locatie."],
+        ["car", "Een tweedehandswagen naar de garage of de keuring", "In Kuregem worden veel tweedehandswagens verhandeld. Een wagen zonder geldige keuring brengen we op het plateau naar de garage of het keuringsstation, zonder dat hij zelf rijdt."]
+      ],
+      "faq": [
+        ["Komen jullie ook naar de parking van het Erasmusziekenhuis?", "Ja. Stuur ons de zone of het niveau van de parking en uw live locatie. Voor een lege batterij komen we met een booster, voor een wagen die niet start laden we hem op als de takelwagen binnen kan."],
+        ["Mijn wagen staat aan de rand van Anderlecht, bij de Ring. Is dat nog Brussel?", "Neerpede en de wijken langs de Ring horen nog bij Anderlecht. Iets verder begint Vlaams-Brabant, met Dilbeek en Sint-Pieters-Leeuw. Voor ons maakt het niet uit: we komen aan beide kanten."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["truck", "Utilitaire en panne le long du canal", "Dans les zonings le long du canal, il arrive qu'une camionnette tombe en panne pendant un chargement. On la remorque vers votre garage ou le concessionnaire, avec une facture au nom de la société."],
+        ["alert-triangle", "Voiture qui ne démarre pas après le match", "Autour du stade d'Anderlecht, les rues sont pleines les jours de match. Si la voiture ne démarre pas après le match, attendez que le gros du trafic soit passé et envoyez-nous votre position."],
+        ["car", "Une voiture d'occasion vers le garage ou le contrôle", "À Cureghem, beaucoup de voitures d'occasion changent de main. Une voiture sans contrôle technique valable, on la conduit sur plateau au garage ou au contrôle, sans qu'elle roule."]
+      ],
+      "faq": [
+        ["Venez-vous aussi sur le parking de l'hôpital Erasme ?", "Oui. Envoyez-nous la zone ou le niveau du parking et votre position en direct. Pour une batterie à plat, on vient avec un booster ; pour une voiture qui ne démarre pas, on la charge si le camion peut entrer."],
+        ["Ma voiture est au bord d'Anderlecht, près du Ring. C'est encore Bruxelles ?", "Neerpede et les quartiers le long du Ring font encore partie d'Anderlecht. Un peu plus loin commence le Brabant flamand, avec Dilbeek et Leeuw-Saint-Pierre. Pour nous, ça ne change rien : on vient des deux côtés."]
+      ]
+    }
+  },
+  "schaarbeek": {
+    "nl": {
+      "cases": [
+        ["battery-automotive", "Lege batterij na een koude nacht op straat", "De wagen stond een week stil in een straat rond het Josaphatpark en geeft geen kik meer. Meestal starten we hem ter plaatse met een booster en kunt u meteen verder."],
+        ["road", "Stilgevallen in de file aan Reyers", "Aan Reyers en op de Leopold III-laan staat het verkeer 's ochtends vast. Valt u daar stil, zet uw gevarenlichten aan, blijf aan de veilige kant en stuur ons uw richting."],
+        ["car-garage", "Wagen vast in een smalle garage", "Veel Schaarbeekse huizen hebben een smalle garage onder het huis. Start de wagen daar niet, dan trekken we hem eerst voorzichtig naar buiten voor we hem laden."]
+      ],
+      "faq": [
+        ["Kunnen jullie laden in een smalle straat in Schaarbeek?", "Meestal wel. De takelwagen heeft wat ruimte achter de wagen nodig. Is de straat helemaal vol, dan duwen we de wagen samen tot aan een kruispunt of een ruimere plek."],
+        ["Mijn wagen staat aan het Noordstation, aan de Schaarbeekse kant. Komen jullie daar?", "Ja. Rond het Noordstation lopen Schaarbeek, Sint-Joost en Brussel-Stad in elkaar over. Stuur ons gewoon uw live locatie, dan vinden we u."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["battery-automotive", "Batterie vide après une nuit froide en rue", "La voiture est restée une semaine dans une rue autour du parc Josaphat et ne réagit plus. En général, on la démarre sur place avec un booster et vous repartez tout de suite."],
+        ["road", "Arrêté dans les bouchons à Reyers", "À Reyers et sur le boulevard Léopold III, le trafic est bloqué le matin. Si vous tombez en panne là, allumez vos feux de détresse, restez du côté sûr et envoyez-nous votre direction."],
+        ["car-garage", "Voiture coincée dans un garage étroit", "Beaucoup de maisons schaerbeekoises ont un garage étroit sous la maison. Si la voiture ne démarre pas là, on la sort d'abord prudemment avant de la charger."]
+      ],
+      "faq": [
+        ["Pouvez-vous charger une voiture dans une rue étroite à Schaerbeek ?", "En général oui. Le camion a besoin d'un peu de place derrière la voiture. Si la rue est vraiment pleine, on pousse la voiture ensemble jusqu'à un carrefour ou un endroit plus large."],
+        ["Ma voiture est près de la gare du Nord, côté Schaerbeek. Vous venez ?", "Oui. Autour de la gare du Nord, Schaerbeek, Saint-Josse et Bruxelles-Ville se touchent. Envoyez simplement votre position en direct, on vous trouve."]
+      ]
+    }
+  },
+  "elsene": {
+    "nl": {
+      "cases": [
+        ["car-garage", "Wagen start niet in de garage van het gebouw", "Lage inrit, krappe draaien, wagens langs beide kanten. Stuur ons de hoogte aan de ingang, het niveau en een foto van de helling. Lukt het niet met een booster, dan brengen we de wagen eerst naar boven."],
+        ["alert-triangle", "Platte band in de Louizalaan", "Op een drukke laan een wiel wisselen is niet veilig. Zet de wagen in een zijstraat als dat nog kan, en wacht op het voetpad. Wij monteren het reservewiel of brengen de wagen naar een bandencentrale."],
+        ["battery-automotive", "Studentenwagen die niet meer start", "Rond de universiteitscampussen staan wagens soms wekenlang stil. Een lege batterij lossen we op met een booster, en dat kost veel minder dan takelen."]
+      ],
+      "faq": [
+        ["Hoe laag mag de inrit van mijn parking zijn?", "Dat hangt af van de wagen en hoe we hem bereiken. Stuur ons de hoogte die aan de inrit staat. Is ze te laag voor de takelwagen, dan brengen we de wagen eerst tot boven aan de helling."],
+        ["Komen jullie ook naar het Flageyplein en de vijvers?", "Ja, overal in Elsene. Rond Flagey is het druk, dus laden we de wagen op een plek waar we het verkeer zo weinig mogelijk hinderen."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["car-garage", "Voiture qui ne démarre pas dans le garage de l'immeuble", "Entrée basse, virages serrés, voitures des deux côtés. Envoyez-nous la hauteur à l'entrée, l'étage et une photo de la rampe. Si le booster ne suffit pas, on remonte d'abord la voiture."],
+        ["alert-triangle", "Pneu crevé avenue Louise", "Changer une roue sur une avenue chargée n'est pas sûr. Mettez la voiture dans une rue latérale si c'est encore possible, et attendez sur le trottoir. On monte la roue de secours ou on conduit la voiture chez un spécialiste pneus."],
+        ["battery-automotive", "Voiture d'étudiant qui ne démarre plus", "Autour des campus universitaires, des voitures restent parfois immobiles pendant des semaines. Une batterie à plat se règle avec un booster, et ça coûte bien moins qu'un remorquage."]
+      ],
+      "faq": [
+        ["Quelle hauteur minimale pour l'entrée de mon parking ?", "Ça dépend de la voiture et de la façon de l'atteindre. Envoyez-nous la hauteur affichée à l'entrée. Si elle est trop basse pour la dépanneuse, on remonte d'abord la voiture en haut de la rampe."],
+        ["Venez-vous aussi place Flagey et aux étangs ?", "Oui, partout à Ixelles. Autour de Flagey, c'est très fréquenté, donc on charge la voiture là où on gêne le moins la circulation."]
+      ]
+    }
+  },
+  "ukkel": {
+    "nl": {
+      "cases": [
+        ["car-garage", "Wagen staat stil op een steile oprit", "Veel villa's in Ukkel hebben een oprit die naar de straat afloopt. Laat de handrem op en zet de wagen in versnelling. We bekijken met een foto of we hem van de oprit kunnen trekken."],
+        ["alert-triangle", "Pech op de Waterloosesteenweg", "Op de steenweg rijdt het verkeer druk in beide richtingen. Zet de wagen in een zijstraat als dat kan, of zo ver mogelijk aan de kant, met gevarenlichten aan."],
+        ["route", "Wagen naar een garage in Waals-Brabant", "Woont u in Ukkel maar is uw garage in Waterloo of Braine? We brengen de wagen erheen, over de gewestgrens, voor een prijs die we vooraf afspreken."]
+      ],
+      "faq": [
+        ["Ukkel is groot. Hoe vinden jullie mij?", "Deel uw live locatie via WhatsApp. In de wijken rond Kalevoet, Sint-Job of Fort-Jaco is een adres soms niet genoeg, met uw locatie staan we meteen op de juiste plek."],
+        ["Kan mijn wagen naar een garage buiten Brussel?", "Ja, in Vlaanderen of in Wallonië. We spreken de prijs voor de hele rit af voor vertrek."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["car-garage", "Voiture immobilisée dans une allée en pente", "Beaucoup de villas à Uccle ont une allée qui descend vers la rue. Laissez le frein à main, passez une vitesse. Avec une photo, on voit si on peut tirer la voiture hors de l'allée."],
+        ["alert-triangle", "Panne sur la chaussée de Waterloo", "Sur la chaussée, la circulation est dense dans les deux sens. Mettez la voiture dans une rue latérale si possible, ou le plus loin possible sur le côté, feux de détresse allumés."],
+        ["route", "Une voiture vers un garage du Brabant wallon", "Vous habitez Uccle mais votre garage est à Waterloo ou à Braine ? On y conduit la voiture, par-delà la frontière régionale, pour un prix fixé à l'avance."]
+      ],
+      "faq": [
+        ["Uccle est grande. Comment me trouvez-vous ?", "Partagez votre position en direct sur WhatsApp. Dans les quartiers de Calevoet, Saint-Job ou Fort-Jaco, une adresse ne suffit parfois pas ; avec votre position, on arrive au bon endroit."],
+        ["Ma voiture peut-elle aller dans un garage hors de Bruxelles ?", "Oui, en Flandre ou en Wallonie. Le prix du trajet complet est fixé avant le départ."]
+      ]
+    }
+  },
+  "sint-jans-molenbeek": {
+    "nl": {
+      "cases": [
+        ["road", "Stilgevallen in de Leopold II-tunnel", "Blijf in de wagen, gordel om, gevarenlichten aan, en bel 112 of gebruik de praatpaal. De tunnelbeheerder haalt de wagen eerst uit de tunnel. Daarna nemen wij hem over en brengen we hem waar u wilt."],
+        ["battery-automotive", "Lege batterij in een woonstraat", "In de straten rond de Gentsesteenweg staan wagens dicht op elkaar. Een start met booster lukt bijna altijd, ook als we niet vlak achter de wagen kunnen staan."],
+        ["truck", "Bestelwagen met pech aan de kanaalzone", "Werkt u met een bestelwagen in de kanaalzone? We takelen hem tot 3,5 ton naar uw garage en factureren op naam van uw bedrijf."]
+      ],
+      "faq": [
+        ["Mijn wagen werd uit de tunnel gesleept. Waar staat hij nu?", "Vraag het aan de politie of de tunnelbeheerder: zij weten waar de wagen werd neergezet. Stuur ons daarna dat adres en uw bestemming via WhatsApp."],
+        ["Komen jullie ook naar Brussel-West en het Karreveld?", "Ja, overal in Molenbeek. Rond Brussel-West en het Karreveld is er meestal meer plaats om de wagen meteen te laden."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["road", "Immobilisé dans le tunnel Léopold II", "Restez dans la voiture, ceinture attachée, feux de détresse allumés, et appelez le 112 ou utilisez la borne d'appel. Le gestionnaire du tunnel sort d'abord la voiture. Ensuite, on la reprend et on la conduit où vous voulez."],
+        ["battery-automotive", "Batterie vide dans une rue résidentielle", "Dans les rues autour de la chaussée de Gand, les voitures sont serrées. Un démarrage au booster marche presque toujours, même si on ne peut pas se garer juste derrière la voiture."],
+        ["truck", "Camionnette en panne dans la zone du canal", "Vous travaillez avec une camionnette dans la zone du canal ? On la remorque jusqu'à 3,5 tonnes vers votre garage et on facture au nom de votre société."]
+      ],
+      "faq": [
+        ["Ma voiture a été sortie du tunnel. Où est-elle maintenant ?", "Demandez à la police ou au gestionnaire du tunnel : ils savent où la voiture a été déposée. Envoyez-nous ensuite cette adresse et votre destination sur WhatsApp."],
+        ["Venez-vous aussi à Bruxelles-Ouest et au Karreveld ?", "Oui, partout à Molenbeek. Autour de Bruxelles-Ouest et du Karreveld, il y a en général plus de place pour charger la voiture directement."]
+      ]
+    }
+  },
+  "etterbeek": {
+    "nl": {
+      "cases": [
+        ["road", "Pech in de tunnels onder het Jubelpark", "Wie vanaf de E40 de stad in rijdt, rijdt door de tunnels onder het Jubelpark. Blijf bij pech in de wagen en volg de instructies. Zodra de wagen buiten staat, nemen wij het over."],
+        ["car-garage", "Wagen in een kantoorparking in de Europese wijk", "Na de werkuren gaan veel kantoorparkings dicht. Laat ons weten of er een slagboom is en wie die kan openen, dan komen we op een moment dat het past."],
+        ["battery-automotive", "Lege batterij aan Merode of La Chasse", "In de dichte woonstraten starten we de wagen meestal ter plaatse. Moet hij toch mee, dan zoeken we samen een plek waar we kunnen laden."]
+      ],
+      "faq": [
+        ["Mijn wagen staat in een afgesloten parking. Wat moet ik regelen?", "Zorg dat iemand de slagboom of poort kan openen, of vraag een badge aan de beheerder. Laat ons ook de hoogte aan de inrit weten."],
+        ["Is Etterbeek niet te druk voor een takelwagen?", "Het is druk, maar we kennen de buurt. We kiezen het uur en de plek zo dat we de wagen veilig laden zonder de straat lang te blokkeren."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["road", "Panne dans les tunnels sous le Cinquantenaire", "En arrivant de l'E40, on entre en ville par les tunnels sous le Cinquantenaire. En cas de panne, restez dans la voiture et suivez les instructions. Une fois la voiture dehors, on prend le relais."],
+        ["car-garage", "Voiture dans un parking de bureaux du quartier européen", "Après les heures de bureau, beaucoup de parkings ferment. Dites-nous s'il y a une barrière et qui peut l'ouvrir, et on vient au bon moment."],
+        ["battery-automotive", "Batterie à plat à Mérode ou à La Chasse", "Dans les rues résidentielles denses, on démarre en général la voiture sur place. Si elle doit partir, on cherche ensemble un endroit où la charger."]
+      ],
+      "faq": [
+        ["Ma voiture est dans un parking fermé. Que dois-je organiser ?", "Prévoyez quelqu'un qui peut ouvrir la barrière ou la porte, ou demandez un badge au gestionnaire. Donnez-nous aussi la hauteur à l'entrée."],
+        ["Etterbeek n'est pas trop dense pour une dépanneuse ?", "C'est dense, mais on connaît le quartier. On choisit le moment et l'endroit pour charger la voiture en sécurité sans bloquer la rue trop longtemps."]
+      ]
+    }
+  },
+  "vorst": {
+    "nl": {
+      "cases": [
+        ["alert-triangle", "Wagen start niet na een concert", "Na een avond in Vorst-Nationaal blijkt de batterij leeg of start de wagen gewoon niet. Wacht tot de parking wat leegloopt en stuur ons uw locatie: we komen met een booster of laden de wagen op."],
+        ["truck", "Bestelwagen of bedrijfswagen rond de industriezone", "Rond de grote fabriek en de bedrijven langs de spoorlijn rijden veel bedrijfswagens. We takelen bestelwagens tot 3,5 ton naar uw garage of uw depot."],
+        ["car-garage", "Wagen stil op een helling in Altitude Cent", "Rond Altitude Cent zijn de straten steil. Laat de wagen in versnelling staan met de handrem op. Op een helling werken we met de lier en extra blokken."]
+      ],
+      "faq": [
+        ["Mijn wagen staat vlakbij het Zuidstation, is dat nog Vorst?", "De grens tussen Vorst, Sint-Gillis en Anderlecht loopt daar dicht bij elkaar. Voor ons maakt het niet uit: deel uw live locatie en we komen."],
+        ["Kunnen jullie de wagen naar een garage in Drogenbos of Beersel brengen?", "Ja, dat is vlakbij, net over de gewestgrens. We spreken de prijs vooraf af."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["alert-triangle", "Voiture qui ne démarre pas après un concert", "Après une soirée à Forest National, la batterie est à plat ou la voiture ne démarre tout simplement pas. Attendez que le parking se vide un peu et envoyez-nous votre position : on vient avec un booster ou on charge la voiture."],
+        ["truck", "Camionnette ou véhicule de société dans la zone industrielle", "Autour de la grande usine et des entreprises le long du chemin de fer, beaucoup de véhicules de société circulent. On remorque les camionnettes jusqu'à 3,5 tonnes vers votre garage ou votre dépôt."],
+        ["car-garage", "Voiture arrêtée dans une côte à Altitude Cent", "Autour d'Altitude Cent, les rues sont en pente. Laissez la voiture en vitesse, frein à main serré. Dans une côte, on travaille avec le treuil et des cales."]
+      ],
+      "faq": [
+        ["Ma voiture est près de la gare du Midi, c'est encore Forest ?", "La limite entre Forest, Saint-Gilles et Anderlecht est très proche à cet endroit. Pour nous, ça ne change rien : partagez votre position et on vient."],
+        ["Pouvez-vous conduire la voiture dans un garage à Drogenbos ou Beersel ?", "Oui, c'est tout près, juste de l'autre côté de la frontière régionale. Le prix est fixé à l'avance."]
+      ]
+    }
+  },
+  "jette": {
+    "nl": {
+      "cases": [
+        ["car-garage", "Lege batterij op de ziekenhuisparking", "Na een lang bezoek aan het UZ Brussel start de wagen niet meer. Stuur ons de zone van de parking en uw live locatie, en wacht bij de wagen: we bellen u als we aankomen."],
+        ["battery-automotive", "Wagen start niet in een rustige woonstraat", "In de straten rond het Koning Boudewijnpark is meestal genoeg plaats. We starten de wagen ter plaatse of laden hem meteen op."],
+        ["route", "Naar een garage net buiten Brussel", "Vanuit Jette zijn Wemmel, Dilbeek en Asse vlakbij. Is uw garage daar, dan brengen we de wagen meteen door."]
+      ],
+      "faq": [
+        ["Hoe vinden jullie mijn wagen op een grote parking?", "Met uw live locatie, de zone of het nummer van de rij, en een foto van de wagen. Zo zoeken we niet tussen honderden wagens."],
+        ["Komen jullie ook naar Ganshoren en Koekelberg?", "Ja, die gemeenten liggen vlak naast Jette. We komen overal in het noordwesten van Brussel."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["car-garage", "Batterie à plat sur le parking de l'hôpital", "Après une longue visite à l'UZ Brussel, la voiture ne démarre plus. Envoyez-nous la zone du parking et votre position en direct, et attendez près de la voiture : on vous appelle à l'arrivée."],
+        ["battery-automotive", "Voiture qui ne démarre pas dans une rue calme", "Dans les rues autour du parc Roi Baudouin, il y a en général assez de place. On démarre la voiture sur place ou on la charge directement."],
+        ["route", "Vers un garage juste en dehors de Bruxelles", "Depuis Jette, Wemmel, Dilbeek et Asse sont tout proches. Si votre garage s'y trouve, on y conduit la voiture directement."]
+      ],
+      "faq": [
+        ["Comment trouvez-vous ma voiture sur un grand parking ?", "Avec votre position en direct, la zone ou le numéro de rangée, et une photo de la voiture. Comme ça, on ne cherche pas parmi des centaines de voitures."],
+        ["Venez-vous aussi à Ganshoren et Koekelberg ?", "Oui, ces communes sont juste à côté de Jette. On intervient partout dans le nord-ouest de Bruxelles."]
+      ]
+    }
+  },
+  "evere": {
+    "nl": {
+      "cases": [
+        ["road", "Pech op de Leopold III-laan", "Op de brede lanen richting Zaventem rijdt het verkeer snel. Ga naast de wagen staan aan de veilige kant, gevarenlichten aan, en stuur ons uw rijrichting: naar de stad of naar de luchthaven."],
+        ["car-garage", "Wagen in een afgesloten bedrijfsparking", "In de kantoor- en bedrijvenzones gaan de parkings 's avonds dicht. Zeg ons wie de slagboom kan openen, dan plannen we de interventie op het juiste moment."],
+        ["battery-automotive", "Lege batterij thuis in de straat", "Een wagen die een paar dagen stilstond, start 's winters soms niet meer. Met een booster bent u meestal snel weer weg."]
+      ],
+      "faq": [
+        ["Ligt Evere niet ver van jullie?", "Evere ligt tussen de Ring en het centrum, op een route die we vaak rijden. We geven u bij uw eerste bericht een realistisch aankomstuur."],
+        ["Kunnen jullie de wagen naar de luchthavenzone brengen?", "Ja, naar een garage of een verhuurbedrijf in Zaventem of Diegem bijvoorbeeld. De prijs spreken we vooraf af."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["road", "Panne sur le boulevard Léopold III", "Sur les grands boulevards vers Zaventem, la circulation est rapide. Placez-vous à côté de la voiture du côté sûr, feux de détresse allumés, et envoyez-nous votre direction : vers la ville ou vers l'aéroport."],
+        ["car-garage", "Voiture dans un parking d'entreprise fermé", "Dans les zones de bureaux et d'entreprises, les parkings ferment le soir. Dites-nous qui peut ouvrir la barrière, et on planifie l'intervention au bon moment."],
+        ["battery-automotive", "Batterie vide devant chez vous", "Une voiture qui n'a pas roulé pendant quelques jours ne démarre parfois plus en hiver. Avec un booster, vous repartez en général vite."]
+      ],
+      "faq": [
+        ["Evere n'est pas loin pour vous ?", "Evere est entre le Ring et le centre, sur une route qu'on fait souvent. On vous donne une heure d'arrivée réaliste dès votre premier message."],
+        ["Pouvez-vous conduire la voiture vers la zone de l'aéroport ?", "Oui, vers un garage ou un loueur à Zaventem ou Diegem par exemple. Le prix est fixé à l'avance."]
+      ]
+    }
+  },
+  "sint-lambrechts-woluwe": {
+    "nl": {
+      "cases": [
+        ["car-garage", "Wagen start niet na het winkelen", "Op de grote parking van het winkelcentrum is de batterij plots leeg. Noteer het niveau en de zone, stuur ons uw locatie, en wacht in de buurt van de wagen."],
+        ["alert-triangle", "Lege batterij na een ziekenhuisbezoek", "Na een lange dag bij Sint-Lucas start de wagen niet meer. We komen met een booster tot op de parking, als de hoogte het toelaat."],
+        ["road", "Pech op de Woluwelaan", "Op de Woluwelaan rijdt het verkeer vlot door. Zet de wagen zo ver mogelijk aan de kant of in een zijstraat, en wacht achter de wagen op het voetpad."]
+      ],
+      "faq": [
+        ["Komen jullie ook naar Sint-Pieters-Woluwe?", "Ja, we komen in beide Woluwes en in Kraainem en Wezembeek-Oppem, net over de gewestgrens."],
+        ["Kan de takelwagen in een ondergrondse parking?", "Dat hangt af van de hoogte aan de inrit. Stuur ons die hoogte en het niveau. Lukt het niet, dan brengen we de wagen eerst naar boven."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["car-garage", "Voiture qui ne démarre pas après les courses", "Sur le grand parking du centre commercial, la batterie est soudain vide. Notez le niveau et la zone, envoyez-nous votre position, et attendez près de la voiture."],
+        ["alert-triangle", "Batterie à plat après une visite à l'hôpital", "Après une longue journée à Saint-Luc, la voiture ne démarre plus. On vient avec un booster jusque sur le parking, si la hauteur le permet."],
+        ["road", "Panne sur le boulevard de la Woluwe", "Sur le boulevard de la Woluwe, la circulation est fluide et rapide. Mettez la voiture le plus loin possible sur le côté ou dans une rue latérale, et attendez sur le trottoir."]
+      ],
+      "faq": [
+        ["Venez-vous aussi à Woluwe-Saint-Pierre ?", "Oui, dans les deux Woluwe, ainsi qu'à Kraainem et Wezembeek-Oppem, juste de l'autre côté de la frontière régionale."],
+        ["La dépanneuse peut-elle entrer dans un parking souterrain ?", "Cela dépend de la hauteur à l'entrée. Envoyez-nous cette hauteur et le niveau. Si ça ne passe pas, on remonte d'abord la voiture."]
+      ]
+    }
+  },
+  "sint-gillis": {
+    "nl": {
+      "cases": [
+        ["alert-triangle", "Pech op zondag, tijdens de Zuidmarkt", "Op zondag zijn straten rond het Zuidstation afgesloten voor de markt. Geef ons de exacte straat en zeg of de wagen binnen of buiten de afgesloten zone staat."],
+        ["car", "Wagen klem in een smalle straat", "Rond het Voorplein en de Hallepoort zijn de straten smal en vol. Kan de takelwagen niet achter de wagen, dan duwen we hem samen naar een ruimere plek."],
+        ["route", "Wagen naar een garage buiten de LEZ", "Mag uw wagen niet meer rijden in de Brusselse lage-emissiezone? Op het plateau rijdt hij niet, dus brengen we hem zonder probleem naar een garage of een koper buiten Brussel."]
+      ],
+      "faq": [
+        ["Mijn wagen staat aan het Zuidstation. Is dat Sint-Gillis?", "Het station ligt op de grens van Sint-Gillis en Anderlecht. Voor ons maakt het niet uit: deel uw live locatie en we komen."],
+        ["Kan een takelwagen in de straten rond het Voorplein?", "Ja, maar laden lukt niet altijd voor de deur. We kijken via een foto hoe we het best aanpakken."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["alert-triangle", "Panne un dimanche, pendant le marché du Midi", "Le dimanche, des rues autour de la gare du Midi sont fermées pour le marché. Donnez-nous la rue exacte et dites-nous si la voiture est dans la zone fermée ou en dehors."],
+        ["car", "Voiture coincée dans une rue étroite", "Autour du Parvis et de la Porte de Hal, les rues sont étroites et pleines. Si la dépanneuse ne peut pas se mettre derrière la voiture, on la pousse ensemble vers un endroit plus large."],
+        ["route", "Une voiture vers un garage hors de la LEZ", "Votre voiture n'a plus le droit de rouler dans la zone de basses émissions bruxelloise ? Sur un plateau, elle ne roule pas : on la conduit sans problème vers un garage ou un acheteur hors de Bruxelles."]
+      ],
+      "faq": [
+        ["Ma voiture est à la gare du Midi. C'est Saint-Gilles ?", "La gare est à la limite de Saint-Gilles et d'Anderlecht. Pour nous, ça ne change rien : partagez votre position et on vient."],
+        ["Une dépanneuse passe-t-elle dans les rues autour du Parvis ?", "Oui, mais on ne peut pas toujours charger devant la porte. Avec une photo, on voit comment s'y prendre."]
+      ]
+    }
+  },
+  "oudergem": {
+    "nl": {
+      "cases": [
+        ["road", "Pech op de E411 richting Namen", "Net na Oudergem wordt de E411 een echte snelweg. Ga achter de vangrail staan en stuur ons het nummer van het paaltje en de rijrichting."],
+        ["car-garage", "Lege batterij op de parking van het ziekenhuis of de supermarkt", "Op de grote parkings langs de Vorstlaan en de Waversesteenweg is een lege batterij snel verholpen met een booster."],
+        ["alert-triangle", "Wagen stil aan de rand van het Zoniënwoud", "Langs de bosrijke wegen is het 's avonds donker. Gevarenlichten aan, fluohesje aan, en wacht naast de wagen weg van de rijbaan."]
+      ],
+      "faq": [
+        ["Komen jullie ook naar Watermaal-Bosvoorde?", "Ja, en naar Hoeilaart en Overijse, net buiten Brussel aan de andere kant van het Zoniënwoud."],
+        ["Mijn garage is in Waver. Kunnen jullie de wagen daarheen brengen?", "Ja, via de E411 is dat vlot te doen. De prijs voor de hele rit spreken we af voor vertrek."]
+      ]
+    },
+    "fr": {
+      "cases": [
+        ["road", "Panne sur l'E411 vers Namur", "Juste après Auderghem, l'E411 devient une vraie autoroute. Placez-vous derrière la glissière et envoyez-nous le numéro de la borne et votre direction."],
+        ["car-garage", "Batterie à plat sur un parking d'hôpital ou de supermarché", "Sur les grands parkings du boulevard du Souverain et de la chaussée de Wavre, une batterie à plat se règle vite avec un booster."],
+        ["alert-triangle", "Voiture arrêtée en bordure de la forêt de Soignes", "Le long des routes boisées, il fait sombre le soir. Feux de détresse, gilet fluo, et attendez à côté de la voiture, loin de la chaussée."]
+      ],
+      "faq": [
+        ["Venez-vous aussi à Watermael-Boitsfort ?", "Oui, ainsi qu'à Hoeilaart et Overijse, juste en dehors de Bruxelles de l'autre côté de la forêt de Soignes."],
+        ["Mon garage est à Wavre. Pouvez-vous y conduire la voiture ?", "Oui, par l'E411 c'est facile. Le prix du trajet complet est fixé avant le départ."]
+      ]
+    }
+  }
+}

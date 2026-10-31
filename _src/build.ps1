@@ -62,7 +62,9 @@ $L.fr = @{
           <a href="/fr/anvers/">Anvers</a>
           <a href="/fr/gand/">Gand</a>
           <a href="/fr/bruges-cote/">Bruges &amp; la Côte</a>
-          <a href="/fr/louvain-malines/">Louvain &amp; Malines</a>
+          <a href="/fr/depannage/louvain/">Louvain</a>
+          <a href="/fr/depannage/malines/">Malines</a>
+          <a href="/fr/zones-rurales/">Zones rurales</a>
         </div>
       </div>
       <a href="/fr/tarifs/">Tarifs</a>
@@ -114,7 +116,9 @@ $L.fr = @{
           <li><a href="/fr/anvers/">Dépannage Anvers</a></li>
           <li><a href="/fr/gand/">Dépannage Gand</a></li>
           <li><a href="/fr/bruges-cote/">Bruges &amp; la Côte</a></li>
-          <li><a href="/fr/louvain-malines/">Louvain &amp; Malines</a></li>
+          <li><a href="/fr/depannage/louvain/">Dépannage Louvain</a></li>
+          <li><a href="/fr/depannage/malines/">Dépannage Malines</a></li>
+          <li><a href="/fr/zones-rurales/">Zones rurales</a></li>
         </ul>
       </div>
       <div>
@@ -160,7 +164,9 @@ $L.nl = @{
           <a href="/antwerpen/">Antwerpen</a>
           <a href="/gent/">Gent</a>
           <a href="/brugge-kust/">Brugge &amp; de Kust</a>
-          <a href="/leuven-mechelen/">Leuven &amp; Mechelen</a>
+          <a href="/takeldienst/leuven/">Leuven</a>
+          <a href="/takeldienst/mechelen/">Mechelen</a>
+          <a href="/platteland/">Platteland</a>
         </div>
       </div>
       <a href="/tarieven/">Tarieven</a>
@@ -212,7 +218,9 @@ $L.nl = @{
           <li><a href="/antwerpen/">Takeldienst Antwerpen</a></li>
           <li><a href="/gent/">Takeldienst Gent</a></li>
           <li><a href="/brugge-kust/">Brugge &amp; de Kust</a></li>
-          <li><a href="/leuven-mechelen/">Leuven &amp; Mechelen</a></li>
+          <li><a href="/takeldienst/leuven/">Takeldienst Leuven</a></li>
+          <li><a href="/takeldienst/mechelen/">Takeldienst Mechelen</a></li>
+          <li><a href="/platteland/">Platteland</a></li>
         </ul>
       </div>
       <div>
@@ -264,13 +272,25 @@ function Read-Page($file, $lang) {
 $all = @()
 Get-ChildItem "$src\pages\*.html" | ForEach-Object { $all += Read-Page $_ 'nl' }
 Get-ChildItem "$src\pages\fr\*.html" | ForEach-Object { $all += Read-Page $_ 'fr' }
-# ---------- city pages from _src/cities.json ----------
+# ---------- city and region pages from _src/cities.json and _src/regions.json ----------
+# cities-extra-*.json add per-city situations ("cases"), questions ("faq") and villages ("around").
 $cityFile = "$src\cities.json"
-$cities = [IO.File]::ReadAllText($cityFile, $utf8) | ConvertFrom-Json
+$cities = @()
+foreach ($jf in "$src\cities.json", "$src\regions.json") {
+  $list = [IO.File]::ReadAllText($jf, $utf8) | ConvertFrom-Json
+  foreach ($c in $list) { $c | Add-Member -NotePropertyName file -NotePropertyValue $jf -Force; $cities += $c }
+}
+foreach ($xf in Get-ChildItem "$src\cities-extra-*.json") {
+  $x = [IO.File]::ReadAllText($xf.FullName, $utf8) | ConvertFrom-Json
+  foreach ($c in $cities) {
+    $e = $x.($c.id)
+    if ($e) { foreach ($lang in 'nl', 'fr') { foreach ($pr in $e.$lang.PSObject.Properties) { $c.$lang | Add-Member -NotePropertyName $pr.Name -NotePropertyValue $pr.Value -Force } } }
+  }
+}
 $hubs = @{
-  'brussel'         = @{ nl = @('Brussel', '/brussel/');                 fr = @('Bruxelles', '/fr/bruxelles/') }
-  'rand'            = @{ nl = @('Vlaamse Rand', '/vlaamse-rand/');       fr = @('Périphérie flamande', '/fr/peripherie-flamande/') }
-  'leuven-mechelen' = @{ nl = @('Leuven &amp; Mechelen', '/leuven-mechelen/'); fr = @('Louvain &amp; Malines', '/fr/louvain-malines/') }
+  'brussel' = @{ nl = @('Brussel', '/brussel/');           fr = @('Bruxelles', '/fr/bruxelles/') }
+  'rand'    = @{ nl = @('Vlaamse Rand', '/vlaamse-rand/'); fr = @('Périphérie flamande', '/fr/peripherie-flamande/') }
+  'streken' = @{ nl = @('Platteland', '/platteland/');     fr = @('Zones rurales', '/fr/zones-rurales/') }
 }
 $cityImgs = @(
   @{ src = '/assets/img/depanneuse-double-chargement.jpg'; w = 1600; h = 1200; nl = 'Takelwagen met een wagen op het plateau en een bestelwagen erachter'; fr = 'Dépanneuse avec une voiture sur le plateau et une camionnette en remorque' },
@@ -278,44 +298,69 @@ $cityImgs = @(
   @{ src = '/assets/img/remorquage-porsche-plateau.jpg'; w = 1600; h = 1200; nl = 'Sportwagen met spanbanden over de wielen op een plateau'; fr = 'Voiture de sport sanglée par les roues sur un plateau' },
   @{ src = '/assets/img/intervention-atelier.jpg'; w = 1288; h = 966; nl = 'Pechverhelping aan een wagen'; fr = 'Intervention de dépannage sur une voiture' }
 )
+# {0} = name, {1} = name with preposition ("in het Pajottenland", "à Anderlecht"), {2} = preposition
 $CT = @{}
 $CT.nl = @{
-  prefix = '/takeldienst/'
+  prefix = '/takeldienst/'; prep = 'in'; tarifs = '/tarieven/'
   title = 'Takeldienst {0} 24/7 | Fast Dépannage'
-  desc = 'Takeldienst in {0}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
+  desc = 'Takeldienst {1}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
   h1 = 'Takeldienst <em>{0}</em>'; btn = 'Stuur mijn locatie'
-  know = 'Pech in {0}: wat u moet weten'; area = 'Wijken en deelgemeenten'; roads = 'Wegen en plekken die we kennen'
-  svc = 'Wat we doen in {0}'
+  know = 'Pech {1}: wat u moet weten'; area = 'Wijken en deelgemeenten'; areaR = 'Gemeenten'; around = 'Ook in deze dorpen'; roads = 'Wegen en plekken die we kennen'
+  casesH = 'Typische pech {1}'; casesP = 'Situaties die we hier vaak tegenkomen, en wat u dan best doet.'
+  stepsH = 'Zo werkt het {1}'; stepsP = 'Van uw bericht tot de wagen bij de garage staat.'
+  steps = @(
+    @('U stuurt uw locatie', 'Deel uw live locatie via WhatsApp, met de wagen en wat er gebeurd is. Een foto helpt veel.'),
+    @('U krijgt prijs en uur', 'Een vaste prijs voor de opdracht en een realistisch aankomstuur. Dan beslist u.'),
+    @('We komen ter plaatse', 'Herstelling ter plaatse als het kan, anders laden we de wagen op en brengen we hem waar u wilt.')
+  )
+  svc = 'Wat we doen {1}'
   cards = @(
     @('/takelen/', 'truck', 'Takelen', 'Op het plateau naar de garage van uw keuze.'),
     @('/pechverhelping/', 'battery-automotive', 'Pechverhelping', 'Batterij, band, brandstof: vaak ter plaatse opgelost.'),
     @('/pech-snelweg/', 'road', 'Pech op de snelweg', 'Wat u moet doen, en hoe het FAST-systeem werkt.'),
-    @('/tarieven/', 'route', 'Tarieven', 'Wat de prijs bepaalt. U krijgt een vaste prijs vooraf.')
+    @('/bestelwagens-transport/', 'route', 'Bestelwagens', 'Bestelwagens tot 3,5 ton en gepland transport.')
   )
+  priceH = 'Wat kost een takeldienst {1}?'
+  priceP = 'Elke interventie is anders, dus geven we geen "vanaf"-prijs. U krijgt een vaste prijs via WhatsApp, alles inbegrepen, voor de takelwagen vertrekt. Die prijs hangt af van:'
+  priceL = @('de afstand tot bij u en de toegang tot de wagen', 'de bestemming: een garage in de buurt of verder weg', 'wat er mis is: starten met een booster kost minder dan takelen', 'het voertuig: auto, bestelwagen of lage wagen', 'het moment: dag, nacht, weekend of feestdag')
+  priceA = 'Meer over onze tarieven'
+  warn = '<b>Vraag altijd de totale prijs.</b> "Is dat alles inbegrepen, tot aan de garage?" Bij ons is het antwoord ja. Verandert er ter plaatse iets, dan krijgt u eerst de nieuwe prijs.'
   faqH = 'Veelgestelde vragen'
-  q1 = 'Wat kost een takeldienst in {0}?'
-  a1 = 'Dat hangt af van waar de wagen staat, wat er mis is, waar hij naartoe moet en het uur. Stuur ons uw locatie en een foto via WhatsApp: u krijgt een vaste prijs, alles inbegrepen, voor de takelwagen vertrekt.'
-  q2 = 'Kunnen jullie mijn wagen van {0} naar een garage elders brengen?'
+  qs = 'Hoe snel zijn jullie {1}?'
+  as = 'Dat hangt af van waar we op dat moment zijn en van het verkeer. We geven u in ons eerste antwoord een realistisch aankomstuur, en laten het weten als dat verandert.'
+  q2 = 'Mijn wagen staat {1}. Kan hij naar een garage elders?'
   a2 = 'Ja. Naar uw vaste garage, de dealer, uw huis of een andere stad in België. We spreken de prijs voor de hele rit af voor vertrek, en we praten met de garagist in het Nederlands of het Frans.'
   near = 'Ook in de buurt'; more = 'Meer info'
 }
 $CT.fr = @{
-  prefix = '/fr/depannage/'
+  prefix = '/fr/depannage/'; prep = 'à'; tarifs = '/fr/tarifs/'
   title = 'Dépannage {0} 24h/24 | Fast Dépannage'
-  desc = 'Dépanneuse à {0}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Envoyez votre position sur WhatsApp, prix fixé avant le départ.'
-  h1 = 'Dépannage à <em>{0}</em>'; btn = 'Envoyer ma position'
-  know = 'En panne à {0} : ce qu''il faut savoir'; area = 'Quartiers'; roads = 'Routes et lieux qu''on connaît'
-  svc = 'Ce qu''on fait à {0}'
+  desc = 'Dépanneuse {1}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Envoyez votre position sur WhatsApp, prix fixé avant le départ.'
+  h1 = 'Dépannage {2} <em>{0}</em>'; btn = 'Envoyer ma position'
+  know = 'En panne {1} : ce qu''il faut savoir'; area = 'Quartiers'; areaR = 'Communes'; around = 'Aussi dans ces villages'; roads = 'Routes et lieux qu''on connaît'
+  casesH = 'Pannes typiques {1}'; casesP = 'Des situations qu''on rencontre souvent ici, et ce qu''il vaut mieux faire.'
+  stepsH = 'Comment ça se passe {1}'; stepsP = 'De votre message jusqu''à la voiture au garage.'
+  steps = @(
+    @('Vous envoyez votre position', 'Partagez votre position en direct sur WhatsApp, avec la voiture et ce qui s''est passé. Une photo aide beaucoup.'),
+    @('Vous recevez prix et heure', 'Un prix ferme pour la mission et une heure d''arrivée réaliste. Vous décidez.'),
+    @('On intervient', 'Réparation sur place si c''est possible, sinon on charge la voiture et on la conduit où vous voulez.')
+  )
+  svc = 'Ce qu''on fait {1}'
   cards = @(
     @('/fr/remorquage/', 'truck', 'Remorquage', 'Sur plateau, jusqu''au garage de votre choix.'),
     @('/fr/depannage-sur-place/', 'battery-automotive', 'Dépannage sur place', 'Batterie, pneu, carburant : souvent réglé sur place.'),
     @('/fr/panne-autoroute/', 'road', 'Panne sur l''autoroute', 'Les bons réflexes et le système FAST en Flandre.'),
-    @('/fr/tarifs/', 'route', 'Tarifs', 'Ce qui fait le prix. Prix ferme avant le départ.')
+    @('/fr/utilitaires-transport/', 'route', 'Camionnettes', 'Utilitaires jusqu''à 3,5 t et transport planifié.')
   )
+  priceH = 'Combien coûte un dépannage {1} ?'
+  priceP = 'Chaque intervention est différente, alors on ne donne pas de prix « à partir de ». Vous recevez un prix ferme sur WhatsApp, tout compris, avant le départ du camion. Ce prix dépend :'
+  priceL = @('de la distance jusqu''à vous et de l''accès à la voiture', 'de la destination : un garage proche ou plus loin', 'de la panne : un démarrage au booster coûte moins qu''un remorquage', 'du véhicule : voiture, camionnette ou voiture basse', 'du moment : jour, nuit, week-end ou jour férié')
+  priceA = 'En savoir plus sur nos tarifs'
+  warn = '<b>Demandez toujours le prix total.</b> « Est-ce tout compris, jusqu''au garage ? » Chez nous, la réponse est oui. Si quelque chose change sur place, vous recevez d''abord le nouveau prix.'
   faqH = 'Questions fréquentes'
-  q1 = 'Combien coûte un dépannage à {0} ?'
-  a1 = 'Cela dépend de l''endroit où se trouve la voiture, de la panne, de la destination et de l''heure. Envoyez-nous votre position et une photo sur WhatsApp : vous recevez un prix ferme, tout compris, avant le départ du camion.'
-  q2 = 'Pouvez-vous emmener ma voiture de {0} vers un garage ailleurs ?'
+  qs = 'En combien de temps êtes-vous là {1} ?'
+  as = 'Cela dépend d''où on se trouve à ce moment et du trafic. On vous donne une heure d''arrivée réaliste dans notre première réponse, et on vous prévient si elle change.'
+  q2 = 'Ma voiture est en panne {1}, pouvez-vous l''emmener vers un garage ailleurs ?'
   a2 = 'Oui. Vers votre garage habituel, le concessionnaire, chez vous ou une autre ville de Belgique. Le prix du trajet complet est fixé avant le départ, et on parle au garagiste en français ou en néerlandais.'
   near = 'Aussi dans les environs'; more = 'En savoir plus'
 }
@@ -325,18 +370,30 @@ $i = 0
 foreach ($c in $cities) {
   $img = $cityImgs[$i % $cityImgs.Count]; $i++
   foreach ($lang in 'nl', 'fr') {
-    $S = $CT[$lang]; $d = $c.$lang; $hub = $hubs[$c.hub][$lang]; $hm = $L[$lang].home
+    $S = $CT[$lang]; $d = $c.$lang; $hm = $L[$lang].home
     $name = & $hx $d.name
+    $prep = if ($d.prep) { $d.prep } else { $S.prep }
+    $loc = "$prep $name"
+    $fmt = { param($t) $t -f $name, $loc, $prep }
+    $crumbs = "<a href=""$hm"">$($L[$lang].homeName)</a> / "
+    if ($c.hub) { $hub = $hubs[$c.hub][$lang]; $crumbs += "<a href=""$($hub[1])"">$($hub[0])</a> / " }
     $local = ($d.local | ForEach-Object { '<p>' + (& $hx $_) + '</p>' }) -join "`n      "
     $roads = ($c.roads | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join ''
+    $around = if ($d.around) { "<h3>$($S.around)</h3>`n      <ul class=""chips"">" + (($d.around | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join '') + '</ul>' } else { '' }
+    $areaH = if ($c.hub -eq 'streken') { $S.areaR } else { $S.area }
+    $cases = ($d.cases | ForEach-Object { "<div class=""card""><span class=""ic"">{{icon:$($_[0])}}</span><h3>$(& $hx $_[1])</h3><p>$(& $hx $_[2])</p></div>" }) -join "`n      "
+    $steps = ($S.steps | ForEach-Object { "<div class=""step""><h3>$($_[0])</h3><p>$($_[1])</p></div>" }) -join "`n      "
     $cards = ($S.cards | ForEach-Object { "<a class=""card card-link"" href=""$($_[0])""><span class=""ic"">{{icon:$($_[1])}}</span><h3>$($_[2])</h3><p>$(& $hx $_[3])</p><span class=""more"">$($S.more) {{icon:arrow-right}}</span></a>" }) -join "`n      "
+    $price = ($S.priceL | ForEach-Object { "<li>$_</li>" }) -join ''
+    $faq = @($d.faq | ForEach-Object { , @((& $hx $_[0]), (& $hx $_[1])) }) + , @((& $fmt $S.qs), $S.as) + , @((& $fmt $S.q2), $S.a2)
+    $faqs = ($faq | ForEach-Object { "<details class=""faq"">`n        <summary>$($_[0])</summary>`n        <p>$($_[1])</p>`n      </details>" }) -join "`n      "
     $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$($S.prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
     $body = @"
 
 <section class="page-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="$hm">$($L[$lang].homeName)</a> / <a href="$($hub[1])">$($hub[0])</a> / $name</div>
-    <h1>$($S.h1 -f $name)</h1>
+    <div class="crumbs">$crumbs$name</div>
+    <h1>$(& $fmt $S.h1)</h1>
     <p class="lead">$(& $hx $d.intro)</p>
     <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}$($S.btn)</a></div>
   </div>
@@ -345,10 +402,11 @@ foreach ($c in $cities) {
 <section class="section white">
   <div class="wrap split">
     <div class="prose">
-      <h2>$($S.know -f $name)</h2>
+      <h2>$(& $fmt $S.know)</h2>
       $local
-      <h3>$($S.area)</h3>
+      <h3>$areaH</h3>
       <p>$(& $hx $d.area)</p>
+      $around
       <h3>$($S.roads)</h3>
       <ul class="chips">$roads</ul>
     </div>
@@ -360,10 +418,40 @@ foreach ($c in $cities) {
 
 <section class="section">
   <div class="wrap">
-    <div class="sec-head"><h2>$($S.svc -f $name)</h2></div>
+    <div class="sec-head"><h2>$(& $fmt $S.casesH)</h2><p>$($S.casesP)</p></div>
+    <div class="grid g3">
+      $cases
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <div class="sec-head"><h2>$(& $fmt $S.stepsH)</h2><p>$($S.stepsP)</p></div>
+    <div class="steps">
+      $steps
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="wrap">
+    <div class="sec-head"><h2>$(& $fmt $S.svc)</h2></div>
     <div class="grid g4">
       $cards
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="prose">
+      <h2>$(& $fmt $S.priceH)</h2>
+      <p>$($S.priceP)</p>
+      <ul class="ticks">$price</ul>
+      <p><a href="$($S.tarifs)">$($S.priceA)</a></p>
+    </div>
+    <div class="note warn"><p>$($S.warn)</p></div>
   </div>
 </section>
 
@@ -371,22 +459,16 @@ foreach ($c in $cities) {
   <div class="wrap">
     <div class="sec-head"><h2>$($S.faqH)</h2></div>
     <div class="faqs">
-      <details class="faq">
-        <summary>$($S.q1 -f $name)</summary>
-        <p>$($S.a1)</p>
-      </details>
-      <details class="faq">
-        <summary>$($S.q2 -f $name)</summary>
-        <p>$($S.a2)</p>
-      </details>
+      $faqs
     </div>
     <h2 class="near-h">$($S.near)</h2>
     <div class="city-links">$near</div>
   </div>
 </section>
 "@
-    $meta = @{ path = "$($S.prefix)$($d.slug)/"; title = ($S.title -f $d.name); description = ($S.desc -f $d.name); crumb = $d.name; image = $img.src }
-    $all += [pscustomobject]@{ lang = $lang; key = "city-$($c.id)"; file = $cityFile; meta = $meta; body = $body }
+    $meta = @{ path = "$($S.prefix)$($d.slug)/"; title = (& $fmt $S.title); description = (& $fmt $S.desc).Replace('&amp;', '&'); crumb = $d.name; image = $img.src }
+    $meta.title = $meta.title.Replace('&amp;', '&')
+    $all += [pscustomobject]@{ lang = $lang; key = "city-$($c.id)"; file = $c.file; meta = $meta; body = $body }
   }
 }
 # {{cities:hub}} in hub pages -> list of that hub's city pages
@@ -396,6 +478,7 @@ foreach ($lang in 'nl', 'fr') {
     $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h } | ForEach-Object { $n = $_.$lang; "<a href=""$($CT[$lang].prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
   }
 }
+
 $byKey = @{}
 foreach ($p in $all) { if (-not $byKey[$p.key]) { $byKey[$p.key] = @{} }; $byKey[$p.key][$p.lang] = $p }
 

@@ -220,7 +220,7 @@
       "local": ["Le long de la N5 et des routes boisées, il fait sombre le soir et les accotements sont étroits. Allumez vos feux de détresse, enfilez votre gilet fluo et attendez à côté de la voiture, loin de la chaussée.", "Beaucoup d'habitants ont leur garage à Bruxelles ou dans le Brabant wallon. On conduit la voiture où vous voulez, par-delà les frontières régionales."] }
   },
   {
-    "id": "mechelen", "hub": "leuven-mechelen",
+    "id": "mechelen", "hub": "",
     "roads": ["E19 (Mechelen-Noord / Mechelen-Zuid)", "R12", "N1", "Station Mechelen"],
     "near": ["vilvoorde", "grimbergen", "leuven", "zaventem"],
     "nl": { "name": "Mechelen", "slug": "mechelen", "area": "Centrum, Nekkerspoel, Muizenhoek, Walem",
@@ -231,7 +231,7 @@
       "local": ["Le centre de Malines a un cœur à circulation limitée à l'intérieur du R12. Si votre voiture s'y trouve, envoyez la rue exacte : on choisira le meilleur accès.", "Sur l'E19 autour des sorties Malines-Nord et Malines-Sud, la circulation est dense. Restez derrière la glissière et envoyez-nous votre direction : vers Bruxelles ou vers Anvers."] }
   },
   {
-    "id": "leuven", "hub": "leuven-mechelen",
+    "id": "leuven", "hub": "",
     "roads": ["E40", "E314", "R23 (Leuvense ring)", "Gasthuisberg"],
     "near": ["zaventem", "mechelen", "oudergem", "sint-lambrechts-woluwe"],
     "nl": { "name": "Leuven", "slug": "leuven", "area": "Centrum, Heverlee, Kessel-Lo, Wilsele",
