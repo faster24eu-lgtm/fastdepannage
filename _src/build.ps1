@@ -276,7 +276,8 @@ Get-ChildItem "$src\pages\fr\*.html" | ForEach-Object { $all += Read-Page $_ 'fr
 # cities-extra-*.json add per-city situations ("cases"), questions ("faq") and villages ("around").
 $cityFile = "$src\cities.json"
 $cities = @()
-foreach ($jf in "$src\cities.json", "$src\regions.json") {
+# towns-*.json: individual towns, with hub = the id of their region page
+foreach ($jf in @("$src\cities.json") + @(Get-ChildItem "$src\regions*.json", "$src\towns-*.json" | ForEach-Object { $_.FullName })) {
   $list = [IO.File]::ReadAllText($jf, $utf8) | ConvertFrom-Json
   foreach ($c in $list) { $c | Add-Member -NotePropertyName file -NotePropertyValue $jf -Force; $cities += $c }
 }
@@ -330,6 +331,7 @@ $CT.nl = @{
   as = 'Dat hangt af van waar we op dat moment zijn en van het verkeer. We geven u in ons eerste antwoord een realistisch aankomstuur, en laten het weten als dat verandert.'
   q2 = 'Mijn wagen staat {1}. Kan hij naar een garage elders?'
   a2 = 'Ja. Naar uw vaste garage, de dealer, uw huis of een andere stad in België. We spreken de prijs voor de hele rit af voor vertrek, en we praten met de garagist in het Nederlands of het Frans.'
+  townsH = 'Takeldienst per gemeente {1}'; townsP = 'Kies uw gemeente voor wat u daar moet weten.'
   near = 'Ook in de buurt'; more = 'Meer info'
 }
 $CT.fr = @{
@@ -362,6 +364,7 @@ $CT.fr = @{
   as = 'Cela dépend d''où on se trouve à ce moment et du trafic. On vous donne une heure d''arrivée réaliste dans notre première réponse, et on vous prévient si elle change.'
   q2 = 'Ma voiture est en panne {1}, pouvez-vous l''emmener vers un garage ailleurs ?'
   a2 = 'Oui. Vers votre garage habituel, le concessionnaire, chez vous ou une autre ville de Belgique. Le prix du trajet complet est fixé avant le départ, et on parle au garagiste en français ou en néerlandais.'
+  townsH = 'Dépannage par commune {1}'; townsP = 'Choisissez votre commune pour ce qu''il faut savoir sur place.'
   near = 'Aussi dans les environs'; more = 'En savoir plus'
 }
 $byId = @{}; foreach ($c in $cities) { $byId[$c.id] = $c }
@@ -376,7 +379,8 @@ foreach ($c in $cities) {
     $loc = "$prep $name"
     $fmt = { param($t) $t -f $name, $loc, $prep }
     $crumbs = "<a href=""$hm"">$($L[$lang].homeName)</a> / "
-    if ($c.hub) { $hub = $hubs[$c.hub][$lang]; $crumbs += "<a href=""$($hub[1])"">$($hub[0])</a> / " }
+    if ($hubs[$c.hub]) { $hub = $hubs[$c.hub][$lang]; $crumbs += "<a href=""$($hub[1])"">$($hub[0])</a> / " }
+    elseif ($c.hub) { $r = $byId[$c.hub].$lang; $crumbs += "<a href=""$($S.prefix)$($r.slug)/"">$(& $hx $r.name)</a> / " }
     $local = ($d.local | ForEach-Object { '<p>' + (& $hx $_) + '</p>' }) -join "`n      "
     $roads = ($c.roads | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join ''
     $around = if ($d.around) { "<h3>$($S.around)</h3>`n      <ul class=""chips"">" + (($d.around | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join '') + '</ul>' } else { '' }
@@ -387,6 +391,12 @@ foreach ($c in $cities) {
     $price = ($S.priceL | ForEach-Object { "<li>$_</li>" }) -join ''
     $faq = @($d.faq | ForEach-Object { , @((& $hx $_[0]), (& $hx $_[1])) }) + , @((& $fmt $S.qs), $S.as) + , @((& $fmt $S.q2), $S.a2)
     $faqs = ($faq | ForEach-Object { "<details class=""faq"">`n        <summary>$($_[0])</summary>`n        <p>$($_[1])</p>`n      </details>" }) -join "`n      "
+    $kids = @($cities | Where-Object { $_.hub -eq $c.id })
+    $towns = ''
+    if ($kids.Count) {
+      $tl = ($kids | ForEach-Object { $n = $_.$lang; "<a href=""$($S.prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
+      $towns = "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$(& $fmt $S.townsH)</h2><p>$($S.townsP)</p></div>`n    <div class=""city-links"">$tl</div>`n  </div>`n</section>`n"
+    }
     $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$($S.prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
     $body = @"
 
@@ -398,7 +408,7 @@ foreach ($c in $cities) {
     <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}$($S.btn)</a></div>
   </div>
 </section>
-
+$towns
 <section class="section white">
   <div class="wrap split">
     <div class="prose">
