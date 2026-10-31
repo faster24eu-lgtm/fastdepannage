@@ -27,3 +27,14 @@
   var y = document.getElementById('annee');
   if (y) y.textContent = new Date().getFullYear();
 })();
+
+// WhatsApp mockup: play the conversation when it scrolls into view
+(function () {
+  var chat = document.querySelector('.chat');
+  if (!chat || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) { chat.classList.add('armed', 'play'); io.disconnect(); }
+  }, { threshold: 0.3 });
+  io.observe(chat);
+})();

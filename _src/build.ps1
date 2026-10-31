@@ -31,11 +31,13 @@ Get-ChildItem "$src\icons\*.svg" | ForEach-Object {
   $icons[$_.BaseName] = $svg.Trim()
 }
 function Expand-Tokens([string]$html) {
-  $html = $html.Replace('href="{{wa}}"', 'href="' + $waUrl + '" target="_blank" rel="noopener"')
+  $html = $html.Replace('{{zones}}', $zones).Replace('href="{{wa}}"', 'href="' + $waUrl + '" target="_blank" rel="noopener"')
   return [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
 }
 
+$zones = '<span>24h/24 &middot; 7j/7</span><span>Bruxelles</span><span>Zaventem</span><span>Vilvorde</span><span>Dilbeek</span><span>Ring R0</span><span>Anvers</span><span>Malines</span><span>Louvain</span><span>Gand</span><span>Bruges</span><span>Ostende</span><span>Knokke</span>'
 $nav = @'
+<div class="strip" aria-hidden="true"><div class="strip-in">{{zones}}{{zones}}</div></div>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Fast Dépannage - accueil"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
@@ -61,6 +63,7 @@ $nav = @'
         </div>
       </div>
       <a href="/tarifs/">Tarifs</a>
+      <a href="/guides/">Guides</a>
       <a href="/contact/">Contact</a>
     </nav>
     <a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24h/24 &middot; 7j/7</small>WhatsApp</span></a>
@@ -98,6 +101,7 @@ $footer = @'
           <li><a href="/panne-autoroute/">Panne sur l'autoroute</a></li>
           <li><a href="/utilitaires-transport/">Camionnettes &amp; transport</a></li>
           <li><a href="/tarifs/">Tarifs</a></li>
+          <li><a href="/guides/">Guides pratiques</a></li>
         </ul>
       </div>
       <div>
@@ -192,7 +196,7 @@ $ads
 <meta property="og:description" content="$(& $esc $meta.description)">
 <meta property="og:url" content="$url">
 <meta property="og:image" content="$site$img">
-<meta name="theme-color" content="#16181b">
+<meta name="theme-color" content="#0b0c0b">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

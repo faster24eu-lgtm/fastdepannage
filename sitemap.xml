@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://fastdepannage.com/</loc><lastmod>2026-10-31</lastmod><priority>1.0</priority></url>
-  <url><loc>https://fastdepannage.com/peripherie-flamande/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/panne-autoroute/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/louvain-malines/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://fastdepannage.com/utilitaires-transport/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/guides/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/tarifs/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/utilitaires-transport/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/peripherie-flamande/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/remorquage/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://fastdepannage.com/contact/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/bruxelles/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://fastdepannage.com/bruges-cote/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/contact/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/anvers/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
-  <url><loc>https://fastdepannage.com/gand/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/bruges-cote/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/guides/fourriere-bruxelles/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/guides/voiture-ne-demarre-plus/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
   <url><loc>https://fastdepannage.com/depannage-sur-place/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
+  <url><loc>https://fastdepannage.com/gand/</loc><lastmod>2026-10-31</lastmod><priority>0.8</priority></url>
 </urlset>
