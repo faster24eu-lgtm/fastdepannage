@@ -40,7 +40,7 @@ $L = @{}
 $L.fr = @{
   html = 'fr-BE'; og = 'fr_BE'; home = '/fr/'; homeName = 'Accueil'; skip = 'Aller au contenu'
   waText = "Bonjour, j'ai besoin d'un dépannage. Ma position :"
-  zones = '<span>24h/24 &middot; 7j/7</span><span>Bruxelles</span><span>Zaventem</span><span>Vilvorde</span><span>Dilbeek</span><span>Ring R0</span><span>Anvers</span><span>Malines</span><span>Louvain</span><span>Gand</span><span>Bruges</span><span>Ostende</span><span>Knokke</span>'
+  zones = '<span>24h/24 &middot; 7j/7</span><span>Envoyez votre position par WhatsApp</span><span>Réponse immédiate</span><span>Prix fixe annoncé d&rsquo;avance</span><span>Heure d&rsquo;arrivée réaliste</span><span>Aussi la nuit et le week-end</span><span>Vous décidez, sans surprise</span>'
   nav = @'
 <div class="strip" aria-hidden="true"><div class="strip-in">{{zones}}{{zones}}</div></div>
 <header class="site-header">
@@ -142,7 +142,7 @@ $L.fr = @{
 $L.nl = @{
   html = 'nl-BE'; og = 'nl_BE'; home = '/'; homeName = 'Home'; skip = 'Naar de inhoud'
   waText = 'Hallo, ik heb pech en zoek een takeldienst. Mijn locatie:'
-  zones = '<span>24/7</span><span>Brussel</span><span>Zaventem</span><span>Vilvoorde</span><span>Dilbeek</span><span>Ring R0</span><span>Antwerpen</span><span>Mechelen</span><span>Leuven</span><span>Gent</span><span>Brugge</span><span>Oostende</span><span>Knokke</span>'
+  zones = '<span>24/7 bereikbaar</span><span>Stuur uw locatie via WhatsApp</span><span>Meteen antwoord</span><span>Vaste prijs vooraf</span><span>Realistisch aankomstuur</span><span>Ook &rsquo;s nachts en in het weekend</span><span>U beslist, geen verrassingen</span>'
   nav = @'
 <div class="strip" aria-hidden="true"><div class="strip-in">{{zones}}{{zones}}</div></div>
 <header class="site-header">
