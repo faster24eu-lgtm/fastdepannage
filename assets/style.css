@@ -346,3 +346,23 @@ h3{font-style:normal;font-weight:700;text-transform:none;font-size:26px;letter-s
   .page-hero:before{background:radial-gradient(ellipse at 80% 20%,#1f231f 0%,var(--black) 62%)}
 }
 @media (prefers-reduced-motion:reduce){.big span{animation:none}}
+
+/* call buttons */
+.head-tel{display:flex;align-items:center;gap:9px;color:#fff;text-decoration:none;padding:8px 16px;margin-right:8px;font:italic 800 21px/1 var(--head);text-transform:uppercase;white-space:nowrap}
+.head-tel small{display:block;font:italic 700 11px var(--head);letter-spacing:.12em;margin-bottom:2px;opacity:.7}
+.head-tel .i{width:24px;height:24px;color:var(--green)}
+.head-tel:hover{color:var(--green)}
+.btn-tel{background:#fff;color:var(--black)}
+.btn-tel:hover{background:var(--green);color:var(--black)}
+.white .btn-tel,.section:not(.dark) .btn-tel{background:var(--black);color:#fff}
+.white .btn-tel:hover,.section:not(.dark) .btn-tel:hover{background:var(--green);color:var(--black)}
+.cta-band .btn.btn-tel{background:#fff;color:var(--black)}
+.foot-tel{display:flex;flex-wrap:wrap;gap:8px 22px}
+.mtel{display:none}
+@media (max-width:1040px){.head-tel small{display:none}}
+@media (max-width:760px){
+  .head-tel{display:none}
+  .mcall{left:50%;font-size:20px}
+  .mtel{display:flex;align-items:center;justify-content:center;gap:10px;position:fixed;left:0;right:50%;bottom:0;z-index:200;min-height:62px;background:#fff;color:var(--black);font:italic 900 20px var(--head);text-transform:uppercase;text-decoration:none;border-top:3px solid var(--black);border-right:3px solid var(--black);padding-bottom:env(safe-area-inset-bottom)}
+  .mtel .i{width:24px;height:24px}
+}

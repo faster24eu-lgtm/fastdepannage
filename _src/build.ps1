@@ -74,7 +74,7 @@ $L.fr = @{
       <a href="/fr/contact/">Contact</a>
     </nav>
     <a class="lang" href="{{alt}}" hreflang="nl" lang="nl" title="Nederlands">NL</a>
-    <a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24h/24 &middot; 7j/7</small>WhatsApp</span></a>
+    <a class="head-tel" href="{{tel}}">{{icon:phone}}<span><small>Appelez-nous</small>03 375 67 37</span></a><a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24h/24 &middot; 7j/7</small>WhatsApp</span></a>
     <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -86,7 +86,7 @@ $L.fr = @{
       <h2>En panne maintenant&nbsp;?</h2>
       <p>Envoyez un WhatsApp avec votre position. Le dépanneur vous répond lui-même, en français, avec le prix avant le départ.</p>
     </div>
-    <a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}Écrire sur WhatsApp</a>
+    <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}Écrire sur WhatsApp</a></div>
   </div>
 </section>
 '@
@@ -97,7 +97,7 @@ $L.fr = @{
       <div>
         <a class="brand brand-foot" href="/fr/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>Dépannage et remorquage 24h/24 à Bruxelles et en Flandre.</p>
-        <p class="foot-tel"><a href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a></p>
+        <p class="foot-tel"><a href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
       </div>
       <div>
         <h3>Services</h3>
@@ -136,7 +136,7 @@ $L.fr = @{
     </div>
   </div>
 </footer>
-<a class="mcall" href="{{wa}}">{{icon:brand-whatsapp}}Dépanneur sur WhatsApp</a>
+<a class="mtel" href="{{tel}}">{{icon:phone}}Appeler</a><a class="mcall" href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a>
 '@
 }
 $L.nl = @{
@@ -176,7 +176,7 @@ $L.nl = @{
       <a href="/contact/">Contact</a>
     </nav>
     <a class="lang" href="{{alt}}" hreflang="fr" lang="fr" title="Français">FR</a>
-    <a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24/7 bereikbaar</small>WhatsApp</span></a>
+    <a class="head-tel" href="{{tel}}">{{icon:phone}}<span><small>Bel ons</small>03 375 67 37</span></a><a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24/7 bereikbaar</small>WhatsApp</span></a>
     <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -188,7 +188,7 @@ $L.nl = @{
       <h2>Nu pech&nbsp;?</h2>
       <p>Stuur een WhatsApp met uw locatie. De takeldienst antwoordt zelf, in het Nederlands, met de prijs vóór vertrek.</p>
     </div>
-    <a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}Stuur een WhatsApp</a>
+    <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}Stuur een WhatsApp</a></div>
   </div>
 </section>
 '@
@@ -199,7 +199,7 @@ $L.nl = @{
       <div>
         <a class="brand brand-foot" href="/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>Takeldienst en pechverhelping 24/7 in Brussel en Vlaanderen.</p>
-        <p class="foot-tel"><a href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a></p>
+        <p class="foot-tel"><a href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
       </div>
       <div>
         <h3>Diensten</h3>
@@ -238,7 +238,7 @@ $L.nl = @{
     </div>
   </div>
 </footer>
-<a class="mcall" href="{{wa}}">{{icon:brand-whatsapp}}Takeldienst via WhatsApp</a>
+<a class="mtel" href="{{tel}}">{{icon:phone}}Bel ons</a><a class="mcall" href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a>
 '@
 }
 
@@ -582,6 +582,9 @@ $ld
   if (-not $meta.nocta) { $html += $T.cta + "`n" }
   $html += $T.footer + "`n<script src=""/assets/site.js"" defer></script>`n</body>`n</html>`n"
 
+  $telTxt = if ($p.lang -eq 'nl') { 'Bel 03 375 67 37' } else { 'Appeler le 03 375 67 37' }
+  $html = [regex]::Replace($html, '(<a class="btn btn-wa btn-lg" href="{{wa}}">.*?</a>)', ('$1<a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}' + $telTxt + '</a>'))
+  $html = $html.Replace('{{tel}}', 'tel:+3233756737')
   $waUrl = 'https://wa.me/' + $wa + '?text=' + [uri]::EscapeDataString($T.waText)
   $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt).Replace('href="{{wa}}"', 'href="' + $waUrl + '" target="_blank" rel="noopener"')
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
