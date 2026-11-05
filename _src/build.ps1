@@ -129,7 +129,7 @@ $L.fr = @{
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="annee">2026</span> Fast Dépannage</span>
-      <span><a href="/fr/contact/">Contact</a> &middot; <a href="/fr/mentions-legales/">Mentions légales &amp; vie privée</a></span>
+      <span><a href="/fr/contact/">Contact</a></span>
     </div>
   </div>
 </footer>
@@ -230,7 +230,7 @@ $L.nl = @{
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="annee">2026</span> Fast Dépannage</span>
-      <span><a href="/contact/">Contact</a> &middot; <a href="/juridisch/">Juridische info &amp; privacy</a></span>
+      <span><a href="/contact/">Contact</a></span>
     </div>
   </div>
 </footer>
