@@ -15,10 +15,10 @@
     "roads": ["Ring R0", "Bergensesteenweg / Chaussée de Mons", "Kanaal Brussel-Charleroi", "E19 / A7"],
     "near": ["sint-gillis", "vorst", "sint-jans-molenbeek", "dilbeek"],
     "nl": { "name": "Anderlecht", "slug": "anderlecht", "area": "Kuregem, Erasmus, Neerpede, Veeweide",
-      "intro": "Anderlecht ligt tegen de Ring aan en is half stad, half industriezone. Pech op de Bergensesteenweg of op een bedrijventerrein langs het kanaal? Stuur uw locatie.",
+      "intro": "Anderlecht ligt tegen de Ring aan en is half stad, half industriezone. Pech op de Bergensesteenweg of op een bedrijventerrein langs het kanaal? Bel ons.",
       "local": ["Langs het kanaal en in de zones rond de Erasmuswijk staan veel bedrijven, en dus veel bestelwagens. Die laden we op met dezelfde plateauwagen als een personenwagen.", "In Kuregem en rond de Slachthuizen is het in het weekend druk door de markt. Geef ons dan de exacte straat en een herkenningspunt, dan rijden we niet rond in de drukte."] },
     "fr": { "name": "Anderlecht", "slug": "anderlecht", "area": "Cureghem, Erasme, Neerpede, Veeweyde",
-      "intro": "Anderlecht touche le Ring et est à moitié ville, à moitié zone industrielle. En panne sur la chaussée de Mons ou dans un zoning le long du canal ? Envoyez votre position.",
+      "intro": "Anderlecht touche le Ring et est à moitié ville, à moitié zone industrielle. En panne sur la chaussée de Mons ou dans un zoning le long du canal ? Appelez-nous.",
       "local": ["Le long du canal et autour du quartier Erasme, il y a beaucoup d'entreprises, donc beaucoup de camionnettes. On les charge sur le même plateau qu'une voiture.", "À Cureghem et autour des Abattoirs, le week-end est animé par le marché. Donnez-nous alors la rue exacte et un point de repère, pour ne pas tourner dans la foule."] }
   },
   {
@@ -27,31 +27,31 @@
     "near": ["evere", "brussel-stad", "etterbeek", "sint-lambrechts-woluwe"],
     "nl": { "name": "Schaarbeek", "slug": "schaarbeek", "area": "Josaphat, Reyers, Helmet, Noordstation",
       "intro": "Smalle straten, veel wagens op straat en het begin van de E40 aan Reyers: in Schaarbeek valt een batterij vaak stil op een koude ochtend, of staat een wagen klem in de file.",
-      "local": ["Veel Schaarbekenaars parkeren op straat, en een wagen die een paar dagen niet rijdt, heeft 's winters snel een lege batterij. Dat lossen we meestal ter plaatse op met een booster.", "Aan Reyers begint de E40 richting Leuven. Valt u daar stil, kom dan niet uit de wagen aan de kant van het verkeer en stuur ons de richting waarin u reed."] },
+      "local": ["Veel Schaarbekenaars parkeren op straat, en een wagen die een paar dagen niet rijdt, heeft 's winters snel een lege batterij. Dat lossen we meestal ter plaatse op met een booster.", "Aan Reyers begint de E40 richting Leuven. Valt u daar stil, kom dan niet uit de wagen aan de kant van het verkeer en geef ons de richting waarin u reed."] },
     "fr": { "name": "Schaerbeek", "slug": "schaerbeek", "area": "Josaphat, Reyers, Helmet, gare du Nord",
       "intro": "Des rues étroites, beaucoup de voitures garées en rue et le début de l'E40 à Reyers : à Schaerbeek, une batterie lâche souvent un matin froid, ou une voiture cale dans les bouchons.",
-      "local": ["Beaucoup de Schaerbeekois se garent en rue, et une voiture qui ne roule pas pendant quelques jours a vite une batterie vide en hiver. On règle ça en général sur place, avec un booster.", "À Reyers commence l'E40 vers Louvain. Si vous tombez en panne là, ne sortez pas côté circulation et envoyez-nous la direction dans laquelle vous rouliez."] }
+      "local": ["Beaucoup de Schaerbeekois se garent en rue, et une voiture qui ne roule pas pendant quelques jours a vite une batterie vide en hiver. On règle ça en général sur place, avec un booster.", "À Reyers commence l'E40 vers Louvain. Si vous tombez en panne là, ne sortez pas côté circulation et donnez-nous la direction dans laquelle vous rouliez."] }
   },
   {
     "id": "elsene", "hub": "brussel",
     "roads": ["Louizalaan / Avenue Louise", "Flagey", "Middenring / Moyenne ceinture", "Generaal Jacqueslaan / Boulevard Général Jacques"],
     "near": ["sint-gillis", "ukkel", "etterbeek", "brussel-stad"],
     "nl": { "name": "Elsene", "slug": "elsene", "area": "Flagey, Louiza, Matonge, Universiteitswijk",
-      "intro": "In Elsene staat uw wagen vaak in een ondergrondse parking of in een smalle straat met wagens langs beide kanten. Met een foto van de plek weten we meteen hoe we het aanpakken.",
-      "local": ["Veel appartementsgebouwen hebben een lage inrit. Stuur ons de maximale hoogte die aan de ingang staat en het niveau waar de wagen staat. Als de takelwagen niet binnen kan, brengen we de wagen eerst tot boven aan de helling.", "Rond Flagey en de Louizalaan is het verkeer druk tot laat. We laden een wagen er bij voorkeur op een plek waar we niet de hele straat blokkeren."] },
+      "intro": "In Elsene staat uw wagen vaak in een ondergrondse parking of in een smalle straat met wagens langs beide kanten. Beschrijf de plek, dan weten we meteen hoe we het aanpakken.",
+      "local": ["Veel appartementsgebouwen hebben een lage inrit. Geef ons de maximale hoogte die aan de ingang staat en het niveau waar de wagen staat. Als de takelwagen niet binnen kan, brengen we de wagen eerst tot boven aan de helling.", "Rond Flagey en de Louizalaan is het verkeer druk tot laat. We laden een wagen er bij voorkeur op een plek waar we niet de hele straat blokkeren."] },
     "fr": { "name": "Ixelles", "slug": "ixelles", "area": "Flagey, Louise, Matonge, quartier universitaire",
-      "intro": "À Ixelles, votre voiture est souvent dans un parking souterrain ou dans une rue étroite garée des deux côtés. Avec une photo de l'endroit, on sait tout de suite comment s'y prendre.",
-      "local": ["Beaucoup d'immeubles ont une entrée de parking basse. Envoyez-nous la hauteur affichée à l'entrée et le niveau où se trouve la voiture. Si la dépanneuse ne peut pas descendre, on remonte d'abord la voiture en haut de la rampe.", "Autour de Flagey et de l'avenue Louise, la circulation est dense jusque tard. On charge la voiture de préférence à un endroit où on ne bloque pas toute la rue."] }
+      "intro": "À Ixelles, votre voiture est souvent dans un parking souterrain ou dans une rue étroite garée des deux côtés. Décrivez l'endroit, on sait tout de suite comment s'y prendre.",
+      "local": ["Beaucoup d'immeubles ont une entrée de parking basse. Donnez-nous la hauteur affichée à l'entrée et le niveau où se trouve la voiture. Si la dépanneuse ne peut pas descendre, on remonte d'abord la voiture en haut de la rampe.", "Autour de Flagey et de l'avenue Louise, la circulation est dense jusque tard. On charge la voiture de préférence à un endroit où on ne bloque pas toute la rue."] }
   },
   {
     "id": "ukkel", "hub": "brussel",
     "roads": ["Waterloosesteenweg / Chaussée de Waterloo", "Ring R0", "Alsembergsesteenweg / Chaussée d'Alsemberg", "Zoniënwoud / Forêt de Soignes"],
     "near": ["vorst", "elsene", "sint-genesius-rode", "oudergem"],
     "nl": { "name": "Ukkel", "slug": "ukkel", "area": "Brugmann, Kalevoet, Fort-Jaco, Kauwberg",
-      "intro": "Ukkel is groen, heuvelachtig en groot. Een wagen die niet meer start op een helling of in een oprit vraagt soms wat meer werk, maar dat zien we op voorhand op een foto.",
+      "intro": "Ukkel is groen, heuvelachtig en groot. Een wagen die niet meer start op een helling of in een oprit vraagt soms wat meer werk, maar dat bespreken we op voorhand.",
       "local": ["Veel huizen hebben een eigen oprit of garage. Staat de wagen daar, zeg dan of de oprit steil is en hoe breed de toegang is: dan weten we of we de wagen meteen kunnen laden.", "Langs de Waterloosesteenweg en aan de rand van het Zoniënwoud zijn de wegen smal en bochtig. We laden de wagen dan liever een eindje verder op, op een veilige plek."] },
     "fr": { "name": "Uccle", "slug": "uccle", "area": "Brugmann, Calevoet, Fort-Jaco, Kauwberg",
-      "intro": "Uccle est verte, vallonnée et étendue. Une voiture qui ne démarre plus dans une pente ou une allée demande parfois un peu plus de travail, mais on le voit à l'avance sur une photo.",
+      "intro": "Uccle est verte, vallonnée et étendue. Une voiture qui ne démarre plus dans une pente ou une allée demande parfois un peu plus de travail, mais on en parle à l'avance.",
       "local": ["Beaucoup de maisons ont leur propre allée ou garage. Si la voiture s'y trouve, dites-nous si l'allée est en pente et quelle est la largeur de l'accès : on saura si on peut la charger directement.", "Le long de la chaussée de Waterloo et en bordure de la forêt de Soignes, les routes sont étroites et sinueuses. On préfère alors charger la voiture un peu plus loin, dans un endroit sûr."] }
   },
   {
@@ -59,11 +59,11 @@
     "roads": ["Leopold II-tunnel", "Gentsesteenweg / Chaussée de Gand", "Kanaal / Canal", "Brussel-West / Bruxelles-Ouest"],
     "near": ["brussel-stad", "anderlecht", "jette", "dilbeek"],
     "nl": { "name": "Sint-Jans-Molenbeek", "slug": "sint-jans-molenbeek", "area": "Historisch Molenbeek, Karreveld, Brussel-West",
-      "intro": "Molenbeek ligt tussen het kanaal en de basiliek, met de Leopold II-tunnel er recht onder. Pech in de tunnel, op de Gentsesteenweg of in een zijstraat: stuur ons uw locatie.",
-      "local": ["De Leopold II-tunnel is een van de langste van Brussel. Valt u daar stil, blijf in de wagen en bel 112. Zodra de wagen uit de tunnel gehaald is, kunnen wij hem overnemen.", "In de oude wijken bij het kanaal zijn de straten smal en vaak volgeparkeerd. Een foto van de straat helpt ons om de juiste aanpak te kiezen."] },
+      "intro": "Molenbeek ligt tussen het kanaal en de basiliek, met de Leopold II-tunnel er recht onder. Pech in de tunnel, op de Gentsesteenweg of in een zijstraat: bel ons en zeg waar u staat.",
+      "local": ["De Leopold II-tunnel is een van de langste van Brussel. Valt u daar stil, blijf in de wagen en bel 112. Zodra de wagen uit de tunnel gehaald is, kunnen wij hem overnemen.", "In de oude wijken bij het kanaal zijn de straten smal en vaak volgeparkeerd. Beschrijf de straat, dan kiezen we de juiste aanpak."] },
     "fr": { "name": "Molenbeek-Saint-Jean", "slug": "molenbeek-saint-jean", "area": "Molenbeek historique, Karreveld, Bruxelles-Ouest",
-      "intro": "Molenbeek s'étend entre le canal et la basilique, avec le tunnel Léopold II juste en dessous. Panne dans le tunnel, sur la chaussée de Gand ou dans une rue latérale : envoyez votre position.",
-      "local": ["Le tunnel Léopold II est l'un des plus longs de Bruxelles. Si vous y êtes immobilisé, restez dans la voiture et appelez le 112. Une fois la voiture sortie du tunnel, on peut la prendre en charge.", "Dans les vieux quartiers près du canal, les rues sont étroites et souvent pleines. Une photo de la rue nous aide à choisir la bonne méthode."] }
+      "intro": "Molenbeek s'étend entre le canal et la basilique, avec le tunnel Léopold II juste en dessous. Panne dans le tunnel, sur la chaussée de Gand ou dans une rue latérale : appelez-nous.",
+      "local": ["Le tunnel Léopold II est l'un des plus longs de Bruxelles. Si vous y êtes immobilisé, restez dans la voiture et appelez le 112. Une fois la voiture sortie du tunnel, on peut la prendre en charge.", "Dans les vieux quartiers près du canal, les rues sont étroites et souvent pleines. Décrivez la rue, on choisira la bonne méthode."] }
   },
   {
     "id": "etterbeek", "hub": "brussel",
@@ -82,10 +82,10 @@
     "near": ["anderlecht", "sint-gillis", "ukkel", "halle"],
     "nl": { "name": "Vorst", "slug": "vorst", "area": "Vorst-Centrum, Altitude Cent, Bempt, Vorst-Nationaal",
       "intro": "In Vorst zitten woonwijken, een grote autofabriek en Vorst-Nationaal dicht bij elkaar. Na een concert of op een werkdag: we komen tot bij uw wagen.",
-      "local": ["Na een concert in Vorst-Nationaal lopen de straten en parkings in één keer vol. Valt uw wagen dan niet meer te starten, stuur ons uw positie en wacht rustig tot het verkeer wat afneemt.", "Rond Altitude Cent zijn de straten steil. Vertel ons of de wagen op een helling staat: dat bepaalt hoe we hem laden."] },
+      "local": ["Na een concert in Vorst-Nationaal lopen de straten en parkings in één keer vol. Valt uw wagen dan niet meer te starten, geef ons uw positie en wacht rustig tot het verkeer wat afneemt.", "Rond Altitude Cent zijn de straten steil. Vertel ons of de wagen op een helling staat: dat bepaalt hoe we hem laden."] },
     "fr": { "name": "Forest", "slug": "forest", "area": "Forest-Centre, Altitude Cent, Bempt, Forest National",
       "intro": "À Forest, quartiers résidentiels, grande usine automobile et Forest National se côtoient. Après un concert ou un jour de semaine, on vient jusqu'à votre voiture.",
-      "local": ["Après un concert à Forest National, les rues et les parkings se remplissent d'un coup. Si votre voiture ne démarre plus, envoyez-nous votre position et attendez tranquillement que la circulation diminue.", "Autour d'Altitude Cent, les rues sont en pente. Dites-nous si la voiture est dans une côte : cela détermine comment on la charge."] }
+      "local": ["Après un concert à Forest National, les rues et les parkings se remplissent d'un coup. Si votre voiture ne démarre plus, appelez-nous et dites-nous où vous êtes et attendez tranquillement que la circulation diminue.", "Autour d'Altitude Cent, les rues sont en pente. Dites-nous si la voiture est dans une côte : cela détermine comment on la charge."] }
   },
   {
     "id": "jette", "hub": "brussel",
@@ -93,20 +93,20 @@
     "near": ["brussel-stad", "sint-jans-molenbeek", "grimbergen", "dilbeek"],
     "nl": { "name": "Jette", "slug": "jette", "area": "Jette-Centrum, Laarbeek, UZ Brussel, Koning Boudewijnpark",
       "intro": "Jette ligt aan de noordwestrand van Brussel, dicht bij de Ring en het UZ Brussel. Een wagen die niet start op de parking van het ziekenhuis of thuis in de straat: we komen langs.",
-      "local": ["Op grote parkings, zoals die van een ziekenhuis, stuurt u best uw live locatie en het nummer of de kleur van de zone. Zo vinden we de wagen meteen.", "Vanuit Jette zijn de Ring en de A12 vlakbij. Moet de wagen naar een garage buiten Brussel, dan zijn we snel op weg."] },
+      "local": ["Op grote parkings, zoals die van een ziekenhuis, geeft u best uw exacte locatie en het nummer of de kleur van de zone. Zo vinden we de wagen meteen.", "Vanuit Jette zijn de Ring en de A12 vlakbij. Moet de wagen naar een garage buiten Brussel, dan zijn we snel op weg."] },
     "fr": { "name": "Jette", "slug": "jette", "area": "Jette-Centre, Laerbeek, UZ Brussel, parc Roi Baudouin",
       "intro": "Jette se trouve au nord-ouest de Bruxelles, près du Ring et de l'UZ Brussel. Une voiture qui ne démarre pas sur le parking de l'hôpital ou devant chez vous : on passe.",
-      "local": ["Sur les grands parkings, comme celui d'un hôpital, envoyez votre position en direct et le numéro ou la couleur de la zone. On trouve ainsi la voiture tout de suite.", "Depuis Jette, le Ring et l'A12 sont tout proches. Si la voiture doit aller dans un garage hors de Bruxelles, on est vite sur la route."] }
+      "local": ["Sur les grands parkings, comme celui d'un hôpital, donnez votre position exacte et le numéro ou la couleur de la zone. On trouve ainsi la voiture tout de suite.", "Depuis Jette, le Ring et l'A12 sont tout proches. Si la voiture doit aller dans un garage hors de Bruxelles, on est vite sur la route."] }
   },
   {
     "id": "evere", "hub": "brussel",
     "roads": ["Leopold III-laan / Boulevard Léopold III", "A201", "Ring R0", "Haachtsesteenweg / Chaussée de Haecht"],
     "near": ["schaarbeek", "zaventem", "sint-lambrechts-woluwe", "vilvoorde"],
     "nl": { "name": "Evere", "slug": "evere", "area": "Evere-Centrum, Paduwa, Leopold III-laan",
-      "intro": "Evere ligt op de route naar de luchthaven. Pech op de Leopold III-laan, in een kantoorzone of thuis in de straat: stuur ons uw locatie en de richting waarin u reed.",
+      "intro": "Evere ligt op de route naar de luchthaven. Pech op de Leopold III-laan, in een kantoorzone of thuis in de straat: bel ons en zeg waar u staat en de richting waarin u reed.",
       "local": ["Op de brede lanen richting luchthaven rijdt het verkeer snel. Staat u daar stil, zet dan uw gevarenlichten aan en wacht naast de wagen aan de veilige kant.", "In de kantoorzones zijn de parkings vaak afgesloten na de werkuren. Laat ons weten of er een slagboom of badge nodig is."] },
     "fr": { "name": "Evere", "slug": "evere", "area": "Evere-Centre, Paduwa, boulevard Léopold III",
-      "intro": "Evere est sur la route de l'aéroport. En panne sur le boulevard Léopold III, dans une zone de bureaux ou devant chez vous : envoyez-nous votre position et votre direction.",
+      "intro": "Evere est sur la route de l'aéroport. En panne sur le boulevard Léopold III, dans une zone de bureaux ou devant chez vous : appelez-nous et dites-nous où vous êtes et votre direction.",
       "local": ["Sur les grands boulevards vers l'aéroport, la circulation est rapide. Si vous y êtes arrêté, allumez vos feux de détresse et attendez à côté de la voiture, du côté sûr.", "Dans les zones de bureaux, les parkings sont souvent fermés après les heures de travail. Dites-nous s'il y a une barrière ou s'il faut un badge."] }
   },
   {
@@ -115,20 +115,20 @@
     "near": ["evere", "etterbeek", "zaventem", "oudergem"],
     "nl": { "name": "Sint-Lambrechts-Woluwe", "slug": "sint-lambrechts-woluwe", "area": "Roodebeek, Kapelleveld, Sint-Lucas, Woluwe Shopping",
       "intro": "Sint-Lambrechts-Woluwe heeft grote parkings, een groot ziekenhuis en rustige woonwijken, met de E40 vlakbij. Een stille batterij op een shoppingparking is hier een klassieker.",
-      "local": ["Op een grote parking van een winkelcentrum of ziekenhuis vinden we u het snelst met uw live locatie en het niveau of de zone. Een ondergrondse parking? Stuur ook de maximale hoogte.", "Vanaf de Woluwelaan zit u snel op de E40 en de Ring. Moet de wagen naar een garage in Vlaams-Brabant, dan rijden we meteen door."] },
+      "local": ["Op een grote parking van een winkelcentrum of ziekenhuis vinden we u het snelst met uw exacte locatie en het niveau of de zone. Een ondergrondse parking? Geef ook de maximale hoogte.", "Vanaf de Woluwelaan zit u snel op de E40 en de Ring. Moet de wagen naar een garage in Vlaams-Brabant, dan rijden we meteen door."] },
     "fr": { "name": "Woluwe-Saint-Lambert", "slug": "woluwe-saint-lambert", "area": "Roodebeek, Kapelleveld, Saint-Luc, Woluwe Shopping",
       "intro": "Woluwe-Saint-Lambert a de grands parkings, un grand hôpital et des quartiers résidentiels calmes, avec l'E40 à deux pas. Une batterie à plat sur un parking de shopping, c'est un classique ici.",
-      "local": ["Sur un grand parking de centre commercial ou d'hôpital, on vous trouve plus vite avec votre position en direct et le niveau ou la zone. Parking souterrain ? Envoyez aussi la hauteur maximale.", "Depuis le boulevard de la Woluwe, on rejoint vite l'E40 et le Ring. Si la voiture doit aller dans un garage du Brabant flamand, on enchaîne directement."] }
+      "local": ["Sur un grand parking de centre commercial ou d'hôpital, on vous trouve plus vite avec votre position exacte et le niveau ou la zone. Parking souterrain ? Donnez aussi la hauteur maximale.", "Depuis le boulevard de la Woluwe, on rejoint vite l'E40 et le Ring. Si la voiture doit aller dans un garage du Brabant flamand, on enchaîne directement."] }
   },
   {
     "id": "sint-gillis", "hub": "brussel",
     "roads": ["Zuidstation / Gare du Midi", "Kleine Ring / Petite ceinture", "Waterloosesteenweg / Chaussée de Waterloo", "Hallepoort / Porte de Hal"],
     "near": ["anderlecht", "elsene", "vorst", "brussel-stad"],
     "nl": { "name": "Sint-Gillis", "slug": "sint-gillis", "area": "Zuid, Voorplein, Hallepoort, Bareel",
-      "intro": "Sint-Gillis is dicht bebouwd, met smalle straten, het Zuidstation en een grote zondagsmarkt. Pech hier vraagt een goed plan, en dat maken we samen via WhatsApp.",
+      "intro": "Sint-Gillis is dicht bebouwd, met smalle straten, het Zuidstation en een grote zondagsmarkt. Pech hier vraagt een goed plan, en dat maken we samen aan de telefoon.",
       "local": ["Op zondag staat de markt aan het Zuidstation en zijn er straten afgesloten. Geef ons dan de exacte straat, zodat we de juiste route nemen.", "Veel straten zijn te smal om een wagen meteen op te laden. Dan duwen we hem eerst samen naar een ruimere plek of naar de hoek van de straat."] },
     "fr": { "name": "Saint-Gilles", "slug": "saint-gilles", "area": "Midi, Parvis, Porte de Hal, Barrière",
-      "intro": "Saint-Gilles est très dense, avec des rues étroites, la gare du Midi et un grand marché le dimanche. Une panne ici demande un bon plan, et on le fait ensemble sur WhatsApp.",
+      "intro": "Saint-Gilles est très dense, avec des rues étroites, la gare du Midi et un grand marché le dimanche. Une panne ici demande un bon plan, et on le fait ensemble au téléphone.",
       "local": ["Le dimanche, le marché du Midi est installé et des rues sont fermées. Donnez-nous la rue exacte, pour qu'on prenne le bon itinéraire.", "Beaucoup de rues sont trop étroites pour charger une voiture directement. On la pousse alors ensemble vers un endroit plus large ou jusqu'au coin de la rue."] }
   },
   {
@@ -136,32 +136,32 @@
     "roads": ["E411", "Vorstlaan / Boulevard du Souverain", "Waversesteenweg / Chaussée de Wavre", "Zoniënwoud / Forêt de Soignes"],
     "near": ["etterbeek", "ukkel", "sint-lambrechts-woluwe", "sint-genesius-rode"],
     "nl": { "name": "Oudergem", "slug": "oudergem", "area": "Herrmann-Debroux, Rood Klooster, Waversesteenweg",
-      "intro": "In Oudergem begint de E411 richting Namen, en dat merkt u aan het verkeer. Pech bij het begin van de snelweg of in een woonwijk aan de rand van het Zoniënwoud? Stuur ons uw locatie.",
-      "local": ["Op en rond de E411 rijdt het verkeer snel en zijn er vaak werken. Blijf achter de vangrail en stuur ons de richting waarin u reed: naar Brussel of naar Namen.", "Aan de rand van het Zoniënwoud zijn de wegen bochtig en is het 's avonds donker. Zet uw gevarenlichten aan en blijf zichtbaar."] },
+      "intro": "In Oudergem begint de E411 richting Namen, en dat merkt u aan het verkeer. Pech bij het begin van de snelweg of in een woonwijk aan de rand van het Zoniënwoud? Bel ons en zeg waar u staat.",
+      "local": ["Op en rond de E411 rijdt het verkeer snel en zijn er vaak werken. Blijf achter de vangrail en geef ons de richting waarin u reed: naar Brussel of naar Namen.", "Aan de rand van het Zoniënwoud zijn de wegen bochtig en is het 's avonds donker. Zet uw gevarenlichten aan en blijf zichtbaar."] },
     "fr": { "name": "Auderghem", "slug": "auderghem", "area": "Herrmann-Debroux, Rouge-Cloître, chaussée de Wavre",
-      "intro": "À Auderghem commence l'E411 vers Namur, et ça se voit dans la circulation. En panne au début de l'autoroute ou dans un quartier en bordure de la forêt de Soignes ? Envoyez votre position.",
-      "local": ["Sur et autour de l'E411, la circulation est rapide et les travaux sont fréquents. Restez derrière la glissière et envoyez-nous votre direction : vers Bruxelles ou vers Namur.", "En bordure de la forêt de Soignes, les routes sont sinueuses et sombres le soir. Allumez vos feux de détresse et restez visible."] }
+      "intro": "À Auderghem commence l'E411 vers Namur, et ça se voit dans la circulation. En panne au début de l'autoroute ou dans un quartier en bordure de la forêt de Soignes ? Appelez-nous.",
+      "local": ["Sur et autour de l'E411, la circulation est rapide et les travaux sont fréquents. Restez derrière la glissière et donnez-nous votre direction : vers Bruxelles ou vers Namur.", "En bordure de la forêt de Soignes, les routes sont sinueuses et sombres le soir. Allumez vos feux de détresse et restez visible."] }
   },
   {
     "id": "zaventem", "hub": "rand",
     "roads": ["Ring R0", "E40", "A201", "Brussels Airport"],
     "near": ["evere", "vilvoorde", "sint-lambrechts-woluwe", "leuven"],
     "nl": { "name": "Zaventem", "slug": "zaventem", "area": "Luchthaven, Sint-Stevens-Woluwe, Sterrebeek, Nossegem",
-      "intro": "Luchthaven, Ring, E40 en grote bedrijvenzones: Zaventem is een knooppunt. Terug van reis met een lege batterij op de parking, of pech op het knooppunt? Stuur uw locatie.",
-      "local": ["Na een paar weken op een luchthavenparking is een lege batterij heel gewoon. Stuur ons de naam van de parking, de zone en een foto van de plaats. Op sommige afgesloten parkings is toestemming van de uitbater nodig: we zeggen u wat u moet vragen.", "Op het knooppunt van de Ring en de E40 kan de politie bij pech die het verkeer hindert de FAST-takeldienst inschakelen. Daarna nemen wij de wagen over waar hij werd neergezet."] },
+      "intro": "Luchthaven, Ring, E40 en grote bedrijvenzones: Zaventem is een knooppunt. Terug van reis met een lege batterij op de parking, of pech op het knooppunt? Bel ons.",
+      "local": ["Na een paar weken op een luchthavenparking is een lege batterij heel gewoon. Geef ons de naam van de parking, en de zone. Op sommige afgesloten parkings is toestemming van de uitbater nodig: we zeggen u wat u moet vragen.", "Op het knooppunt van de Ring en de E40 kan de politie bij pech die het verkeer hindert de FAST-takeldienst inschakelen. Daarna nemen wij de wagen over waar hij werd neergezet."] },
     "fr": { "name": "Zaventem", "slug": "zaventem", "area": "Aéroport, Woluwe-Saint-Étienne, Sterrebeek, Nossegem",
-      "intro": "Aéroport, Ring, E40 et grands zonings : Zaventem est un carrefour. Retour de voyage avec une batterie à plat au parking, ou panne à l'échangeur ? Envoyez votre position.",
-      "local": ["Après quelques semaines sur un parking de l'aéroport, une batterie à plat est très courante. Envoyez-nous le nom du parking, la zone et une photo de l'emplacement. Pour certains parkings fermés, il faut l'accord de l'exploitant : on vous dit quoi demander.", "À l'échangeur du Ring et de l'E40, si votre voiture gêne la circulation, la police peut faire appel au dépanneur FAST. On reprend ensuite la voiture là où elle a été déposée."] }
+      "intro": "Aéroport, Ring, E40 et grands zonings : Zaventem est un carrefour. Retour de voyage avec une batterie à plat au parking, ou panne à l'échangeur ? Appelez-nous.",
+      "local": ["Après quelques semaines sur un parking de l'aéroport, une batterie à plat est très courante. Donnez-nous le nom du parking et la zone. Pour certains parkings fermés, il faut l'accord de l'exploitant : on vous dit quoi demander.", "À l'échangeur du Ring et de l'E40, si votre voiture gêne la circulation, la police peut faire appel au dépanneur FAST. On reprend ensuite la voiture là où elle a été déposée."] }
   },
   {
     "id": "vilvoorde", "hub": "rand",
     "roads": ["Ring R0", "Viaduct van Vilvoorde", "Zeekanaal / Canal maritime", "A12"],
     "near": ["evere", "grimbergen", "zaventem", "mechelen"],
     "nl": { "name": "Vilvoorde", "slug": "vilvoorde", "area": "Centrum, Koningslo, Peutie, kanaalzone",
-      "intro": "Het viaduct van Vilvoorde is een van de drukste stukken van de Ring. Daaronder: het kanaal, bedrijven en woonwijken. Pech op het viaduct of in de stad? Stuur uw locatie.",
+      "intro": "Het viaduct van Vilvoorde is een van de drukste stukken van de Ring. Daaronder: het kanaal, bedrijven en woonwijken. Pech op het viaduct of in de stad? Bel ons.",
       "local": ["Op het viaduct is er nauwelijks plaats om veilig te stoppen. Rij als het kan door tot de volgende afrit. Lukt dat niet, blijf dan in de wagen met de gordel om en bel 112.", "Langs het kanaal staan veel bedrijven en bestelwagens. Een bestelwagen tot 3,5 ton laden we op dezelfde manier als een personenwagen."] },
     "fr": { "name": "Vilvorde", "slug": "vilvorde", "area": "Centre, Koningslo, Peutie, zone du canal",
-      "intro": "Le viaduc de Vilvorde est l'un des tronçons les plus chargés du Ring. En dessous : le canal, des entreprises et des quartiers résidentiels. En panne sur le viaduc ou en ville ? Envoyez votre position.",
+      "intro": "Le viaduc de Vilvorde est l'un des tronçons les plus chargés du Ring. En dessous : le canal, des entreprises et des quartiers résidentiels. En panne sur le viaduc ou en ville ? Appelez-nous.",
       "local": ["Sur le viaduc, il n'y a presque pas de place pour s'arrêter en sécurité. Si possible, continuez jusqu'à la sortie suivante. Sinon, restez dans la voiture, ceinture attachée, et appelez le 112.", "Le long du canal, il y a beaucoup d'entreprises et de camionnettes. Une camionnette jusqu'à 3,5 tonnes se charge comme une voiture."] }
   },
   {
@@ -170,17 +170,17 @@
     "near": ["sint-jans-molenbeek", "anderlecht", "asse", "jette"],
     "nl": { "name": "Dilbeek", "slug": "dilbeek", "area": "Groot-Bijgaarden, Itterbeek, Schepdaal, Sint-Ulriks-Kapelle",
       "intro": "In Dilbeek komen de Ring en de E40 samen aan Groot-Bijgaarden, een plek die elke pendelaar kent. Pech op het knooppunt of thuis in de straat: we komen tot bij u.",
-      "local": ["Het knooppunt van Groot-Bijgaarden is druk op elk uur. Staat u daar stil, ga achter de vangrail staan en stuur ons de richting: naar Gent, naar Brussel of op de Ring.", "In de dorpskernen van Itterbeek en Schepdaal is er meestal genoeg plaats om een wagen meteen op te laden."] },
+      "local": ["Het knooppunt van Groot-Bijgaarden is druk op elk uur. Staat u daar stil, ga achter de vangrail staan en geef ons de richting: naar Gent, naar Brussel of op de Ring.", "In de dorpskernen van Itterbeek en Schepdaal is er meestal genoeg plaats om een wagen meteen op te laden."] },
     "fr": { "name": "Dilbeek", "slug": "dilbeek", "area": "Grand-Bigard, Itterbeek, Schepdaal, Sint-Ulriks-Kapelle",
       "intro": "À Dilbeek, le Ring et l'E40 se rejoignent à Grand-Bigard, un endroit que tous les navetteurs connaissent. Panne à l'échangeur ou devant chez vous : on vient jusqu'à vous.",
-      "local": ["L'échangeur de Grand-Bigard est chargé à toute heure. Si vous y êtes arrêté, placez-vous derrière la glissière et envoyez-nous la direction : vers Gand, vers Bruxelles ou sur le Ring.", "Dans les villages d'Itterbeek et de Schepdaal, il y a en général assez de place pour charger une voiture directement."] }
+      "local": ["L'échangeur de Grand-Bigard est chargé à toute heure. Si vous y êtes arrêté, placez-vous derrière la glissière et donnez-nous la direction : vers Gand, vers Bruxelles ou sur le Ring.", "Dans les villages d'Itterbeek et de Schepdaal, il y a en général assez de place pour charger une voiture directement."] }
   },
   {
     "id": "halle", "hub": "rand",
     "roads": ["E19 / A7", "Ring R0", "Bergensesteenweg / Chaussée de Mons", "Kanaal Brussel-Charleroi"],
     "near": ["vorst", "anderlecht", "sint-genesius-rode", "dilbeek"],
     "nl": { "name": "Halle", "slug": "halle", "area": "Centrum, Buizingen, Lembeek, Essenbeek",
-      "intro": "Halle ligt op de grens met Wallonië, aan de E19 richting Bergen. Pech op de snelweg, in het centrum of aan de basiliek: we antwoorden in het Nederlands en het Frans.",
+      "intro": "Halle ligt op de grens met Wallonië, aan de E19 richting Bergen. Pech op de snelweg, in het centrum of aan de basiliek: we helpen u in het Nederlands en het Frans.",
       "local": ["Op de E19 richting Bergen gelden in Vlaanderen andere regels dan net over de taalgrens. Op de pagina over pech op de snelweg leggen we uit wat u kunt verwachten.", "Moet de wagen naar een garage in Wallonië of in Brussel? Dat is geen probleem: we spreken beide talen en brengen hem waar u wilt."] },
     "fr": { "name": "Hal", "slug": "hal", "area": "Centre, Buizingen, Lembeek, Essenbeek",
       "intro": "Hal est sur la frontière avec la Wallonie, le long de l'E19 vers Mons. Panne sur l'autoroute, au centre ou près de la basilique : on vous répond en français et en néerlandais.",
@@ -191,10 +191,10 @@
     "roads": ["N9 Brusselsesteenweg", "E40 (afrit Ternat)", "Ring R0", "Mollem"],
     "near": ["dilbeek", "grimbergen", "jette", "sint-jans-molenbeek"],
     "nl": { "name": "Asse", "slug": "asse", "area": "Centrum, Zellik, Mollem, Bekkerzeel",
-      "intro": "Asse ligt aan de N9 tussen Brussel en Aalst, met de bedrijvenzone van Zellik vlakbij de Ring. Pech op de steenweg of op het werk: stuur ons uw locatie.",
+      "intro": "Asse ligt aan de N9 tussen Brussel en Aalst, met de bedrijvenzone van Zellik vlakbij de Ring. Pech op de steenweg of op het werk: bel ons en zeg waar u staat.",
       "local": ["Op de drukke N9 staat u best zo ver mogelijk aan de kant, met gevarenlichten aan. Kan de wagen nog rollen, zet hem dan op een parking of in een zijstraat.", "In de industriezone van Zellik helpen we ook bedrijven met bestelwagens die stilvallen."] },
     "fr": { "name": "Asse", "slug": "asse", "area": "Centre, Zellik, Mollem, Bekkerzeel",
-      "intro": "Asse se trouve sur la N9 entre Bruxelles et Alost, avec le zoning de Zellik près du Ring. Panne sur la chaussée ou au travail : envoyez-nous votre position.",
+      "intro": "Asse se trouve sur la N9 entre Bruxelles et Alost, avec le zoning de Zellik près du Ring. Panne sur la chaussée ou au travail : appelez-nous et dites-nous où vous êtes.",
       "local": ["Sur la N9, très fréquentée, rangez-vous le plus loin possible sur le côté, feux de détresse allumés. Si la voiture peut encore rouler, mettez-la sur un parking ou dans une rue latérale.", "Dans le zoning de Zellik, on aide aussi les entreprises dont les camionnettes tombent en panne."] }
   },
   {
@@ -202,10 +202,10 @@
     "roads": ["Ring R0", "A12", "Strombeek-Bever", "Kanaal / Canal"],
     "near": ["vilvoorde", "jette", "brussel-stad", "asse"],
     "nl": { "name": "Grimbergen", "slug": "grimbergen", "area": "Centrum, Strombeek-Bever, Humbeek, Beigem",
-      "intro": "Grimbergen ligt net boven Brussel, met Strombeek-Bever tegen de Heizel en de Ring. Pech na een evenement of op weg naar Antwerpen: stuur uw locatie.",
+      "intro": "Grimbergen ligt net boven Brussel, met Strombeek-Bever tegen de Heizel en de Ring. Pech na een evenement of op weg naar Antwerpen: bel ons.",
       "local": ["Na een match of concert aan de Heizel slibben de wegen rond Strombeek-Bever snel dicht. Wacht op een veilige plek tot we er zijn: we laten u weten wanneer we aankomen.", "Vanuit Grimbergen rijden we via de A12 of de Ring vlot naar Mechelen, Antwerpen of het centrum van Brussel."] },
     "fr": { "name": "Grimbergen", "slug": "grimbergen", "area": "Centre, Strombeek-Bever, Humbeek, Beigem",
-      "intro": "Grimbergen est juste au nord de Bruxelles, avec Strombeek-Bever collé au Heysel et au Ring. Panne après un événement ou en route vers Anvers : envoyez votre position.",
+      "intro": "Grimbergen est juste au nord de Bruxelles, avec Strombeek-Bever collé au Heysel et au Ring. Panne après un événement ou en route vers Anvers : appelez-nous.",
       "local": ["Après un match ou un concert au Heysel, les routes autour de Strombeek-Bever se bouchent vite. Attendez dans un endroit sûr : on vous prévient de notre heure d'arrivée.", "Depuis Grimbergen, on rejoint facilement Malines, Anvers ou le centre de Bruxelles par l'A12 ou le Ring."] }
   },
   {
@@ -213,7 +213,7 @@
     "roads": ["N5 Waterloo", "Ring R0", "Zoniënwoud / Forêt de Soignes", "Alsemberg"],
     "near": ["ukkel", "halle", "oudergem", "vorst"],
     "nl": { "name": "Sint-Genesius-Rode", "slug": "sint-genesius-rode", "area": "Centrum, Middelpunt, Zoniënwoud",
-      "intro": "Sint-Genesius-Rode is een faciliteitengemeente aan het Zoniënwoud, tussen Ukkel en Waterloo. We antwoorden in de taal die u verkiest.",
+      "intro": "Sint-Genesius-Rode is een faciliteitengemeente aan het Zoniënwoud, tussen Ukkel en Waterloo. We helpen u in de taal die u verkiest.",
       "local": ["Langs de N5 en de bosrijke wegen is het 's avonds donker en zijn de bermen smal. Zet uw gevarenlichten aan, trek uw fluohesje aan en wacht naast de wagen, weg van de rijbaan.", "Veel inwoners hebben hun garage in Brussel of in Waals-Brabant. We brengen de wagen waar u wilt, over de gewestgrenzen heen."] },
     "fr": { "name": "Rhode-Saint-Genèse", "slug": "rhode-saint-genese", "area": "Centre, Middelpunt, forêt de Soignes",
       "intro": "Rhode-Saint-Genèse est une commune à facilités au bord de la forêt de Soignes, entre Uccle et Waterloo. On vous répond dans la langue de votre choix.",
@@ -225,20 +225,20 @@
     "near": ["vilvoorde", "grimbergen", "leuven", "zaventem"],
     "nl": { "name": "Mechelen", "slug": "mechelen", "area": "Centrum, Nekkerspoel, Muizenhoek, Walem",
       "intro": "Mechelen ligt halfweg tussen Brussel en Antwerpen, aan de E19. Een plek waar we elke dag passeren, en dus vaak snel ter plaatse zijn.",
-      "local": ["Het centrum van Mechelen heeft een autoluwe kern binnen de R12. Staat uw wagen daar, stuur dan de exacte straat: dan kiezen we de beste toegang.", "Op de E19 rond de afritten Mechelen-Noord en Mechelen-Zuid is het verkeer druk. Blijf achter de vangrail en stuur ons de richting: naar Brussel of naar Antwerpen."] },
+      "local": ["Het centrum van Mechelen heeft een autoluwe kern binnen de R12. Staat uw wagen daar, geef dan de exacte straat: dan kiezen we de beste toegang.", "Op de E19 rond de afritten Mechelen-Noord en Mechelen-Zuid is het verkeer druk. Blijf achter de vangrail en geef ons de richting: naar Brussel of naar Antwerpen."] },
     "fr": { "name": "Malines", "slug": "malines", "area": "Centre, Nekkerspoel, Muizen, Walem",
       "intro": "Malines est à mi-chemin entre Bruxelles et Anvers, sur l'E19. On y passe tous les jours, et on y est donc souvent vite sur place.",
-      "local": ["Le centre de Malines a un cœur à circulation limitée à l'intérieur du R12. Si votre voiture s'y trouve, envoyez la rue exacte : on choisira le meilleur accès.", "Sur l'E19 autour des sorties Malines-Nord et Malines-Sud, la circulation est dense. Restez derrière la glissière et envoyez-nous votre direction : vers Bruxelles ou vers Anvers."] }
+      "local": ["Le centre de Malines a un cœur à circulation limitée à l'intérieur du R12. Si votre voiture s'y trouve, donnez la rue exacte : on choisira le meilleur accès.", "Sur l'E19 autour des sorties Malines-Nord et Malines-Sud, la circulation est dense. Restez derrière la glissière et donnez-nous votre direction : vers Bruxelles ou vers Anvers."] }
   },
   {
     "id": "leuven", "hub": "",
     "roads": ["E40", "E314", "R23 (Leuvense ring)", "Gasthuisberg"],
     "near": ["zaventem", "mechelen", "oudergem", "sint-lambrechts-woluwe"],
     "nl": { "name": "Leuven", "slug": "leuven", "area": "Centrum, Heverlee, Kessel-Lo, Wilsele",
-      "intro": "Leuven: studentenstad, grote ziekenhuiscampus en het knooppunt van de E40 en de E314. Pech in het centrum, aan Gasthuisberg of op de snelweg: stuur ons uw locatie.",
+      "intro": "Leuven: studentenstad, grote ziekenhuiscampus en het knooppunt van de E40 en de E314. Pech in het centrum, aan Gasthuisberg of op de snelweg: bel ons en zeg waar u staat.",
       "local": ["Binnen de Leuvense ring (R23) is het centrum grotendeels autoluw en werkt een circulatieplan met lussen. Uw exacte locatie is hier extra belangrijk om u snel te bereiken.", "Studenten met een oude wagen en een lege batterij helpen we vaak ter plaatse met een booster: dat kost veel minder dan takelen."] },
     "fr": { "name": "Louvain", "slug": "louvain", "area": "Centre, Heverlee, Kessel-Lo, Wilsele",
-      "intro": "Louvain : ville étudiante, grand campus hospitalier et échangeur de l'E40 et de l'E314. Panne au centre, à Gasthuisberg ou sur l'autoroute : envoyez votre position.",
+      "intro": "Louvain : ville étudiante, grand campus hospitalier et échangeur de l'E40 et de l'E314. Panne au centre, à Gasthuisberg ou sur l'autoroute : appelez-nous.",
       "local": ["À l'intérieur du ring de Louvain (R23), le centre est en grande partie fermé aux voitures et un plan de circulation en boucles s'applique. Votre position exacte compte ici encore plus pour vous rejoindre vite.", "Les étudiants avec une vieille voiture et une batterie vide, on les aide souvent sur place avec un booster : ça coûte bien moins qu'un remorquage."] }
   }
 ]

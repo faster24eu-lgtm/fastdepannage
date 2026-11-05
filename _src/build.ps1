@@ -14,9 +14,7 @@ $utf8 = New-Object System.Text.UTF8Encoding $false
 # Path prefix for hosting in a subfolder (e.g. '/fastdepannage' on github.io); empty on the real domain
 $base = if ($env:FD_BASE) { $env:FD_BASE.TrimEnd('/') } else { '' }
 
-# WhatsApp number (digits only, with country code): change it here only.
 # Placeholder until the site's own number arrives.
-$wa = '3233756737'
 
 # lastmod per page = last git commit that touched its source (today if uncommitted)
 function Get-LastMod([string]$file) {
@@ -39,8 +37,7 @@ Get-ChildItem "$src\icons\*.svg" | ForEach-Object {
 $L = @{}
 $L.fr = @{
   html = 'fr-BE'; og = 'fr_BE'; home = '/fr/'; homeName = 'Accueil'; skip = 'Aller au contenu'
-  waText = "Bonjour, j'ai besoin d'un dépannage. Ma position :"
-  zones = '<span>24h/24 &middot; 7j/7</span><span>Envoyez votre position par WhatsApp</span><span>Réponse immédiate</span><span>Prix fixe annoncé d&rsquo;avance</span><span>Heure d&rsquo;arrivée réaliste</span><span>Aussi la nuit et le week-end</span><span>Vous décidez, sans surprise</span>'
+  zones = '<span>24h/24 &middot; 7j/7</span><span>Appelez-nous</span><span>Réponse immédiate</span><span>Prix fixe annoncé d&rsquo;avance</span><span>Heure d&rsquo;arrivée réaliste</span><span>Aussi la nuit et le week-end</span><span>Vous décidez, sans surprise</span>'
   nav = @'
 <div class="strip" aria-hidden="true"><div class="strip-in">{{zones}}{{zones}}</div></div>
 <header class="site-header">
@@ -74,7 +71,7 @@ $L.fr = @{
       <a href="/fr/contact/">Contact</a>
     </nav>
     <a class="lang" href="{{alt}}" hreflang="nl" lang="nl" title="Nederlands">NL</a>
-    <a class="head-tel" href="{{tel}}">{{icon:phone}}<span><small>Appelez-nous</small>03 375 67 37</span></a><a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24h/24 &middot; 7j/7</small>WhatsApp</span></a>
+    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Appelez-nous 24h/24</small>03 375 67 37</span></a>
     <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -84,9 +81,9 @@ $L.fr = @{
   <div class="wrap">
     <div>
       <h2>En panne maintenant&nbsp;?</h2>
-      <p>Envoyez un WhatsApp avec votre position. Le dépanneur vous répond lui-même, en français, avec le prix avant le départ.</p>
+      <p>Appelez-nous maintenant. Vous recevez un prix fixe et une heure d&rsquo;arrivée, en français, avant le départ.</p>
     </div>
-    <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}Écrire sur WhatsApp</a></div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Appeler le 03 375 67 37</a></div>
   </div>
 </section>
 '@
@@ -97,7 +94,7 @@ $L.fr = @{
       <div>
         <a class="brand brand-foot" href="/fr/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>Dépannage et remorquage 24h/24 à Bruxelles et en Flandre.</p>
-        <p class="foot-tel"><a href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
+        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
       </div>
       <div>
         <h3>Services</h3>
@@ -136,13 +133,12 @@ $L.fr = @{
     </div>
   </div>
 </footer>
-<a class="mtel" href="{{tel}}">{{icon:phone}}Appeler</a><a class="mcall" href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a>
+<a class="mcall" href="{{tel}}">{{icon:phone}}Appeler le 03 375 67 37</a>
 '@
 }
 $L.nl = @{
   html = 'nl-BE'; og = 'nl_BE'; home = '/'; homeName = 'Home'; skip = 'Naar de inhoud'
-  waText = 'Hallo, ik heb pech en zoek een takeldienst. Mijn locatie:'
-  zones = '<span>24/7 bereikbaar</span><span>Stuur uw locatie via WhatsApp</span><span>Meteen antwoord</span><span>Vaste prijs vooraf</span><span>Realistisch aankomstuur</span><span>Ook &rsquo;s nachts en in het weekend</span><span>U beslist, geen verrassingen</span>'
+  zones = '<span>24/7 bereikbaar</span><span>Bel ons nu</span><span>Meteen antwoord</span><span>Vaste prijs vooraf</span><span>Realistisch aankomstuur</span><span>Ook &rsquo;s nachts en in het weekend</span><span>U beslist, geen verrassingen</span>'
   nav = @'
 <div class="strip" aria-hidden="true"><div class="strip-in">{{zones}}{{zones}}</div></div>
 <header class="site-header">
@@ -176,7 +172,7 @@ $L.nl = @{
       <a href="/contact/">Contact</a>
     </nav>
     <a class="lang" href="{{alt}}" hreflang="fr" lang="fr" title="Français">FR</a>
-    <a class="head-tel" href="{{tel}}">{{icon:phone}}<span><small>Bel ons</small>03 375 67 37</span></a><a class="head-call" href="{{wa}}">{{icon:brand-whatsapp}}<span><small>24/7 bereikbaar</small>WhatsApp</span></a>
+    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Bel ons 24/7</small>03 375 67 37</span></a>
     <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -186,9 +182,9 @@ $L.nl = @{
   <div class="wrap">
     <div>
       <h2>Nu pech&nbsp;?</h2>
-      <p>Stuur een WhatsApp met uw locatie. De takeldienst antwoordt zelf, in het Nederlands, met de prijs vóór vertrek.</p>
+      <p>Bel ons nu. U krijgt een vaste prijs en aankomsttijd, in het Nederlands, nog voor we vertrekken.</p>
     </div>
-    <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}Stuur een WhatsApp</a></div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Bel 03 375 67 37</a></div>
   </div>
 </section>
 '@
@@ -199,7 +195,7 @@ $L.nl = @{
       <div>
         <a class="brand brand-foot" href="/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>Takeldienst en pechverhelping 24/7 in Brussel en Vlaanderen.</p>
-        <p class="foot-tel"><a href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
+        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
       </div>
       <div>
         <h3>Diensten</h3>
@@ -238,7 +234,7 @@ $L.nl = @{
     </div>
   </div>
 </footer>
-<a class="mtel" href="{{tel}}">{{icon:phone}}Bel ons</a><a class="mcall" href="{{wa}}">{{icon:brand-whatsapp}}WhatsApp</a>
+<a class="mcall" href="{{tel}}">{{icon:phone}}Bel 03 375 67 37</a>
 '@
 }
 
@@ -309,14 +305,14 @@ $CT = @{}
 $CT.nl = @{
   prefix = '/takeldienst/'; prep = 'in'; tarifs = '/tarieven/'
   title = 'Takeldienst {0} 24/7 | Fast Dépannage'
-  descShort = 'Takeldienst {1}, dag en nacht. Ter plaatse of naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
-  desc = 'Takeldienst {1}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Stuur uw locatie via WhatsApp, vaste prijs vooraf.'
-  h1 = 'Takeldienst <em>{0}</em>'; btn = 'Stuur mijn locatie'
+  descShort = 'Takeldienst {1}, dag en nacht. Ter plaatse of naar uw garage. Bel ons voor een vaste prijs vooraf.'
+  desc = 'Takeldienst {1}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Bel ons voor een vaste prijs vooraf.'
+  h1 = 'Takeldienst <em>{0}</em>'; btn = 'Bel 03 375 67 37'
   know = 'Pech {1}: wat u moet weten'; area = 'Wijken en deelgemeenten'; areaR = 'Gemeenten'; around = 'Ook in deze dorpen'; roads = 'Wegen en plekken die we kennen'
   casesH = 'Typische pech {1}'; casesP = 'Situaties die we hier vaak tegenkomen, en wat u dan best doet.'
-  stepsH = 'Zo werkt het {1}'; stepsP = 'Van uw bericht tot de wagen bij de garage staat.'
+  stepsH = 'Zo werkt het {1}'; stepsP = 'Van uw telefoontje tot de wagen bij de garage staat.'
   steps = @(
-    @('U stuurt uw locatie', 'Deel uw live locatie via WhatsApp, met de wagen en wat er gebeurd is. Een foto helpt veel.'),
+    @('U belt ons', 'Zeg waar u staat, welke wagen het is en wat er gebeurd is.'),
     @('U krijgt prijs en uur', 'Een vaste prijs voor de opdracht en een realistisch aankomstuur. Dan beslist u.'),
     @('We komen ter plaatse', 'Herstelling ter plaatse als het kan, anders laden we de wagen op en brengen we hem waar u wilt.')
   )
@@ -328,13 +324,13 @@ $CT.nl = @{
     @('/bestelwagens-transport/', 'route', 'Bestelwagens', 'Bestelwagens tot 3,5 ton en gepland transport.')
   )
   priceH = 'Wat kost een takeldienst {1}?'
-  priceP = 'Elke interventie is anders, dus geven we geen "vanaf"-prijs. U krijgt een vaste prijs via WhatsApp, alles inbegrepen, voor de takelwagen vertrekt. Die prijs hangt af van:'
+  priceP = 'Elke interventie is anders, dus geven we geen "vanaf"-prijs. U krijgt een vaste prijs aan de telefoon, alles inbegrepen, voor de takelwagen vertrekt. Die prijs hangt af van:'
   priceL = @('de afstand tot bij u en de toegang tot de wagen', 'de bestemming: een garage in de buurt of verder weg', 'wat er mis is: starten met een booster kost minder dan takelen', 'het voertuig: auto, bestelwagen of lage wagen', 'het moment: dag, nacht, weekend of feestdag')
   priceA = 'Meer over onze tarieven'
   warn = '<b>Vraag altijd de totale prijs.</b> "Is dat alles inbegrepen, tot aan de garage?" Bij ons is het antwoord ja. Verandert er ter plaatse iets, dan krijgt u eerst de nieuwe prijs.'
   faqH = 'Veelgestelde vragen'
   qs = 'Hoe snel zijn jullie {1}?'
-  as = 'Dat hangt af van waar we op dat moment zijn en van het verkeer. We geven u in ons eerste antwoord een realistisch aankomstuur, en laten het weten als dat verandert.'
+  as = 'Dat hangt af van waar we op dat moment zijn en van het verkeer. We geven u aan de telefoon een realistisch aankomstuur, en laten het weten als dat verandert.'
   q2 = 'Mijn wagen staat {1}. Kan hij naar een garage elders?'
   a2 = 'Ja. Naar uw vaste garage, de dealer, uw huis of een andere stad in België. We spreken de prijs voor de hele rit af voor vertrek, en we praten met de garagist in het Nederlands of het Frans.'
   townsH = 'Takeldienst per gemeente {1}'; townsP = 'Kies uw gemeente voor wat u daar moet weten.'
@@ -343,14 +339,14 @@ $CT.nl = @{
 $CT.fr = @{
   prefix = '/fr/depannage/'; prep = 'à'; tarifs = '/fr/tarifs/'
   title = 'Dépannage {0} 24h/24 | Fast Dépannage'
-  descShort = 'Dépanneuse {1}, 24h/24. Sur place ou vers votre garage. Envoyez votre position sur WhatsApp, prix fixé à l''avance.'
-  desc = 'Dépanneuse {1}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Envoyez votre position sur WhatsApp, prix fixé avant le départ.'
-  h1 = 'Dépannage {2} <em>{0}</em>'; btn = 'Envoyer ma position'
+  descShort = 'Dépanneuse {1}, 24h/24. Sur place ou vers votre garage. Appelez-nous, prix fixé à l''avance.'
+  desc = 'Dépanneuse {1}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Appelez-nous, prix fixé avant le départ.'
+  h1 = 'Dépannage {2} <em>{0}</em>'; btn = 'Appeler le 03 375 67 37'
   know = 'En panne {1} : ce qu''il faut savoir'; area = 'Quartiers'; areaR = 'Communes'; around = 'Aussi dans ces villages'; roads = 'Routes et lieux qu''on connaît'
   casesH = 'Pannes typiques {1}'; casesP = 'Des situations qu''on rencontre souvent ici, et ce qu''il vaut mieux faire.'
-  stepsH = 'Comment ça se passe {1}'; stepsP = 'De votre message jusqu''à la voiture au garage.'
+  stepsH = 'Comment ça se passe {1}'; stepsP = 'De votre appel jusqu''à la voiture au garage.'
   steps = @(
-    @('Vous envoyez votre position', 'Partagez votre position en direct sur WhatsApp, avec la voiture et ce qui s''est passé. Une photo aide beaucoup.'),
+    @('Vous nous appelez', 'Dites-nous où vous êtes, quelle est la voiture et ce qui s''est passé.'),
     @('Vous recevez prix et heure', 'Un prix ferme pour la mission et une heure d''arrivée réaliste. Vous décidez.'),
     @('On intervient', 'Réparation sur place si c''est possible, sinon on charge la voiture et on la conduit où vous voulez.')
   )
@@ -362,13 +358,13 @@ $CT.fr = @{
     @('/fr/utilitaires-transport/', 'route', 'Camionnettes', 'Utilitaires jusqu''à 3,5 t et transport planifié.')
   )
   priceH = 'Combien coûte un dépannage {1} ?'
-  priceP = 'Chaque intervention est différente, alors on ne donne pas de prix « à partir de ». Vous recevez un prix ferme sur WhatsApp, tout compris, avant le départ du camion. Ce prix dépend :'
+  priceP = 'Chaque intervention est différente, alors on ne donne pas de prix « à partir de ». Vous recevez un prix ferme au téléphone, tout compris, avant le départ du camion. Ce prix dépend :'
   priceL = @('de la distance jusqu''à vous et de l''accès à la voiture', 'de la destination : un garage proche ou plus loin', 'de la panne : un démarrage au booster coûte moins qu''un remorquage', 'du véhicule : voiture, camionnette ou voiture basse', 'du moment : jour, nuit, week-end ou jour férié')
   priceA = 'En savoir plus sur nos tarifs'
   warn = '<b>Demandez toujours le prix total.</b> « Est-ce tout compris, jusqu''au garage ? » Chez nous, la réponse est oui. Si quelque chose change sur place, vous recevez d''abord le nouveau prix.'
   faqH = 'Questions fréquentes'
   qs = 'En combien de temps êtes-vous là {1} ?'
-  as = 'Cela dépend d''où on se trouve à ce moment et du trafic. On vous donne une heure d''arrivée réaliste dans notre première réponse, et on vous prévient si elle change.'
+  as = 'Cela dépend d''où on se trouve à ce moment et du trafic. On vous donne une heure d''arrivée réaliste au téléphone, et on vous prévient si elle change.'
   q2 = 'Ma voiture est en panne {1}, pouvez-vous l''emmener vers un garage ailleurs ?'
   a2 = 'Oui. Vers votre garage habituel, le concessionnaire, chez vous ou une autre ville de Belgique. Le prix du trajet complet est fixé avant le départ, et on parle au garagiste en français ou en néerlandais.'
   townsH = 'Dépannage par commune {1}'; townsP = 'Choisissez votre commune pour ce qu''il faut savoir sur place.'
@@ -412,7 +408,7 @@ foreach ($c in $cities) {
     <div class="crumbs">$crumbs$name</div>
     <h1>$(& $fmt $S.h1)</h1>
     <p class="lead">$(& $hx $d.intro)</p>
-    <div class="btns"><a class="btn btn-wa btn-lg" href="{{wa}}">{{icon:brand-whatsapp}}$($S.btn)</a></div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}$($S.btn)</a></div>
   </div>
 </section>
 $towns
@@ -537,7 +533,7 @@ foreach ($p in $all) {
   }
   # Service schema on town and region pages
   if ($meta.service) {
-    $ld += "`n" + '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"' + $meta.service[0] + '","name":"' + $meta.title.Split('|')[0].Trim() + '","url":"' + $url + '","provider":{"@id":"' + $site + '/#entreprise"},"areaServed":{"@type":"' + $meta.service[1] + '","name":"' + $meta.service[2] + '"},"availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://wa.me/' + $wa + '"}}</script>'
+    $ld += "`n" + '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"' + $meta.service[0] + '","name":"' + $meta.title.Split('|')[0].Trim() + '","url":"' + $url + '","provider":{"@id":"' + $site + '/#entreprise"},"areaServed":{"@type":"' + $meta.service[1] + '","name":"' + $meta.service[2] + '"},"availableChannel":{"@type":"ServiceChannel","servicePhone":{"@type":"ContactPoint","telephone":"+3233756737"}}}</script>'
   }
   # FAQ schema from <details class="faq"><summary>Q</summary><p>A</p></details>
   $faqs = [regex]::Matches($p.body, '<details class="faq">\s*<summary>([\s\S]*?)</summary>\s*<p>([\s\S]*?)</p>\s*</details>')
@@ -582,11 +578,8 @@ $ld
   if (-not $meta.nocta) { $html += $T.cta + "`n" }
   $html += $T.footer + "`n<script src=""/assets/site.js"" defer></script>`n</body>`n</html>`n"
 
-  $telTxt = if ($p.lang -eq 'nl') { 'Bel 03 375 67 37' } else { 'Appeler le 03 375 67 37' }
-  $html = [regex]::Replace($html, '(<a class="btn btn-wa btn-lg" href="{{wa}}">.*?</a>)', ('$1<a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}' + $telTxt + '</a>'))
   $html = $html.Replace('{{tel}}', 'tel:+3233756737')
-  $waUrl = 'https://wa.me/' + $wa + '?text=' + [uri]::EscapeDataString($T.waText)
-  $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt).Replace('href="{{wa}}"', 'href="' + $waUrl + '" target="_blank" rel="noopener"')
+  $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt)
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
   $html = [regex]::Replace($html, '\{\{cities:([a-z-]+)\}\}', { param($m) $cityList["$($p.lang)|$($m.Groups[1].Value)"] })
   if ($html -match '\{\{') { throw "$($p.lang)/$($p.key): unreplaced token" }

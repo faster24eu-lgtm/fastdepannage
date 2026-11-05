@@ -69,8 +69,6 @@ p{margin:0 0 1em}
 .btn .i{width:24px;height:24px}
 .btn-yellow,.btn-green{background:var(--green);color:var(--black)}
 .btn-yellow:hover,.btn-green:hover{background:#86e04f}
-.btn-wa{background:var(--green);color:var(--black)}
-.btn-wa:hover{background:#86e04f}
 .btn-line{background:rgba(255,255,255,.1);color:#fff}
 .btn-line:hover{background:#fff;color:var(--black)}
 .white .btn-line,.section:not(.dark) .btn-line{background:var(--black);color:#fff}
@@ -103,33 +101,15 @@ p{margin:0 0 1em}
 .crumbs a{color:#c6c8c3;text-decoration:none}
 
 
-/* whatsapp phone mockup */
-.phone{position:relative;width:min(360px,100%);margin:0 auto;background:#0f1110;border:10px solid #232623;border-radius:38px;box-shadow:0 40px 70px rgba(0,0,0,.55),0 0 0 1px #3a3d3a;overflow:hidden;transform:rotate(2.5deg)}
-.phone:before{content:"";position:absolute;top:8px;left:50%;width:84px;height:20px;background:#232623;border-radius:12px;transform:translateX(-50%);z-index:3}
-.chat-top{display:flex;align-items:center;gap:10px;background:#1f2c25;color:#fff;padding:36px 14px 12px}
-.chat-top .av{width:38px;height:38px;border-radius:50%;background:var(--green);color:var(--black);display:grid;place-items:center;font:italic 900 22px var(--head)}
-.chat-top b{display:block;font-size:15px}
-.chat-top small{display:block;font-size:12px;color:#9fd9a9}
-.chat{background:#0b1410 radial-gradient(circle at 20% 20%,rgba(111,209,58,.06),transparent 40%);padding:14px 12px 18px;display:flex;flex-direction:column;gap:8px;min-height:380px}
-.msg{max-width:84%;padding:8px 11px 16px;border-radius:10px;font-size:14px;line-height:1.38;position:relative;color:#e9ede9}
-.chat.armed>*{opacity:0}
-.chat.play>*{animation:pop .45s ease forwards;animation-fill-mode:both}
-.msg time{position:absolute;right:8px;bottom:3px;font-size:10px;color:#9aa69c}
-.msg.in{background:#1f2c25;align-self:flex-start;border-top-left-radius:2px}
-.msg.out{background:#145c35;align-self:flex-end;border-top-right-radius:2px}
-.msg.loc{padding:4px 4px 16px;width:200px}
-.map{height:92px;border-radius:7px;background:#cfe3c7;position:relative;overflow:hidden;background-image:linear-gradient(32deg,transparent 46%,#fff 46% 52%,transparent 52%),linear-gradient(-58deg,transparent 40%,#f6f6f0 40% 44%,transparent 44%),linear-gradient(90deg,transparent 70%,#e7efe2 70% 74%,transparent 74%)}
-.map:after{content:"";position:absolute;left:50%;top:44%;width:18px;height:18px;background:var(--red);border:3px solid #fff;border-radius:50% 50% 50% 0;transform:translate(-50%,-50%) rotate(-45deg);box-shadow:0 3px 6px rgba(0,0,0,.3)}
-.msg.loc span{display:block;padding:6px 6px 0;font-size:13px}
-.price-tag{display:inline-block;background:var(--green);color:var(--black);font:italic 800 17px/1 var(--head);padding:3px 8px;margin-top:4px;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%)}
-.typing{align-self:flex-start;background:#1f2c25;border-radius:10px;padding:10px 12px;display:flex;gap:4px}
-.typing i{width:6px;height:6px;border-radius:50%;background:#9aa69c;animation:dot 1s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-.chat.play>:nth-child(1){animation-delay:.3s}.chat.play>:nth-child(2){animation-delay:1s}.chat.play>:nth-child(3){animation-delay:1.8s}
-.chat.play>:nth-child(4){animation-delay:2.7s}.chat.play>:nth-child(5){animation-delay:3.5s}.chat.play>:nth-child(6){animation-delay:4.3s}
-@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes dot{0%,60%,100%{opacity:.3}30%{opacity:1}}
-.phone-note{text-align:center;font-size:13px;color:#7f837d;margin-top:22px}
+/* hero call card */
+.call-card{max-width:400px;margin:0 auto;padding:28px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(11,12,11,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#e6e8e4}
+.call-card small{display:block;font:italic 700 15px var(--head);text-transform:uppercase;letter-spacing:.12em;color:var(--green);margin-bottom:6px}
+.call-num{display:flex;align-items:center;gap:10px;font:italic 900 clamp(34px,4vw,44px)/1.05 var(--head);color:#fff;text-decoration:none;white-space:nowrap}
+.call-num .i{width:34px;height:34px;color:var(--green);flex:none}
+.call-num:hover{color:var(--green)}
+.call-list{list-style:none;margin:18px 0 0;padding:0;counter-reset:s}
+.call-list li{counter-increment:s;display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:16px}
+.call-list li:before{content:counter(s);flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--green);color:var(--black);font:italic 800 17px var(--head)}
 
 /* sections */
 .section{padding:76px 0}
@@ -234,7 +214,7 @@ details.faq p{padding:0 22px 20px;margin:0;color:var(--muted)}
 .cta-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .cta-band h2{margin:0 0 6px;color:var(--black)}
 .cta-band p{margin:0;max-width:620px;font-size:18px;color:#18300b;font-weight:500}
-.cta-band .btn-wa,.cta-band .btn-yellow{background:var(--black);color:#fff}
+.cta-band .btn-yellow{background:var(--black);color:#fff}
 .cta-band .btn .i{color:var(--green)}
 .cta-band .btn:hover{background:#222}
 
@@ -260,14 +240,12 @@ details.faq p{padding:0 22px 20px;margin:0;color:var(--muted)}
   .nav>a:after,.dd>button:before{display:none}
   .dd-menu{position:static;box-shadow:none;border:0;background:var(--char2);margin:6px 0}
   .menu-btn{display:grid;margin-left:auto}
-  .head-call{display:none}
   .lang{margin-left:auto}
   .lang+.head-call+.menu-btn,.lang~.menu-btn{margin-left:10px}
   .g4{grid-template-columns:repeat(2,1fr)}
   .g3{grid-template-columns:repeat(2,1fr)}
   .foot{grid-template-columns:1fr 1fr}
   .hero-grid{grid-template-columns:1fr}
-  .phone{transform:none}
 }
 @media (max-width:760px){
   body{font-size:16px;padding-bottom:66px}
@@ -347,22 +325,13 @@ h3{font-style:normal;font-weight:700;text-transform:none;font-size:26px;letter-s
 }
 @media (prefers-reduced-motion:reduce){.big span{animation:none}}
 
-/* call buttons */
-.head-tel{display:flex;align-items:center;gap:9px;color:#fff;text-decoration:none;padding:8px 16px;margin-right:8px;font:italic 800 21px/1 var(--head);text-transform:uppercase;white-space:nowrap}
-.head-tel small{display:block;font:italic 700 11px var(--head);letter-spacing:.12em;margin-bottom:2px;opacity:.7}
-.head-tel .i{width:24px;height:24px;color:var(--green)}
-.head-tel:hover{color:var(--green)}
-.btn-tel{background:#fff;color:var(--black)}
-.btn-tel:hover{background:var(--green);color:var(--black)}
-.white .btn-tel,.section:not(.dark) .btn-tel{background:var(--black);color:#fff}
-.white .btn-tel:hover,.section:not(.dark) .btn-tel:hover{background:var(--green);color:var(--black)}
-.cta-band .btn.btn-tel{background:#fff;color:var(--black)}
+/* call buttons: .btn.btn-tel so ".page-hero a{color:#fff}" can't turn the label white */
+.btn.btn-tel{background:var(--green);color:var(--black)}
+.btn.btn-tel:hover{background:#86e04f;color:var(--black)}
+.white .btn.btn-tel,.section:not(.dark) .btn.btn-tel,.cta-band .btn.btn-tel{background:var(--black);color:#fff}
+.white .btn.btn-tel:hover,.section:not(.dark) .btn.btn-tel:hover,.cta-band .btn.btn-tel:hover{background:#2a2d2a;color:#fff}
 .foot-tel{display:flex;flex-wrap:wrap;gap:8px 22px}
-.mtel{display:none}
-@media (max-width:1040px){.head-tel small{display:none}}
 @media (max-width:760px){
-  .head-tel{display:none}
-  .mcall{left:50%;font-size:20px}
-  .mtel{display:flex;align-items:center;justify-content:center;gap:10px;position:fixed;left:0;right:50%;bottom:0;z-index:200;min-height:62px;background:#fff;color:var(--black);font:italic 900 20px var(--head);text-transform:uppercase;text-decoration:none;border-top:3px solid var(--black);border-right:3px solid var(--black);padding-bottom:env(safe-area-inset-bottom)}
-  .mtel .i{width:24px;height:24px}
+  .head-call{display:none}
+  .call-num{font-size:34px}
 }
