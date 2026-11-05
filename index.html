@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="nl-BE">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963026341"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18517785509"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-10963026341');
+  gtag('config', 'AW-18517785509');
+  // Conversion "Call click VL (fastdepannage.com)": fires on every tap on a phone number, site-wide
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (!a) return;
+    gtag('event', 'conversion', {send_to: 'AW-18517785509/nzd8CMSY8bIdEKX3-_1E', transport_type: 'beacon'});
+  });
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=20261105">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost een takeldienst in Brussel?","acceptedAnswer":{"@type":"Answer","text":"De prijs hangt af van waar u staat, waar de wagen naartoe moet, het uur en het type voertuig. U krijgt een vaste prijs aan de telefoon, voor de takelwagen vertrekt. Op de pagina Tarieven leest u wat het bedrag bepaalt."}},{"@type":"Question","name":"Hoe snel zijn jullie er?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt af van de plaats en het verkeer. We geven u aan de telefoon een realistisch aankomstuur, in plaats van een belofte van \"15 minuten overal\" die geen enkele takelaar in Brussel tijdens de spits kan waarmaken."}},{"@type":"Question","name":"Ik ben aangesloten bij VAB of Touring, kan ik jullie toch bellen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Uw pechverhelping blijft de eerste stap als uw contract het dekt. Duurt het wachten te lang, bent u niet gedekt of wilt u zelf uw garage kiezen, dan kunt u ons rechtstreeks bellen. Bewaar de factuur: sommige contracten betalen terug op voorlegging."}},{"@type":"Question","name":"Hoe vind ik nu een takeldienst in de buurt?","acceptedAnswer":{"@type":"Answer","text":"Bel ons en zeg waar u staat. U krijgt meteen een aankomstuur en een prijs, en u beslist."}},{"@type":"Question","name":"Spreken jullie Frans?","acceptedAnswer":{"@type":"Answer","text":"Ja, elke dag. We werken in het Nederlands, het Frans en het Engels. Is uw garage in Brussel Franstalig, dan regelen wij het gesprek met de garagist."}},{"@type":"Question","name":"Waar brengen jullie de wagen naartoe?","acceptedAnswer":{"@type":"Answer","text":"Waar u wilt: uw vaste garage, de dealer van het merk, uw huis of een beveiligde parking als de garage 's nachts dicht is. Voor een lange afstand spreken we de prijs aan de telefoon af."}}]}</script>
 </head>
@@ -343,6 +349,6 @@
   </div>
 </footer>
 <a class="mcall" href="tel:+3233756737"><svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>Bel 03 375 67 37</a>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js?v=20261105" defer></script>
 </body>
 </html>

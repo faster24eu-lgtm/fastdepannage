@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="nl-BE">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963026341"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18517785509"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-10963026341');
+  gtag('config', 'AW-18517785509');
+  // Conversion "Call click VL (fastdepannage.com)": fires on every tap on a phone number, site-wide
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (!a) return;
+    gtag('event', 'conversion', {send_to: 'AW-18517785509/nzd8CMSY8bIdEKX3-_1E', transport_type: 'beacon'});
+  });
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=20261105">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fastdepannage.com/"},{"@type":"ListItem","position":2,"name":"Brussel","item":"https://fastdepannage.com/brussel/"},{"@type":"ListItem","position":3,"name":"Brussel-Stad","item":"https://fastdepannage.com/takeldienst/brussel-stad/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Takeldienst","name":"Takeldienst Brussel-Stad 24/7","url":"https://fastdepannage.com/takeldienst/brussel-stad/","provider":{"@id":"https://fastdepannage.com/#entreprise"},"areaServed":{"@type":"City","name":"Brussel-Stad"},"availableChannel":{"@type":"ServiceChannel","servicePhone":{"@type":"ContactPoint","telephone":"+3233756737"}}}</script>
@@ -227,6 +233,6 @@
   </div>
 </footer>
 <a class="mcall" href="tel:+3233756737"><svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>Bel 03 375 67 37</a>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js?v=20261105" defer></script>
 </body>
 </html>

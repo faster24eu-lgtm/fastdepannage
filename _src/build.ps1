@@ -244,12 +244,18 @@ $business = @'
 $business = $business.Replace('https://fastdepannage.com', $site)
 
 $ads = @'
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10963026341"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18517785509"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-10963026341');
+  gtag('config', 'AW-18517785509');
+  // Conversion "Call click VL (fastdepannage.com)": fires on every tap on a phone number, site-wide
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (!a) return;
+    gtag('event', 'conversion', {send_to: 'AW-18517785509/nzd8CMSY8bIdEKX3-_1E', transport_type: 'beacon'});
+  });
 </script>
 '@
 
@@ -567,7 +573,7 @@ $hreflang
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=20261105">
 $ld
 </head>
 <body>
@@ -576,7 +582,7 @@ $ld
 
   $html = $head + "`n" + $T.nav + "`n<main id=""contenu"">" + $p.body.Trim() + "`n</main>`n"
   if (-not $meta.nocta) { $html += $T.cta + "`n" }
-  $html += $T.footer + "`n<script src=""/assets/site.js"" defer></script>`n</body>`n</html>`n"
+  $html += $T.footer + "`n<script src=""/assets/site.js?v=20261105"" defer></script>`n</body>`n</html>`n"
 
   $html = $html.Replace('{{tel}}', 'tel:+3233756737')
   $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt)
