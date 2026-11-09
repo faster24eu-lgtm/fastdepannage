@@ -133,7 +133,7 @@ $L.fr = @{
     </div>
   </div>
 </footer>
-<a class="mcall" href="{{tel}}">{{icon:phone}}Appeler le 03 375 67 37</a>
+<div class="mbar"><a class="mcall" href="{{tel}}">{{icon:phone}}Appeler</a><a class="mwa" href="https://wa.me/3233756737?text=Bonjour%20Fast%20D%C3%A9pannage%2C%20j%E2%80%99ai%20besoin%20d%E2%80%99un%20d%C3%A9panneur.%0AMa%20position%20%3A%20%0AMa%20voiture%20%28marque/mod%C3%A8le%29%20%3A%20%0ACe%20qui%20s%E2%80%99est%20pass%C3%A9%20%3A%20" target="_blank" rel="noopener"><svg class="i" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp position</a></div>
 '@
 }
 $L.nl = @{
@@ -234,12 +234,12 @@ $L.nl = @{
     </div>
   </div>
 </footer>
-<a class="mcall" href="{{tel}}">{{icon:phone}}Bel 03 375 67 37</a>
+<div class="mbar"><a class="mcall" href="{{tel}}">{{icon:phone}}Bel</a><a class="mwa" href="https://wa.me/3233756737?text=Hallo%20Fast%20D%C3%A9pannage%2C%20ik%20heb%20een%20takeldienst%20nodig.%0AMijn%20locatie%3A%20%0AMijn%20wagen%20%28merk/model%29%3A%20%0AWat%20is%20er%20gebeurd%3A%20" target="_blank" rel="noopener"><svg class="i" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp locatie</a></div>
 '@
 }
 
 $business = @'
-{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}]}
+{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","telephone":"+3233756737","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}]}
 '@
 $business = $business.Replace('https://fastdepannage.com', $site)
 
@@ -573,7 +573,7 @@ $hreflang
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=20261105">
+<link rel="stylesheet" href="/assets/style.css?v=20261109">
 $ld
 </head>
 <body>
