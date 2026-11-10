@@ -1,7 +1,7 @@
-﻿# Builds the static site in two languages: Dutch at the root (_src/pages/*.html)
-# and French under /fr/ (_src/pages/fr/*.html). A French page is the translation of
-# the Dutch page with the same file name; the pair gets hreflang links and a
-# language switch. Writes <path>/index.html, sitemap.xml and robots.txt.
+﻿# Builds the static site in three languages: Dutch at the root (_src/pages/*.html),
+# French under /fr/ (_src/pages/fr/*.html) and English under /en/ (_src/pages/en/*.html).
+# A translated page has the same file name as the Dutch page; the set gets hreflang
+# links and language switches. Town pages exist in Dutch and French only. Writes <path>/index.html, sitemap.xml and robots.txt.
 # Run from PowerShell:  & .\_src\build.ps1   (keep this file UTF-8 with BOM)
 
 $ErrorActionPreference = 'Stop'
@@ -24,7 +24,7 @@ function Get-LastMod([string]$file) {
 
 # icons: {{icon:name}} -> inline svg
 $icons = @{}
-Get-ChildItem "$src\icons\*.svg" | ForEach-Object {
+Get-ChildItem "$src/icons/*.svg" | ForEach-Object {
   $svg = [IO.File]::ReadAllText($_.FullName, $utf8)
   $svg = $svg -replace '<!--[\s\S]*?-->', '' -replace '\s+', ' ' -replace '> <', '><'
   $svg = $svg -replace ' class="[^"]*"', '' -replace '<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', ''
@@ -36,6 +36,7 @@ Get-ChildItem "$src\icons\*.svg" | ForEach-Object {
 # ---------- per-language strings and templates ----------
 $L = @{}
 $L.fr = @{
+  name = 'Français'; hl = 'fr-BE'
   html = 'fr-BE'; og = 'fr_BE'; home = '/fr/'; homeName = 'Accueil'; skip = 'Aller au contenu'
   zones = '<span>24h/24 &middot; 7j/7</span><span>Appelez-nous</span><span>Réponse immédiate</span><span>Prix fixe annoncé d&rsquo;avance</span><span>Heure d&rsquo;arrivée réaliste</span><span>Aussi la nuit et le week-end</span><span>Vous décidez, sans surprise</span>'
   nav = @'
@@ -70,7 +71,7 @@ $L.fr = @{
       <a href="/fr/guides/">Guides</a>
       <a href="/fr/contact/">Contact</a>
     </nav>
-    <a class="lang" href="{{alt}}" hreflang="nl" lang="nl" title="Nederlands">NL</a>
+    {{langs}}
     <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Appelez-nous 24h/24</small>03 375 67 37</span></a>
     <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
@@ -124,7 +125,7 @@ $L.fr = @{
         <h3>Horaires</h3>
         <p>24h/24, 7 jours sur 7, week-end et jours fériés compris.</p>
         <p>On vous répond en français, en néerlandais et en anglais.</p>
-        <p><a href="/" hreflang="nl" lang="nl">Nederlandstalige versie</a></p>
+        <p><a href="/" hreflang="nl" lang="nl">Nederlandstalige versie</a> &middot; <a href="/en/" hreflang="en" lang="en">English version</a></p>
       </div>
     </div>
     <div class="foot-bottom">
@@ -137,6 +138,7 @@ $L.fr = @{
 '@
 }
 $L.nl = @{
+  name = 'Nederlands'; hl = 'nl-BE'
   html = 'nl-BE'; og = 'nl_BE'; home = '/'; homeName = 'Home'; skip = 'Naar de inhoud'
   zones = '<span>24/7 bereikbaar</span><span>Bel ons nu</span><span>Meteen antwoord</span><span>Vaste prijs vooraf</span><span>Realistisch aankomstuur</span><span>Ook &rsquo;s nachts en in het weekend</span><span>U beslist, geen verrassingen</span>'
   nav = @'
@@ -171,7 +173,7 @@ $L.nl = @{
       <a href="/gidsen/">Tips</a>
       <a href="/contact/">Contact</a>
     </nav>
-    <a class="lang" href="{{alt}}" hreflang="fr" lang="fr" title="Français">FR</a>
+    {{langs}}
     <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Bel ons 24/7</small>03 375 67 37</span></a>
     <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
@@ -225,7 +227,7 @@ $L.nl = @{
         <h3>Bereikbaarheid</h3>
         <p>24 uur op 24, 7 dagen op 7, ook in het weekend en op feestdagen.</p>
         <p>We antwoorden in het Nederlands, het Frans en het Engels.</p>
-        <p><a href="/fr/" hreflang="fr" lang="fr">Version française</a></p>
+        <p><a href="/fr/" hreflang="fr" lang="fr">Version française</a> &middot; <a href="/en/" hreflang="en" lang="en">English version</a></p>
       </div>
     </div>
     <div class="foot-bottom">
@@ -238,8 +240,109 @@ $L.nl = @{
 '@
 }
 
+$L.en = @{
+  name = 'English'; hl = 'en'
+  html = 'en'; og = 'en_GB'; home = '/en/'; homeName = 'Home'; skip = 'Skip to content'
+  zones = '<span>Available 24/7</span><span>Call us now</span><span>Answered straight away</span><span>Fixed price up front</span><span>Realistic arrival time</span><span>Nights and weekends too</span><span>You decide, no surprises</span>'
+  nav = @'
+<div class="strip" aria-hidden="true"><div class="strip-in">{{zones}}{{zones}}</div></div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/en/" aria-label="Fast Dépannage - home"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
+    <nav class="nav" aria-label="Main menu">
+      <div class="dd">
+        <button type="button" aria-expanded="false">Services</button>
+        <div class="dd-menu">
+          <a href="/en/towing/">Car towing</a>
+          <a href="/en/roadside-assistance/">Roadside assistance</a>
+          <a href="/en/motorway-breakdown/">Breakdown on the Ring or motorway</a>
+          <a href="/en/vans-transport/">Vans &amp; transport</a>
+        </div>
+      </div>
+      <div class="dd">
+        <button type="button" aria-expanded="false">Areas</button>
+        <div class="dd-menu">
+          <a href="/en/brussels/">Brussels (19 municipalities)</a>
+          <a href="/en/flemish-periphery/">Flemish periphery</a>
+          <a href="/en/antwerp/">Antwerp</a>
+          <a href="/en/ghent/">Ghent</a>
+          <a href="/en/bruges-coast/">Bruges &amp; the coast</a>
+          <a href="/takeldienst/leuven/" hreflang="nl" lang="nl">Leuven</a>
+          <a href="/takeldienst/mechelen/" hreflang="nl" lang="nl">Mechelen</a>
+          <a href="/en/rural-areas/">Rural areas</a>
+        </div>
+      </div>
+      <a href="/en/prices/">Prices</a>
+      <a href="/en/guides/">Guides</a>
+      <a href="/en/contact/">Contact</a>
+    </nav>
+    {{langs}}
+    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Call us 24/7</small>03 375 67 37</span></a>
+    <button class="menu-btn" type="button" aria-label="Open the menu" aria-expanded="false">{{icon:menu-2}}</button>
+  </div>
+</header>
+'@
+  cta = @'
+<section class="cta-band">
+  <div class="wrap">
+    <div>
+      <h2>Broken down right now?</h2>
+      <p>Call us now. You get a fixed price and an arrival time, in English, before we set off.</p>
+    </div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Call 03 375 67 37</a></div>
+  </div>
+</section>
+'@
+  footer = @'
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand brand-foot" href="/en/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
+        <p>24/7 towing and roadside assistance in Brussels and Flanders.</p>
+        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/en/towing/">Car towing</a></li>
+          <li><a href="/en/roadside-assistance/">Roadside assistance</a></li>
+          <li><a href="/en/motorway-breakdown/">Motorway breakdown</a></li>
+          <li><a href="/en/vans-transport/">Vans &amp; transport</a></li>
+          <li><a href="/en/prices/">Prices</a></li>
+          <li><a href="/en/guides/">Practical guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Areas</h3>
+        <ul>
+          <li><a href="/en/brussels/">Towing Brussels</a></li>
+          <li><a href="/en/flemish-periphery/">Flemish periphery</a></li>
+          <li><a href="/en/antwerp/">Towing Antwerp</a></li>
+          <li><a href="/en/ghent/">Towing Ghent</a></li>
+          <li><a href="/en/bruges-coast/">Bruges &amp; the coast</a></li>
+          <li><a href="/en/rural-areas/">Rural areas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Availability</h3>
+        <p>24 hours a day, 7 days a week, weekends and public holidays included.</p>
+        <p>We answer in English, French and Dutch.</p>
+        <p><a href="/" hreflang="nl" lang="nl">Nederlandstalige versie</a> &middot; <a href="/fr/" hreflang="fr" lang="fr">Version française</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="annee">2026</span> Fast Dépannage</span>
+      <span><a href="/en/contact/">Contact</a></span>
+    </div>
+  </div>
+</footer>
+<div class="mbar"><a class="mcall" href="{{tel}}">{{icon:phone}}Call</a><a class="mwa" href="https://wa.me/3233756737?text=Hello%20Fast%20D%C3%A9pannage%2C%20I%20need%20a%20tow%20truck.%0AMy%20location%3A%20%0AMy%20car%20%28make/model%29%3A%20%0AWhat%20happened%3A%20" target="_blank" rel="noopener"><svg class="i" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp location</a></div>
+'@
+}
+
 $business = @'
-{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","telephone":"+3233756737","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}]}
+{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}],"telephone":"+3233756737"}
 '@
 $business = $business.Replace('https://fastdepannage.com', $site)
 
@@ -275,18 +378,19 @@ function Read-Page($file, $lang) {
   [pscustomobject]@{ lang = $lang; key = $file.BaseName; file = $file.FullName; meta = $meta; body = $raw.Substring($m.Length) }
 }
 $all = @()
-Get-ChildItem "$src\pages\*.html" | ForEach-Object { $all += Read-Page $_ 'nl' }
-Get-ChildItem "$src\pages\fr\*.html" | ForEach-Object { $all += Read-Page $_ 'fr' }
+Get-ChildItem "$src/pages/*.html" | ForEach-Object { $all += Read-Page $_ 'nl' }
+Get-ChildItem "$src/pages/fr/*.html" | ForEach-Object { $all += Read-Page $_ 'fr' }
+Get-ChildItem "$src/pages/en/*.html" | ForEach-Object { $all += Read-Page $_ 'en' }
 # ---------- city and region pages from _src/cities.json and _src/regions.json ----------
 # cities-extra-*.json add per-city situations ("cases"), questions ("faq") and villages ("around").
-$cityFile = "$src\cities.json"
+$cityFile = "$src/cities.json"
 $cities = @()
 # towns-*.json: individual towns, with hub = the id of their region page
-foreach ($jf in @("$src\cities.json") + @(Get-ChildItem "$src\regions*.json", "$src\towns-*.json" | ForEach-Object { $_.FullName })) {
+foreach ($jf in @("$src/cities.json") + @(Get-ChildItem "$src/regions*.json", "$src/towns-*.json" | ForEach-Object { $_.FullName })) {
   $list = [IO.File]::ReadAllText($jf, $utf8) | ConvertFrom-Json
   foreach ($c in $list) { $c | Add-Member -NotePropertyName file -NotePropertyValue $jf -Force; $cities += $c }
 }
-foreach ($xf in Get-ChildItem "$src\cities-extra-*.json") {
+foreach ($xf in Get-ChildItem "$src/cities-extra-*.json") {
   $x = [IO.File]::ReadAllText($xf.FullName, $utf8) | ConvertFrom-Json
   foreach ($c in $cities) {
     $e = $x.($c.id)
@@ -301,7 +405,7 @@ $hubs = @{
   'kust'    = @{ nl = @('Brugge & de Kust', '/brugge-kust/'); fr = @('Bruges & la Côte', '/fr/bruges-cote/') }
 }
 $cityImgs = @(
-  @{ src = '/assets/img/depanneuse-double-chargement.jpg'; w = 1600; h = 1200; nl = 'Takelwagen met een wagen op het plateau en een bestelwagen erachter'; fr = 'Dépanneuse avec une voiture sur le plateau et une camionnette en remorque' },
+  @{ src = '/assets/img/depanneuse-double-chargement.jpg'; webp = '/assets/img/depanneuse-double-chargement'; w = 1200; h = 900; nl = 'Takelwagen met een wagen op het plateau en een bestelwagen erachter'; fr = 'Dépanneuse avec une voiture sur le plateau et une camionnette en remorque' },
   @{ src = '/assets/img/chargement-camionnette.jpg'; w = 1288; h = 966; nl = 'Bestelwagen die op een schuin plateau geladen wordt'; fr = 'Camionnette hissée sur un plateau incliné' },
   @{ src = '/assets/img/remorquage-porsche-plateau.jpg'; w = 1600; h = 1200; nl = 'Sportwagen met spanbanden over de wielen op een plateau'; fr = 'Voiture de sport sanglée par les roues sur un plateau' },
   @{ src = '/assets/img/intervention-atelier.jpg'; w = 1288; h = 966; nl = 'Pechverhelping aan een wagen'; fr = 'Intervention de dépannage sur une voiture' }
@@ -377,12 +481,17 @@ $CT.fr = @{
   near = 'Aussi dans les environs'; more = 'En savoir plus'
 }
 $byId = @{}; foreach ($c in $cities) { $byId[$c.id] = $c }
+$stubs = @(); $redir = @{}
+# link to a town page, or to the page it was merged into
+$cityHref = { param($n, $lang) if ($n.redirect) { $n.redirect } else { "$($CT[$lang].prefix)$($n.slug)/" } }
 $hx = { param($s) $s.Replace('&', '&amp;') }
 $i = 0
 foreach ($c in $cities) {
   $img = $cityImgs[$i % $cityImgs.Count]; $i++
   foreach ($lang in 'nl', 'fr') {
     $S = $CT[$lang]; $d = $c.$lang; $hm = $L[$lang].home
+    # merged town ("redirect" in the json): only a redirect stub, links point to the target
+    if ($d.redirect) { $stubs += @{ path = "$($S.prefix)$($d.slug)/"; to = $d.redirect; lang = $lang }; $redir["city-$($c.id)|$lang"] = $d.redirect; continue }
     $name = & $hx $d.name
     $prep = if ($d.prep) { $d.prep } else { $S.prep }
     $loc = "$prep $name"
@@ -403,10 +512,10 @@ foreach ($c in $cities) {
     $kids = @($cities | Where-Object { $_.hub -eq $c.id })
     $towns = ''
     if ($kids.Count) {
-      $tl = ($kids | ForEach-Object { $n = $_.$lang; "<a href=""$($S.prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
+      $tl = ($kids | ForEach-Object { $n = $_.$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
       $towns = "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$(& $fmt $S.townsH)</h2><p>$($S.townsP)</p></div>`n    <div class=""city-links"">$tl</div>`n  </div>`n</section>`n"
     }
-    $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$($S.prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
+    $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
     $body = @"
 
 <section class="page-hero">
@@ -430,7 +539,7 @@ $towns
       <ul class="chips">$roads</ul>
     </div>
     <figure class="photo">
-      <img src="$($img.src)" width="$($img.w)" height="$($img.h)" alt="$($img[$lang])" loading="lazy">
+      $(if ($img.webp) { "<img src=""$($img.webp)-1200.webp"" srcset=""$($img.webp)-800.webp 800w, $($img.webp)-1200.webp 1200w"" sizes=""(max-width:760px) 100vw, 50vw""" } else { "<img src=""$($img.src)""" }) width="$($img.w)" height="$($img.h)" alt="$($img[$lang])" loading="lazy">
     </figure>
   </div>
 </section>
@@ -499,10 +608,15 @@ $towns
 $cityList = @{}
 foreach ($lang in 'nl', 'fr') {
   foreach ($h in $hubs.Keys) {
-    $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h } | ForEach-Object { $n = $_.$lang; "<a href=""$($CT[$lang].prefix)$($n.slug)/""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
+    $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h } | ForEach-Object { $n = $_.$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
   }
   # {{cities:towns}} -> every town that sits under a region page, alphabetical, as compact links
-  $cityList["$lang|towns"] = '<ul class="chips chip-links">' + (($cities | Where-Object { $_.hub -and $byId[$_.hub] } | Sort-Object { $_.$lang.name } | ForEach-Object { $n = $_.$lang; "<li><a href=""$($CT[$lang].prefix)$($n.slug)/"">$(& $hx $n.name)</a></li>" }) -join '') + '</ul>'
+  $cityList["$lang|towns"] = '<ul class="chips chip-links">' + (($cities | Where-Object { $_.hub -and $byId[$_.hub] } | Sort-Object { $_.$lang.name } | ForEach-Object { $n = $_.$lang; "<li><a href=""$(& $cityHref $n $lang)"">$(& $hx $n.name)</a></li>" }) -join '') + '</ul>'
+}
+# English pages list the Dutch town pages (there are no English town pages); Brussels lists the French ones
+foreach ($k in @($cityList.Keys | Where-Object { $_ -like 'nl|*' })) {
+  $h = $k.Substring(3)
+  $cityList['en|' + $h] = if ($h -eq 'brussel') { $cityList['fr|brussel'].Replace('<a href="/fr/', '<a hreflang="fr" lang="fr" href="/fr/') } else { $cityList[$k].Replace('<a href="/takeldienst/', '<a hreflang="nl" lang="nl" href="/takeldienst/') }
 }
 
 $byKey = @{}
@@ -515,16 +629,24 @@ foreach ($p in $all) {
   $meta = $p.meta
   $path = $meta.path
   $url = $site + $path
-  $other = if ($p.lang -eq 'fr') { 'nl' } else { 'fr' }
-  $twin = $byKey[$p.key][$other]
-  $alt = if ($twin -and -not $twin.meta.noindex) { $twin.meta.path } else { $L[$other].home }
+  # language switch: the same page in the other languages, else that language's home page
+  $langs = ''
+  foreach ($o in 'nl', 'fr', 'en') {
+    if ($o -eq $p.lang) { continue }
+    $tw = $byKey[$p.key][$o]
+    $href = if ($tw -and -not $tw.meta.noindex) { $tw.meta.path } elseif ($redir["$($p.key)|$o"]) { $redir["$($p.key)|$o"] } else { $L[$o].home }
+    $langs += "<a class=""lang"" href=""$href"" hreflang=""$o"" lang=""$o"" title=""$($L[$o].name)"">$($o.ToUpper())</a>"
+  }
+  $langs = "<div class=""langs"">$langs</div>"
   $robots = if ($meta.noindex) { 'noindex' } else { 'index,follow' }
   $img = if ($meta.image) { $meta.image } else { '/assets/img/depanneuse-double-chargement.jpg' }
 
   $hreflang = ''
-  if ($twin -and -not $meta.noindex -and -not $twin.meta.noindex) {
-    $fr = $byKey[$p.key]['fr'].meta.path; $nl = $byKey[$p.key]['nl'].meta.path
-    $hreflang = "<link rel=""alternate"" hreflang=""fr-BE"" href=""$site$fr"">`n<link rel=""alternate"" hreflang=""nl-BE"" href=""$site$nl"">`n<link rel=""alternate"" hreflang=""x-default"" href=""$site$nl"">"
+  $set = @('fr', 'nl', 'en' | Where-Object { $byKey[$p.key][$_] -and -not $byKey[$p.key][$_].meta.noindex })
+  if (-not $meta.noindex -and $set.Count -gt 1) {
+    $hreflang = ($set | ForEach-Object { "<link rel=""alternate"" hreflang=""$($L[$_].hl)"" href=""$site$($byKey[$p.key][$_].meta.path)"">" }) -join "`n"
+    $def = if ($set -contains 'nl') { 'nl' } else { $set[0] }
+    $hreflang += "`n<link rel=""alternate"" hreflang=""x-default"" href=""$site$($byKey[$p.key][$def].meta.path)"">"
   }
 
   $ld = '<script type="application/ld+json">' + $business.Trim() + '</script>'
@@ -559,8 +681,7 @@ $ads
 <title>$(& $esc $meta.title)</title>
 <meta name="description" content="$(& $esc $meta.description)">
 <meta name="robots" content="$robots">
-<link rel="canonical" href="$url">
-$hreflang
+<link rel="canonical" href="$url">$(if ($hreflang) { "`n" + $hreflang })
 <meta property="og:type" content="website">
 <meta property="og:locale" content="$($T.og)">
 <meta property="og:site_name" content="Fast Dépannage">
@@ -573,7 +694,7 @@ $hreflang
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=20261109">
+<link rel="stylesheet" href="/assets/style.css?v=20261110">
 $ld
 </head>
 <body>
@@ -585,7 +706,7 @@ $ld
   $html += $T.footer + "`n<script src=""/assets/site.js?v=20261105"" defer></script>`n</body>`n</html>`n"
 
   $html = $html.Replace('{{tel}}', 'tel:+3233756737')
-  $html = $html.Replace('{{zones}}', $T.zones).Replace('{{alt}}', $alt)
+  $html = $html.Replace('{{zones}}', $T.zones).Replace('{{langs}}', $langs)
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
   $html = [regex]::Replace($html, '\{\{cities:([a-z-]+)\}\}', { param($m) $cityList["$($p.lang)|$($m.Groups[1].Value)"] })
   if ($html -match '\{\{') { throw "$($p.lang)/$($p.key): unreplaced token" }
@@ -602,6 +723,12 @@ $ld
   Write-Host "built $path"
 }
 
+foreach ($st in $stubs) {
+  $dir = Join-Path $root ($st.path.Trim('/')); New-Item -ItemType Directory -Force $dir | Out-Null
+  $msg = if ($st.lang -eq 'fr') { 'Cette page a été regroupée : <a href="' + $st.to + '">continuer</a>.' } else { 'Deze pagina is samengevoegd: <a href="' + $st.to + '">verder</a>.' }
+  $stub = "<!doctype html>`n<html lang=""$($L[$st.lang].html)"">`n<head>`n<meta charset=""utf-8"">`n<title>Fast Dépannage</title>`n<link rel=""canonical"" href=""$site$($st.to)"">`n<meta http-equiv=""refresh"" content=""0; url=$($st.to)"">`n</head>`n<body><p>$msg</p></body>`n</html>`n"
+  [IO.File]::WriteAllText((Join-Path $dir 'index.html'), $stub, $utf8)
+}
 $sm = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n"
 foreach ($s in ($sitemap | Sort-Object prio -Descending)) { $sm += "  <url><loc>$($s.url)</loc><lastmod>$($s.mod)</lastmod><priority>$($s.prio)</priority></url>`n" }
 $sm += '</urlset>' + "`n"

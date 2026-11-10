@@ -344,3 +344,15 @@ h3{font-style:normal;font-weight:700;text-transform:none;font-size:26px;letter-s
   .mbar .mwa{background:#25d366;color:#06210f}
   .mbar .i{width:24px;height:24px;flex:none}
 }
+
+/* language switch with two links (NL / FR / EN) */
+.langs{display:flex;gap:6px}
+@media (max-width:1040px){
+  .langs{margin-left:auto}
+  .langs .lang{margin-left:0}
+  .langs~.menu-btn{margin-left:10px}
+}
+@media (max-width:420px){
+  .langs{gap:4px}
+  .langs .lang{min-width:34px;padding:0 5px;font-size:15px}
+}
