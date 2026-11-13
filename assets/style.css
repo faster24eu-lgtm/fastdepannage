@@ -336,15 +336,6 @@ h3{font-style:normal;font-weight:700;text-transform:none;font-size:26px;letter-s
   .call-num{font-size:34px}
 }
 
-/* split sticky bar: call + WhatsApp (2026-11-09) */
-.mbar{display:none}
-@media (max-width:760px){
-  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:200;border-top:3px solid var(--black);background:var(--black);padding-bottom:env(safe-area-inset-bottom)}
-  .mbar .mcall,.mbar .mwa{position:static;flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:8px;min-height:62px;border:0;padding:0 8px;font:italic 900 20px var(--head);text-transform:uppercase;text-decoration:none}
-  .mbar .mwa{background:#25d366;color:#06210f}
-  .mbar .i{width:24px;height:24px;flex:none}
-}
-
 /* language switch with two links (NL / FR / EN) */
 .langs{display:flex;gap:6px}
 @media (max-width:1040px){

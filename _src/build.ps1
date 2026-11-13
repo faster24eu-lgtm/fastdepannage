@@ -134,7 +134,7 @@ $L.fr = @{
     </div>
   </div>
 </footer>
-<div class="mbar"><a class="mcall" href="{{tel}}">{{icon:phone}}Appeler</a><a class="mwa" href="https://wa.me/3233756737?text=Bonjour%20Fast%20D%C3%A9pannage%2C%20j%E2%80%99ai%20besoin%20d%E2%80%99un%20d%C3%A9panneur.%0AMa%20position%20%3A%20%0AMa%20voiture%20%28marque/mod%C3%A8le%29%20%3A%20%0ACe%20qui%20s%E2%80%99est%20pass%C3%A9%20%3A%20" target="_blank" rel="noopener"><svg class="i" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp position</a></div>
+<a class="mcall" href="{{tel}}">{{icon:phone}}Appeler 03 375 67 79</a>
 '@
 }
 $L.nl = @{
@@ -236,7 +236,7 @@ $L.nl = @{
     </div>
   </div>
 </footer>
-<div class="mbar"><a class="mcall" href="{{tel}}">{{icon:phone}}Bel</a><a class="mwa" href="https://wa.me/3233756737?text=Hallo%20Fast%20D%C3%A9pannage%2C%20ik%20heb%20een%20takeldienst%20nodig.%0AMijn%20locatie%3A%20%0AMijn%20wagen%20%28merk/model%29%3A%20%0AWat%20is%20er%20gebeurd%3A%20" target="_blank" rel="noopener"><svg class="i" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp locatie</a></div>
+<a class="mcall" href="{{tel}}">{{icon:phone}}Bel 03 375 67 79</a>
 '@
 }
 
@@ -337,7 +337,7 @@ $L.en = @{
     </div>
   </div>
 </footer>
-<div class="mbar"><a class="mcall" href="{{tel}}">{{icon:phone}}Call</a><a class="mwa" href="https://wa.me/3233756737?text=Hello%20Fast%20D%C3%A9pannage%2C%20I%20need%20a%20tow%20truck.%0AMy%20location%3A%20%0AMy%20car%20%28make/model%29%3A%20%0AWhat%20happened%3A%20" target="_blank" rel="noopener"><svg class="i" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp location</a></div>
+<a class="mcall" href="{{tel}}">{{icon:phone}}Call 03 375 67 79</a>
 '@
 }
 
@@ -694,7 +694,7 @@ $ads
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=20261110">
+<link rel="stylesheet" href="/assets/style.css?v=20261113">
 $ld
 </head>
 <body>
