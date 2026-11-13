@@ -72,7 +72,7 @@ $L.fr = @{
       <a href="/fr/contact/">Contact</a>
     </nav>
     {{langs}}
-    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Appelez-nous 24h/24</small>03 375 67 37</span></a>
+    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Appelez-nous 24h/24</small>03 375 67 79</span></a>
     <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -84,7 +84,7 @@ $L.fr = @{
       <h2>En panne maintenant&nbsp;?</h2>
       <p>Appelez-nous maintenant. Vous recevez un prix fixe et une heure d&rsquo;arrivée, en français, avant le départ.</p>
     </div>
-    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Appeler le 03 375 67 37</a></div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Appeler le 03 375 67 79</a></div>
   </div>
 </section>
 '@
@@ -95,7 +95,7 @@ $L.fr = @{
       <div>
         <a class="brand brand-foot" href="/fr/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>Dépannage et remorquage 24h/24 à Bruxelles et en Flandre.</p>
-        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
+        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 79</a></p>
       </div>
       <div>
         <h3>Services</h3>
@@ -174,7 +174,7 @@ $L.nl = @{
       <a href="/contact/">Contact</a>
     </nav>
     {{langs}}
-    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Bel ons 24/7</small>03 375 67 37</span></a>
+    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Bel ons 24/7</small>03 375 67 79</span></a>
     <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -186,7 +186,7 @@ $L.nl = @{
       <h2>Nu pech&nbsp;?</h2>
       <p>Bel ons nu. U krijgt een vaste prijs en aankomsttijd, in het Nederlands, nog voor we vertrekken.</p>
     </div>
-    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Bel 03 375 67 37</a></div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Bel 03 375 67 79</a></div>
   </div>
 </section>
 '@
@@ -197,7 +197,7 @@ $L.nl = @{
       <div>
         <a class="brand brand-foot" href="/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>Takeldienst en pechverhelping 24/7 in Brussel en Vlaanderen.</p>
-        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
+        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 79</a></p>
       </div>
       <div>
         <h3>Diensten</h3>
@@ -277,7 +277,7 @@ $L.en = @{
       <a href="/en/contact/">Contact</a>
     </nav>
     {{langs}}
-    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Call us 24/7</small>03 375 67 37</span></a>
+    <a class="head-call" href="{{tel}}">{{icon:phone}}<span><small>Call us 24/7</small>03 375 67 79</span></a>
     <button class="menu-btn" type="button" aria-label="Open the menu" aria-expanded="false">{{icon:menu-2}}</button>
   </div>
 </header>
@@ -289,7 +289,7 @@ $L.en = @{
       <h2>Broken down right now?</h2>
       <p>Call us now. You get a fixed price and an arrival time, in English, before we set off.</p>
     </div>
-    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Call 03 375 67 37</a></div>
+    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}Call 03 375 67 79</a></div>
   </div>
 </section>
 '@
@@ -300,7 +300,7 @@ $L.en = @{
       <div>
         <a class="brand brand-foot" href="/en/"><span class="brand-mark">F</span><span class="brand-txt">Fast<b>Dépannage</b></span></a>
         <p>24/7 towing and roadside assistance in Brussels and Flanders.</p>
-        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 37</a></p>
+        <p class="foot-tel"><a href="{{tel}}">{{icon:phone}}03 375 67 79</a></p>
       </div>
       <div>
         <h3>Services</h3>
@@ -342,7 +342,7 @@ $L.en = @{
 }
 
 $business = @'
-{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}],"telephone":"+3233756737"}
+{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}],"telephone":"+3233756779"}
 '@
 $business = $business.Replace('https://fastdepannage.com', $site)
 
@@ -417,7 +417,7 @@ $CT.nl = @{
   title = 'Takeldienst {0} 24/7 | Fast Dépannage'
   descShort = 'Takeldienst {1}, dag en nacht. Ter plaatse of naar uw garage. Bel ons voor een vaste prijs vooraf.'
   desc = 'Takeldienst {1}, dag en nacht. Pechverhelping ter plaatse of takelen naar uw garage. Bel ons voor een vaste prijs vooraf.'
-  h1 = 'Takeldienst <em>{0}</em>'; btn = 'Bel 03 375 67 37'
+  h1 = 'Takeldienst <em>{0}</em>'; btn = 'Bel 03 375 67 79'
   know = 'Pech {1}: wat u moet weten'; area = 'Wijken en deelgemeenten'; areaR = 'Gemeenten'; around = 'Ook in deze dorpen'; roads = 'Wegen en plekken die we kennen'
   casesH = 'Typische pech {1}'; casesP = 'Situaties die we hier vaak tegenkomen, en wat u dan best doet.'
   stepsH = 'Zo werkt het {1}'; stepsP = 'Van uw telefoontje tot de wagen bij de garage staat.'
@@ -451,7 +451,7 @@ $CT.fr = @{
   title = 'Dépannage {0} 24h/24 | Fast Dépannage'
   descShort = 'Dépanneuse {1}, 24h/24. Sur place ou vers votre garage. Appelez-nous, prix fixé à l''avance.'
   desc = 'Dépanneuse {1}, jour et nuit. Dépannage sur place ou remorquage vers votre garage. Appelez-nous, prix fixé avant le départ.'
-  h1 = 'Dépannage {2} <em>{0}</em>'; btn = 'Appeler le 03 375 67 37'
+  h1 = 'Dépannage {2} <em>{0}</em>'; btn = 'Appeler le 03 375 67 79'
   know = 'En panne {1} : ce qu''il faut savoir'; area = 'Quartiers'; areaR = 'Communes'; around = 'Aussi dans ces villages'; roads = 'Routes et lieux qu''on connaît'
   casesH = 'Pannes typiques {1}'; casesP = 'Des situations qu''on rencontre souvent ici, et ce qu''il vaut mieux faire.'
   stepsH = 'Comment ça se passe {1}'; stepsP = 'De votre appel jusqu''à la voiture au garage.'
@@ -661,7 +661,7 @@ foreach ($p in $all) {
   }
   # Service schema on town and region pages
   if ($meta.service) {
-    $ld += "`n" + '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"' + $meta.service[0] + '","name":"' + $meta.title.Split('|')[0].Trim() + '","url":"' + $url + '","provider":{"@id":"' + $site + '/#entreprise"},"areaServed":{"@type":"' + $meta.service[1] + '","name":"' + $meta.service[2] + '"},"availableChannel":{"@type":"ServiceChannel","servicePhone":{"@type":"ContactPoint","telephone":"+3233756737"}}}</script>'
+    $ld += "`n" + '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"' + $meta.service[0] + '","name":"' + $meta.title.Split('|')[0].Trim() + '","url":"' + $url + '","provider":{"@id":"' + $site + '/#entreprise"},"areaServed":{"@type":"' + $meta.service[1] + '","name":"' + $meta.service[2] + '"},"availableChannel":{"@type":"ServiceChannel","servicePhone":{"@type":"ContactPoint","telephone":"+3233756779"}}}</script>'
   }
   # FAQ schema from <details class="faq"><summary>Q</summary><p>A</p></details>
   $faqs = [regex]::Matches($p.body, '<details class="faq">\s*<summary>([\s\S]*?)</summary>\s*<p>([\s\S]*?)</p>\s*</details>')
@@ -705,7 +705,7 @@ $ld
   if (-not $meta.nocta) { $html += $T.cta + "`n" }
   $html += $T.footer + "`n<script src=""/assets/site.js?v=20261105"" defer></script>`n</body>`n</html>`n"
 
-  $html = $html.Replace('{{tel}}', 'tel:+3233756737')
+  $html = $html.Replace('{{tel}}', 'tel:+3233756779')
   $html = $html.Replace('{{zones}}', $T.zones).Replace('{{langs}}', $langs)
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
   $html = [regex]::Replace($html, '\{\{cities:([a-z-]+)\}\}', { param($m) $cityList["$($p.lang)|$($m.Groups[1].Value)"] })
