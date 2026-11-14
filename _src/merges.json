@@ -1,0 +1,554 @@
+{
+ "brussel-stad": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "In de Vijfhoek zijn veel straten voetgangerszone of eenrichting, dus geef ons de dichtste hoek waar een wagen kan stoppen. In Laken en Neder-Over-Heembeek gaat het vaak om pech na een evenement aan de Heizel of op de A12 richting Willebroek."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Dans le Pentagone, beaucoup de rues sont piétonnes ou à sens unique : donnez-nous le coin le plus proche où une voiture peut s'arrêter. À Laeken et Neder-Over-Heembeek, il s'agit souvent d'une panne après un événement au Heysel ou sur l'A12 vers Willebroek."
+  }
+ },
+ "anderlecht": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Rond de Bergensesteenweg en de kanaalzone in Kuregem staan veel bestelwagens die 's ochtends niet starten. Aan het Erasmusziekenhuis en Neerpede ligt de Ring dichtbij, handig om de wagen snel naar een garage buiten de stad te brengen."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Autour de la chaussée de Mons et de la zone du canal à Cureghem, pas mal de camionnettes refusent de démarrer le matin. Près de l'hôpital Érasme et de Neerpede, le Ring est tout proche pour rejoindre un garage hors de la ville."
+  }
+ },
+ "schaarbeek": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "In de smalle straten rond Helmet en het Josaphatpark staan wagens dicht op elkaar, dus duw ze niet zelf uit een parkeerplaats. Bij het Noordstation en op de Reyerslaan komt een panne in de spits snel in de file terecht."
+  }
+ },
+ "elsene": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Op de Louizalaan en aan Flagey is stilstaan op de rijbaan meteen een probleem voor tram en bus, zet de gevarenlichten aan en bel. In Matonge en de Universiteitswijk zijn de straten smal en vaak volgeparkeerd, een lage takelwagen komt er wel door."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Avenue Louise et place Flagey, une voiture arrêtée sur la chaussée bloque vite tram et bus : feux de détresse et appel immédiat. À Matonge et dans le quartier universitaire, les rues sont étroites et pleines, une dépanneuse basse passe quand même."
+  }
+ },
+ "sint-jans-molenbeek": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Langs het kanaal en de Gentsesteenweg is laden op straat soms krap, we zoeken dan samen een plek in een zijstraat. Bij het Karreveld en Brussel-West is de Leopold II-tunnel de snelste weg uit de stad."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Le long du canal et de la chaussée de Gand, la place pour charger est parfois comptée, on cherche alors une rue latérale avec vous. Du Karreveld et de Bruxelles-Ouest, le tunnel Léopold II est la sortie la plus rapide."
+  }
+ },
+ "etterbeek": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "In de Europese wijk en rond het Jubelpark ligt veel onder de grond: staat u in de tunnel, blijf dan in de nis en wacht op de tunnelploeg. In de woonstraten bij Merode en La Chasse is er weinig ruimte, geef ons uw huisnummer."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Dans le quartier européen et autour du Cinquantenaire, une bonne partie du trafic passe sous terre : en tunnel, restez dans la niche et attendez l'équipe du tunnel. Dans les rues résidentielles de Mérode et de La Chasse, donnez-nous le numéro de la maison."
+  }
+ },
+ "vorst": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Na een concert in Vorst-Nationaal start de wagen soms niet meer op de parking, waar iedereen tegelijk vertrekt. Aan het Bempt en de Neerstalsesteenweg ligt de Ring vlakbij, richting Halle of Ukkel."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Après un concert à Forest National, la voiture ne redémarre parfois plus sur le parking, quand tout le monde part en même temps. Du Bempt et de la chaussée de Neerstalle, le Ring est à deux pas, vers Hal ou Uccle."
+  }
+ },
+ "jette": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Rond het UZ Brussel is parkeren altijd krap en in de parkings onder het ziekenhuis is de doorrijhoogte beperkt. Op de Laarbeeklaan en bij het Koning Boudewijnpark gaat het vaker om een lekke band of een lege batterij."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Autour de l'UZ Brussel, le stationnement est toujours serré et les parkings souterrains ont une hauteur limitée. Avenue du Laerbeek et près du parc Roi Baudouin, c'est plus souvent un pneu crevé ou une batterie vide."
+  }
+ },
+ "evere": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Op de Leopold III-laan en de A201 naar de luchthaven rijdt het snel en is een stilstaande wagen gevaarlijk: achter de vangrail blijven. In Paduwa en Evere-Centrum zijn het meestal woonstraten met kleine bedrijfjes."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Sur le boulevard Léopold III et l'A201 vers l'aéroport, ça roule vite et une voiture à l'arrêt est dangereuse : restez derrière la glissière. À Paduwa et au centre d'Evere, ce sont surtout des rues résidentielles et des petites entreprises."
+  }
+ },
+ "sint-lambrechts-woluwe": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Op de Woluwelaan en bij de E40 aan Roodebeek staat het in de spits vaak vast. In de parkings van Woluwe Shopping kijken we vooraf naar de doorrijhoogte, sommige wagens moeten eerst naar buiten."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "Boulevard de la Woluwe et à l'entrée de l'E40 à Roodebeek, ça bouchonne aux heures de pointe. Dans les parkings de Woluwe Shopping, on vérifie d'abord la hauteur de passage : certaines voitures doivent d'abord sortir."
+  }
+ },
+ "sint-gillis": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Rond het Zuidstation en de Hallepoort is het druk en staan veel wagens dubbel, wij laden pas als de straat het toelaat. In de hellende straten bij de Voorplein en de Bareel slaat een oude batterij in de winter sneller af."
+  }
+ },
+ "oudergem": {
+  "nl": {
+   "to": "/brussel/",
+   "text": "Aan Herrmann-Debroux komt de E411 de stad in, en een panne op het viaduct of in de tunnel vraagt geduld en veiligheid. Op de Vorstlaan en de Waversesteenweg is het vaker een batterij of een band."
+  },
+  "fr": {
+   "to": "/fr/bruxelles/",
+   "text": "À Herrmann-Debroux, l'E411 entre en ville, et une panne sur le viaduc ou dans le tunnel demande patience et prudence. Boulevard du Souverain et chaussée de Wavre, c'est plutôt une batterie ou un pneu."
+  }
+ },
+ "zaventem": {
+  "nl": {
+   "to": "/vlaamse-rand/",
+   "text": "Rond Brussels Airport en de A201 gaan veel huurwagens en taxi's in panne, en in de parkings bepaalt de uitrit waar we kunnen laden. In Sterrebeek en Nossegem zijn het gewone woonwijken, vlak bij de E40."
+  },
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "Autour de Brussels Airport et de l'A201, beaucoup de voitures de location et de taxis tombent en panne, et dans les parkings, la sortie décide où on peut charger. Sterrebeek et Nossegem sont des quartiers résidentiels, juste à côté de l'E40."
+  }
+ },
+ "vilvoorde": {
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "Sur le viaduc de Vilvorde, le Ring n'a quasiment pas de bande d'arrêt d'urgence : feux de détresse, gilet et appel. Le long du canal maritime et à Koningslo, on charge souvent des camionnettes d'entreprises."
+  }
+ },
+ "dilbeek": {
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "À Grand-Bigard, l'E40 et le Ring se croisent et la circulation y est dense matin et soir. Vers Itterbeek et Schepdaal, la chaussée de Ninove mène vers des villages plus calmes où l'adresse précise compte."
+  }
+ },
+ "halle": {
+  "nl": {
+   "to": "/vlaamse-rand/",
+   "text": "Op de E19 aan Halle en op de Bergensesteenweg naar Lembeek gebeurt veel pech in het pendelverkeer. In Buizingen en Essenbeek zijn de straten rustiger, maar geef ons altijd de deelgemeente erbij."
+  },
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "Sur l'E19 à hauteur de Hal et sur la chaussée de Mons vers Lembeek, les pannes tombent surtout aux heures de navette. À Buizingen et Essenbeek, c'est plus calme, mais précisez toujours la section de commune."
+  }
+ },
+ "asse": {
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "La N9 traverse Asse jusqu'à Zellik et le Ring, et elle est chargée en semaine. Vers Mollem et Bekkerzeel, on est vite à la campagne, avec des routes peu éclairées le soir."
+  }
+ },
+ "grimbergen": {
+  "nl": {
+   "to": "/vlaamse-rand/",
+   "text": "Aan de A12 en de Ring bij Strombeek-Bever zit de pech vaak op weg naar Brussel. In Humbeek en Beigem gaat het meer om landelijke wegen langs het kanaal, met weinig verlichting 's avonds."
+  },
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "Sur l'A12 et le Ring à Strombeek-Bever, la panne arrive souvent sur la route de Bruxelles. À Humbeek et Beigem, ce sont des routes de campagne le long du canal, peu éclairées le soir."
+  }
+ },
+ "sint-genesius-rode": {
+  "nl": {
+   "to": "/vlaamse-rand/",
+   "text": "Op de N5 richting Waterloo en langs het Zoniënwoud zijn er weinig plekken om veilig te stoppen, zet de wagen zo ver mogelijk aan de kant. In de villawijken rond het centrum zijn de opritten soms steil."
+  },
+  "fr": {
+   "to": "/fr/peripherie-flamande/",
+   "text": "Sur la N5 vers Waterloo et le long de la forêt de Soignes, il y a peu d'endroits sûrs pour s'arrêter : rangez-vous le plus loin possible. Dans les quartiers de villas autour du centre, certaines allées sont en pente."
+  }
+ },
+ "mechelen": {
+  "fr": {
+   "to": "/fr/depannage/klein-brabant/",
+   "text": "À Malines, le centre historique a des rues piétonnes et une zone à accès limité : on charge à l'entrée la plus proche. Les sorties Mechelen-Noord et Mechelen-Zuid de l'E19 et le ring R12 sont les endroits où on intervient le plus."
+  }
+ },
+ "leuven": {
+  "fr": {
+   "to": "/fr/depannage/vallee-de-la-dyle/",
+   "text": "À Louvain, le ring R23 et les rues du centre sont pleines d'étudiants à vélo, et la zone piétonne empêche d'entrer partout. Autour de Gasthuisberg, à Heverlee et Kessel-Lo, ce sont surtout des parkings d'hôpital et des rues résidentielles."
+  }
+ },
+ "aalst": {
+  "fr": {
+   "to": "/fr/depannage/vallee-de-la-dendre/",
+   "text": "Alost a deux sorties sur l'E40, souvent bouchées aux heures de pointe. Pendant le carnaval, une partie du centre est fermée : donnez-nous la rue exacte, on cherche le point d'accès le plus proche."
+  }
+ },
+ "geraardsbergen": {
+  "nl": {
+   "to": "/takeldienst/denderstreek/",
+   "text": "Rond de Muur en in het hellende centrum staan wagens vaak schuin, wat het laden lastiger maakt. In Idegem en de andere deelgemeenten langs de Dender gaat het eerder om landwegen en oude batterijen."
+  },
+  "fr": {
+   "to": "/fr/depannage/vallee-de-la-dendre/",
+   "text": "Autour du Mur et dans le centre en pente de Grammont, les voitures sont souvent garées de travers, ce qui complique le chargement. À Idegem et dans les villages le long de la Dendre, ce sont plutôt des routes de campagne et des vieilles batteries."
+  }
+ },
+ "oudenaarde": {
+  "fr": {
+   "to": "/fr/depannage/ardennes-flamandes/",
+   "text": "Audenarde est au bord de l'Escaut, et les routes pavées des monts flandriens ne pardonnent pas à une voiture basse. La N60 vers Gand et Renaix est l'axe où on intervient le plus."
+  }
+ },
+ "ronse": {
+  "nl": {
+   "to": "/takeldienst/vlaamse-ardennen/",
+   "text": "Ronse ligt tegen de taalgrens en we praten hier vaak Frans met de garage. Op de heuvelwegen naar Kluisbergen en op de N60 richting Oudenaarde is er weinig plaats om stil te staan."
+  }
+ },
+ "zottegem": {
+  "fr": {
+   "to": "/fr/depannage/ardennes-flamandes/",
+   "text": "Zottegem est un nœud de petites routes entre Alost, Grammont et Audenarde, avec la N42 comme axe principal. Près de la gare, beaucoup de navetteurs retrouvent leur voiture en panne le soir."
+  }
+ },
+ "sint-niklaas": {
+  "fr": {
+   "to": "/fr/depannage/pays-de-waes/",
+   "text": "Saint-Nicolas a une sortie sur l'E17 et la N70 qui traverse la ville vers Anvers et Gand. Sur la grande place et dans le centre, le stationnement est réglementé : donnez-nous la rue de chargement."
+  }
+ },
+ "lokeren": {
+  "fr": {
+   "to": "/fr/depannage/pays-de-waes/",
+   "text": "Lokeren est sur l'E17 entre Gand et Anvers, et beaucoup de pannes arrivent à la sortie, dans le trafic de navette. À Daknam et Eksaarde, on est vite sur des routes de polder le long de la Durme."
+  }
+ },
+ "temse": {
+  "nl": {
+   "to": "/takeldienst/waasland/",
+   "text": "Op de Temsebrug over de Schelde is er geen pechstrook: gevarenlichten aan, fluohesje aan en meteen bellen. In Steendorp en Tielrode gaat het eerder om dijkwegen en smalle straten."
+  },
+  "fr": {
+   "to": "/fr/depannage/pays-de-waes/",
+   "text": "Sur le pont de Tamise au-dessus de l'Escaut, il n'y a pas de bande d'arrêt : feux de détresse, gilet et appel immédiat. À Steendorp et Tielrode, ce sont plutôt des routes de digue et des rues étroites."
+  }
+ },
+ "beveren": {
+  "nl": {
+   "to": "/takeldienst/waasland/",
+   "text": "In de Waaslandhaven, rond Kallo en Doel, rijden veel vrachtwagens en zijn de afstanden groot: geef de kaai of de bedrijfsnaam door. In Melsele en Haasdonk is de E34 de weg naar de Kennedytunnel en Antwerpen."
+  },
+  "fr": {
+   "to": "/fr/depannage/pays-de-waes/",
+   "text": "Dans le port du Waasland, autour de Kallo et de Doel, les distances sont grandes et les camions nombreux : donnez-nous le quai ou le nom de l'entreprise. À Melsele et Haasdonk, l'E34 mène vers le tunnel Kennedy et Anvers."
+  }
+ },
+ "hasselt": {
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "À Hasselt, le Groene Boulevard fait le tour du centre et plusieurs rues sont piétonnes : on se retrouve à l'entrée la plus proche. Les sorties Hasselt-Ouest et Hasselt-Est de l'E313 sont là où les navetteurs tombent le plus en panne."
+  }
+ },
+ "genk": {
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "À Genk, les anciennes cités minières de Waterschei et Winterslag ont des rues étroites, et les zones industrielles de Genk-Sud sont vastes. Sur l'E314, les sorties Genk-Ouest et Genk-Est concentrent les pannes."
+  }
+ },
+ "lommel": {
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "Lommel est au nord du Limbourg, près des Pays-Bas, avec de longues routes à travers les bois. Dans les zones Balendijk et Kristalpark, on charge surtout des camionnettes et des voitures de société."
+  }
+ },
+ "maasmechelen": {
+  "nl": {
+   "to": "/takeldienst/limburg/",
+   "text": "Rond Maasmechelen Village staat het in het weekend vol, en de grote parking maakt het vinden van de wagen niet makkelijk. Op de E314 naar de Nederlandse grens en in de dorpen langs de Maas zijn de afstanden groot."
+  },
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "Autour de Maasmechelen Village, c'est plein le week-end, et le grand parking complique la recherche de la voiture. Sur l'E314 vers la frontière néerlandaise et dans les villages le long de la Meuse, les distances sont longues."
+  }
+ },
+ "sint-truiden": {
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "Saint-Trond est au cœur de la Hesbaye, entre vergers et routes de campagne. Au printemps et à la récolte, les tracteurs ralentissent la N3 et la N80, ce qui allonge parfois l'arrivée."
+  }
+ },
+ "diepenbeek": {
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "Diepenbeek est entre Hasselt et Genk, avec le campus de l'UHasselt et beaucoup d'étudiants. Sur la N2 vers Bilzen et Maastricht, une panne en pleine heure de pointe bloque vite tout le monde."
+  }
+ },
+ "lanaken": {
+  "nl": {
+   "to": "/takeldienst/limburg/",
+   "text": "Lanaken ligt tegen Maastricht en veel ritten gaan over de grens, wat we vooraf afspreken. Langs het Albertkanaal en de Zuid-Willemsvaart in Kesselt en Smeermaas zijn de wegen smal."
+  },
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "Lanaken touche Maastricht et beaucoup de trajets passent la frontière, ce qu'on convient avant le départ. Le long du canal Albert et du Zuid-Willemsvaart, à Kesselt et Smeermaas, les routes sont étroites."
+  }
+ },
+ "heusden-zolder": {
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "À Heusden-Zolder, les jours de course au circuit, les routes autour sont saturées et l'accès prend plus de temps. La sortie de l'E314 et la N72 vers Hasselt sont les endroits d'intervention les plus fréquents."
+  }
+ },
+ "turnhout": {
+  "fr": {
+   "to": "/fr/depannage/campine/",
+   "text": "À Turnhout, le ring R13 et la sortie de l'E34 sont les points chauds, surtout aux heures de navette. Dans le centre, autour de la Grand-Place, le stationnement est serré et les rues commerçantes pleines."
+  }
+ },
+ "herentals": {
+  "fr": {
+   "to": "/fr/depannage/campine/",
+   "text": "Herentals a deux sorties sur l'E313 et le canal Albert juste à côté. Dans les zones Herentals-Ouest et Klein Gent, on charge souvent des camionnettes et des petits camions jusqu'à 3,5 t."
+  }
+ },
+ "geel": {
+  "fr": {
+   "to": "/fr/depannage/campine/",
+   "text": "Geel est sur l'E313 avec deux sorties et de grandes zones d'entreprises près du canal Albert. Dans les sections comme Bel, Larum ou Ten Aard, une adresse ne suffit pas toujours : décrivez aussi la route."
+  }
+ },
+ "brecht": {
+  "fr": {
+   "to": "/fr/depannage/campine/",
+   "text": "Brecht est sur l'E19 vers Breda, avec des sorties à Sint-Job et à Brecht. Beaucoup de pannes touchent des navetteurs vers Anvers ou les Pays-Bas, et des camionnettes près du canal."
+  }
+ },
+ "lier": {
+  "fr": {
+   "to": "/fr/depannage/campine/",
+   "text": "Lierre a un ring étroit autour du centre historique et des rues pavées où une voiture basse se charge avec précaution. Vers Koningshooikt et Lisp, on est vite à la campagne."
+  }
+ },
+ "nijlen": {
+  "nl": {
+   "to": "/takeldienst/kempen/",
+   "text": "Langs de N13 en het Netekanaal tussen Lier en Herentals zijn de afstanden kort, maar 's avonds is het er donker. In Kessel en Bevel brengen we de wagen meestal naar een garage in Lier of Nijlen zelf."
+  },
+  "fr": {
+   "to": "/fr/depannage/campine/",
+   "text": "Le long de la N13 et du canal de la Nèthe entre Lierre et Herentals, les distances sont courtes mais il fait noir le soir. À Kessel et Bevel, on emmène souvent la voiture vers un garage à Lierre ou à Nijlen."
+  }
+ },
+ "keerbergen": {
+  "nl": {
+   "to": "/takeldienst/mechelen/",
+   "text": "In de villawijken rond het meer en op de lange dreven naar Haacht is een adres niet altijd genoeg, beschrijf ook de weg. Meestal brengen we de wagen naar een garage in Mechelen of Bonheiden."
+  },
+  "fr": {
+   "to": "/fr/depannage/hageland/",
+   "text": "Dans les quartiers de villas autour du lac et sur les longues drèves vers Haacht, une adresse ne suffit pas toujours : décrivez aussi la route. On emmène souvent la voiture vers un garage à Malines ou Bonheiden."
+  }
+ },
+ "overijse": {
+  "nl": {
+   "to": "/takeldienst/dijleland/",
+   "text": "Aan Jezus-Eik komt de E411 uit het Zoniënwoud en in de bochten daar is stilstaan gevaarlijk. In de IJse-vallei naar Maleizen en Terlanen zijn de wegen smal en heuvelachtig."
+  },
+  "fr": {
+   "to": "/fr/depannage/vallee-de-la-dyle/",
+   "text": "À Jezus-Eik, l'E411 sort de la forêt de Soignes et ses virages rendent un arrêt dangereux. Dans la vallée de l'Ijse vers Maleizen et Terlanen, les routes sont étroites et vallonnées."
+  }
+ },
+ "dendermonde": {
+  "nl": {
+   "to": "/takeldienst/denderstreek/",
+   "text": "Op de brug over de Schelde en de N41 naar Sint-Niklaas loopt het verkeer snel vast. In deelgemeenten als Appels, Baasrode en Grembergen liggen veel dijkwegen waar een takelwagen moeilijk keert."
+  },
+  "fr": {
+   "to": "/fr/depannage/vallee-de-la-dendre/",
+   "text": "Sur le pont de l'Escaut et la N41 vers Saint-Nicolas, le trafic bloque vite. Dans des sections comme Appels, Baasrode ou Grembergen, il y a beaucoup de routes de digue où une dépanneuse a du mal à faire demi-tour."
+  }
+ },
+ "lede": {
+  "fr": {
+   "to": "/fr/depannage/vallee-de-la-dendre/",
+   "text": "Lede est entre Alost et Gand, à deux pas de la sortie Erpe-Mere de l'E40. À Impe, Oordegem et Wanzele, ce sont des routes de campagne et des rues de village calmes."
+  }
+ },
+ "kortrijk": {
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Courtrai a deux sorties sur l'E17 et le ring R8 qui fait le tour de la ville. Les quais de la Lys et le centre commerçant sont étroits, et on parle français ou néerlandais avec le garage selon vos préférences."
+  }
+ },
+ "roeselare": {
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Roulers est sur l'A17 entre Bruges et Courtrai, avec le ring R32 autour du centre. Dans les zones d'entreprises près du canal, on charge beaucoup de camionnettes de livraison."
+  }
+ },
+ "waregem": {
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Waregem a une sortie sur l'E17 et accueille l'hippodrome et le stade, qui créent des pics de trafic les jours d'événement. À Desselgem et Sint-Eloois-Vijve, on longe la Lys sur des routes plus calmes."
+  }
+ },
+ "izegem": {
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Izegem est entre Roulers et Harelbeke, le long du canal. La zone d'entreprises vers Ingelmunster et la N36 sont les endroits où on intervient le plus."
+  }
+ },
+ "oostkamp": {
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Oostkamp est juste au sud de Bruges, avec une sortie sur l'A17. À Ruddervoorde, Hertsberge et Waardamme, on est vite à la campagne, avec des routes boisées peu éclairées."
+  }
+ },
+ "middelkerke": {
+  "fr": {
+   "to": "/fr/bruges-cote/",
+   "text": "À Middelkerke et Westende, la digue et les rues proches sont bondées l'été, et on ne peut pas entrer partout. Vers Leffinge et Slijpe, ce sont des routes de polder sans éclairage."
+  }
+ },
+ "ieper": {
+  "fr": {
+   "to": "/fr/depannage/westhoek/",
+   "text": "Ypres a un centre historique avec la porte de Menin et beaucoup de cars de touristes. Sur l'A19 vers Courtrai et la N38 vers Poperinge, on intervient surtout pour des navetteurs."
+  }
+ },
+ "deurne": {
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "À Deurne, la Turnhoutsebaan est une longue rue commerçante où charger demande de la patience. Près de l'aéroport et du parc Rivierenhof, le Ring et l'échangeur Anvers-Est sont tout proches."
+  }
+ },
+ "hoboken": {
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "À Hoboken, la Kioskplaats et la Kapelstraat sont des rues animées avec du stationnement des deux côtés. L'A12 vers Boom et Bruxelles passe juste à côté, tout comme les quais de l'Escaut."
+  }
+ },
+ "wilrijk": {
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "À Wilrijk, l'A12 et le Ring se rejoignent et les campus de l'université attirent beaucoup de voitures. Autour du Bist et de Valaar, ce sont des rues résidentielles calmes."
+  }
+ },
+ "merksem": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Op de Bredabaan staan veel winkels en geparkeerde wagens, dus laden we soms in een zijstraat. Aan de afrit van de Ring en het Albertkanaal gaat het vaak om pech op weg naar de haven of Nederland."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "Sur la Bredabaan, il y a beaucoup de commerces et de voitures garées, on charge parfois dans une rue latérale. À la sortie du Ring et près du canal Albert, ce sont souvent des pannes en route vers le port ou les Pays-Bas."
+  }
+ },
+ "berchem": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Rond het station en de Driekoningenstraat is parkeren krap en in Zurenborg zijn de straten smal en mooi, maar druk. Op de Ring aan de afrit Berchem staat het in de spits bijna altijd vast."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "Autour de la gare et de la Driekoningenstraat, le stationnement est serré, et à Zurenborg les rues sont belles mais étroites. Sur le Ring à la sortie Berchem, ça bouchonne presque toujours aux heures de pointe."
+  }
+ },
+ "mortsel": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Op de Krijgslaan en de Liersesteenweg rijdt veel pendelverkeer en een panne daar zit meteen in de file. In de woonwijken rond Oude God en de Gevaertsite gaat het meestal om een batterij of een band."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "Sur la Krijgslaan et la Liersesteenweg, le trafic de navette est dense et une panne y crée vite un bouchon. Dans les quartiers autour d'Oude God et du site Gevaert, c'est surtout une batterie ou un pneu."
+  }
+ },
+ "edegem": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Aan het UZA is de parking groot en druk, geef ons de zone en de verdieping. Op de Prins Boudewijnlaan en de Kontichsesteenweg is het eerder pendelpech richting Antwerpen."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "À l'hôpital UZA, le parking est grand et chargé : donnez-nous la zone et l'étage. Sur la Prins Boudewijnlaan et la Kontichsesteenweg, ce sont plutôt des pannes de navetteurs vers Anvers."
+  }
+ },
+ "kontich": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Aan de afrit Kontich van de E19 en in de bedrijvenzone Satenrozen staan veel bedrijfswagens en bestelwagens. In Waarloos en rond het station Kontich-Lint gaat het om woonstraten en landelijke wegen."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "À la sortie Kontich de l'E19 et dans la zone Satenrozen, il y a beaucoup de voitures de société et de camionnettes. À Waarloos et autour de la gare de Kontich-Lint, ce sont des rues résidentielles et des routes de campagne."
+  }
+ },
+ "boom": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Rond de Rupelbrug en op de A12 loopt het verkeer vaak vast, en een panne op de brug vraagt extra voorzichtigheid. Bij De Schorre en de oude kleiputten staan wagens na een festival of een dagje uit soms stil op een zachte parking."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "Autour du pont du Rupel et sur l'A12, le trafic bloque souvent, et une panne sur le pont demande une prudence particulière. Près de De Schorre, après un festival ou une journée de loisirs, des voitures restent parfois coincées sur un parking mou."
+  }
+ },
+ "hemiksem": {
+  "nl": {
+   "to": "/antwerpen/",
+   "text": "Langs de Sint-Bernardsesteenweg en de Scheldeoever zijn de straten smal en de wagen staat er vaak tegen een stoeprand. Naar Antwerpen gaat het via de A12 of langs de Schelde naar Hoboken."
+  },
+  "fr": {
+   "to": "/fr/anvers/",
+   "text": "Le long de la Sint-Bernardsesteenweg et des rives de l'Escaut, les rues sont étroites et la voiture est souvent collée au trottoir. Vers Anvers, on passe par l'A12 ou par les quais vers Hoboken."
+  }
+ },
+ "oostende": {
+  "fr": {
+   "to": "/fr/bruges-cote/",
+   "text": "Ostende est le terminus de l'E40, et en été la digue et le centre sont bondés de vacanciers. Autour du port et de l'aéroport, on charge aussi des camionnettes et des voitures de location."
+  }
+ },
+ "blankenberge": {
+  "nl": {
+   "to": "/brugge-kust/",
+   "text": "In de zomer zijn de Zeedijk en het centrum vol en mogen we niet overal binnen, dus spreken we af aan een zijstraat. Op de N371 naar Brugge en rond de jachthaven gaat het meer om gewone pendel- en vakantiepech."
+  },
+  "fr": {
+   "to": "/fr/bruges-cote/",
+   "text": "En été, la digue et le centre de Blankenberge sont pleins et on ne peut pas entrer partout : on se retrouve dans une rue latérale. Sur la N371 vers Bruges et près du port de plaisance, ce sont des pannes de vacances et de navette."
+  }
+ },
+ "torhout": {
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Torhout est sur l'A17 avec une sortie, et la N32 qui file vers Bruges et Roulers. Autour du château de Wijnendale, les routes boisées sont sombres le soir."
+  }
+ },
+ "tielt": {
+  "nl": {
+   "to": "/takeldienst/west-vlaanderen/",
+   "text": "Op de N37 naar de E40 aan Aalter en de N382 naar Waregem zijn de afstanden langer dan men denkt. In Aarsele en Kanegem gaat het om landwegen, in de bedrijvenzones om bestelwagens."
+  },
+  "fr": {
+   "to": "/fr/depannage/flandre-occidentale/",
+   "text": "Sur la N37 vers l'E40 à Aalter et la N382 vers Waregem, les distances sont plus longues qu'on ne pense. À Aarsele et Kanegem, ce sont des routes de campagne ; dans les zones d'entreprises, des camionnettes."
+  }
+ },
+ "kinrooi": {
+  "nl": {
+   "to": "/takeldienst/limburg/",
+   "text": "Kinrooi ligt tegen de Maas en de Nederlandse grens, en veel mensen rijden van hier naar Weert of Thorn. Op de dijkwegen rond Kessenich en de Maasplassen is er weinig plek om veilig te stoppen."
+  },
+  "fr": {
+   "to": "/fr/depannage/limbourg/",
+   "text": "Kinrooi est contre la Meuse et la frontière néerlandaise, et beaucoup de gens roulent d'ici vers Weert ou Thorn. Sur les routes de digue autour de Kessenich et des lacs de la Meuse, il y a peu d'endroits sûrs pour s'arrêter."
+  }
+ }
+}

@@ -62,8 +62,8 @@ $L.fr = @{
           <a href="/fr/anvers/">Anvers</a>
           <a href="/fr/gand/">Gand</a>
           <a href="/fr/bruges-cote/">Bruges &amp; la Côte</a>
-          <a href="/fr/depannage/louvain/">Louvain</a>
-          <a href="/fr/depannage/malines/">Malines</a>
+          <a href="/fr/depannage/vallee-de-la-dyle/">Louvain et vallée de la Dyle</a>
+          <a href="/fr/depannage/klein-brabant/">Malines et Klein-Brabant</a>
           <a href="/fr/zones-rurales/">Zones rurales</a>
         </div>
       </div>
@@ -116,8 +116,8 @@ $L.fr = @{
           <li><a href="/fr/anvers/">Dépannage Anvers</a></li>
           <li><a href="/fr/gand/">Dépannage Gand</a></li>
           <li><a href="/fr/bruges-cote/">Bruges &amp; la Côte</a></li>
-          <li><a href="/fr/depannage/louvain/">Dépannage Louvain</a></li>
-          <li><a href="/fr/depannage/malines/">Dépannage Malines</a></li>
+          <li><a href="/fr/depannage/vallee-de-la-dyle/">Louvain et vallée de la Dyle</a></li>
+          <li><a href="/fr/depannage/klein-brabant/">Malines et Klein-Brabant</a></li>
           <li><a href="/fr/zones-rurales/">Zones rurales</a></li>
         </ul>
       </div>
@@ -445,6 +445,7 @@ $CT.nl = @{
   a2 = 'Ja. Naar uw vaste garage, de dealer, uw huis of een andere stad in België. We spreken de prijs voor de hele rit af voor vertrek, en we praten met de garagist in het Nederlands of het Frans.'
   townsH = 'Takeldienst per gemeente {1}'; townsP = 'Kies uw gemeente voor wat u daar moet weten.'
   near = 'Ook in de buurt'; more = 'Meer info'
+  regionNote = 'Hoe de prijs tot stand komt, leest u bij onze <a href="/tarieven/">tarieven</a>. Vaak start de wagen weer met <a href="/pechverhelping/">pechverhelping ter plaatse</a>.'
 }
 $CT.fr = @{
   prefix = '/fr/depannage/'; prep = 'à'; tarifs = '/fr/tarifs/'
@@ -479,8 +480,32 @@ $CT.fr = @{
   a2 = 'Oui. Vers votre garage habituel, le concessionnaire, chez vous ou une autre ville de Belgique. Le prix du trajet complet est fixé avant le départ, et on parle au garagiste en français ou en néerlandais.'
   townsH = 'Dépannage par commune {1}'; townsP = 'Choisissez votre commune pour ce qu''il faut savoir sur place.'
   near = 'Aussi dans les environs'; more = 'En savoir plus'
+  regionNote = 'Comment le prix est fixé : voir nos <a href="/fr/tarifs/">tarifs</a>. Souvent, la voiture repart grâce au <a href="/fr/depannage-sur-place/">dépannage sur place</a>.'
 }
 $byId = @{}; foreach ($c in $cities) { $byId[$c.id] = $c }
+# _src/merges.json: town pages merged into a region/hub page (November 2026 clean-up).
+# { "<id>": { "nl": { "to": "/path/", "text": "1-2 sentences shown on the target page" }, "fr": {...} } }
+$merges = [IO.File]::ReadAllText("$src/merges.json", $utf8) | ConvertFrom-Json
+foreach ($pr in $merges.PSObject.Properties) {
+  $c = $byId[$pr.Name]; if (-not $c) { throw "merges.json: unknown town $($pr.Name)" }
+  foreach ($lang in 'nl', 'fr') {
+    $m = $pr.Value.$lang; if (-not $m) { continue }
+    if (-not $m.text) { throw "merges.json: $($pr.Name)/$lang has no text" }
+    $c.$lang | Add-Member -NotePropertyName redirect -NotePropertyValue $m.to -Force
+    $c.$lang | Add-Member -NotePropertyName blurb -NotePropertyValue $m.text -Force
+  }
+}
+# merged towns per target page: "<lang>|<path>" -> section with one short paragraph per town
+$mergedOn = @{}
+foreach ($c in $cities) { foreach ($lang in 'nl', 'fr') { $d = $c.$lang; if ($d.redirect -and $d.blurb) { $k = "$lang|$($d.redirect)"; if (-not $mergedOn[$k]) { $mergedOn[$k] = @() }; $mergedOn[$k] += , @($d.name, $d.blurb) } } }
+$mergedH = @{ nl = 'Gemeenten en dorpen'; fr = 'Communes et villages' }
+$mergedP = @{ nl = 'Hier rijden we ook geregeld. Per gemeente kort wat u er moet weten.'; fr = 'On y passe aussi régulièrement. Par commune, l''essentiel en deux lignes.' }
+$mergedHtml = {
+  param($lang, $path)
+  $list = $mergedOn["$lang|$path"]; if (-not $list) { return '' }
+  $items = ($list | Sort-Object { $_[0] } | ForEach-Object { "<p><strong>$($_[0].Replace('&', '&amp;'))</strong> &ndash; $($_[1].Replace('&', '&amp;'))</p>" }) -join "`n      "
+  "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$($mergedH[$lang])</h2></div>`n    <div class=""prose"">`n      $items`n    </div>`n  </div>`n</section>`n"
+}
 $stubs = @(); $redir = @{}
 # link to a town page, or to the page it was merged into
 $cityHref = { param($n, $lang) if ($n.redirect) { $n.redirect } else { "$($CT[$lang].prefix)$($n.slug)/" } }
@@ -499,33 +524,35 @@ foreach ($c in $cities) {
     $crumbs = "<a href=""$hm"">$($L[$lang].homeName)</a> / "
     if ($hubs[$c.hub]) { $hub = $hubs[$c.hub][$lang]; $crumbs += "<a href=""$($hub[1])"">$(& $hx $hub[0])</a> / " }
     elseif ($c.hub) { $r = $byId[$c.hub].$lang; $crumbs += "<a href=""$($S.prefix)$($r.slug)/"">$(& $hx $r.name)</a> / " }
-    $local = ($d.local | ForEach-Object { '<p>' + (& $hx $_) + '</p>' }) -join "`n      "
-    $roads = ($c.roads | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join ''
-    $around = if ($d.around) { "<h3>$($S.around)</h3>`n      <ul class=""chips"">" + (($d.around | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join '') + '</ul>' } else { '' }
-    $areaH = if ($c.hub -eq 'streken') { $S.areaR } else { $S.area }
-    $cases = ($d.cases | ForEach-Object { "<div class=""card""><span class=""ic"">{{icon:$($_[0])}}</span><h3>$(& $hx $_[1])</h3><p>$(& $hx $_[2])</p></div>" }) -join "`n      "
-    $steps = ($S.steps | ForEach-Object { "<div class=""step""><h3>$($_[0])</h3><p>$($_[1])</p></div>" }) -join "`n      "
-    $cards = ($S.cards | ForEach-Object { "<a class=""card card-link"" href=""$($_[0])""><span class=""ic"">{{icon:$($_[1])}}</span><h3>$($_[2])</h3><p>$(& $hx $_[3])</p><span class=""more"">$($S.more) {{icon:arrow-right}}</span></a>" }) -join "`n      "
-    $price = ($S.priceL | ForEach-Object { "<li>$_</li>" }) -join ''
-    $faq = @($d.faq | ForEach-Object { , @((& $hx $_[0]), (& $hx $_[1])) }) + , @((& $fmt $S.qs), $S.as) + , @((& $fmt $S.q2), $S.a2)
-    $faqs = ($faq | ForEach-Object { "<details class=""faq"">`n        <summary>$($_[0])</summary>`n        <p>$($_[1])</p>`n      </details>" }) -join "`n      "
-    $kids = @($cities | Where-Object { $_.hub -eq $c.id })
-    $towns = ''
-    if ($kids.Count) {
-      $tl = ($kids | ForEach-Object { $n = $_.$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
-      $towns = "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$(& $fmt $S.townsH)</h2><p>$($S.townsP)</p></div>`n    <div class=""city-links"">$tl</div>`n  </div>`n</section>`n"
-    }
-    $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join ''
-    $body = @"
-
-<section class="page-hero">
-  <div class="wrap">
-    <div class="crumbs">$crumbs$name</div>
-    <h1>$(& $fmt $S.h1)</h1>
-    <p class="lead">$(& $hx $d.intro)</p>
-    <div class="btns"><a class="btn btn-tel btn-lg" href="{{tel}}">{{icon:phone}}$($S.btn)</a></div>
-  </div>
-</section>
+    $path = "$($S.prefix)$($d.slug)/"
+    if ($img.webp) { $imgTag = '<img src="' + $img.webp + '-1200.webp" srcset="' + $img.webp + '-800.webp 800w, ' + $img.webp + '-1200.webp 1200w" sizes="(max-width:760px) 100vw, 50vw"' } else { $imgTag = '<img src="' + $img.src + '"' }
+    $photo = '<figure class="photo">' + "`n      " + $imgTag + ' width="' + $img.w + '" height="' + $img.h + '" alt="' + $img[$lang] + '" loading="lazy">' + "`n    </figure>"
+    $h1 = & $fmt $S.h1
+    $hero = { param($lead) "`n<section class=`"page-hero`">`n  <div class=`"wrap`">`n    <div class=`"crumbs`">$crumbs$name</div>`n    <h1>$h1</h1>`n    <p class=`"lead`">$lead</p>`n    <div class=`"btns`"><a class=`"btn btn-tel btn-lg`" href=`"{{tel}}`">{{icon:phone}}$($S.btn)</a></div>`n  </div>`n</section>`n" }
+    # hand-written town page: _src/custom/<lang>/<slug>.html = "lead: <text>", a line "---", then the sections.
+    # {{photo}} in it becomes the page's photo. No shared template text on these pages.
+    $cf = Join-Path $src "custom/$lang/$($d.slug).html"
+    if (Test-Path $cf) {
+      $raw = [IO.File]::ReadAllText($cf, $utf8)
+      $cm2 = [regex]::Match($raw, '^\s*lead:\s*(.+?)\r?\n---\r?\n([\s\S]*)$')
+      if (-not $cm2.Success) { throw "$cf : expected 'lead: ...' then '---'" }
+      $body = (& $hero $cm2.Groups[1].Value.Trim()) + $cm2.Groups[2].Value.Replace('{{photo}}', $photo)
+    } else {
+      # region page (no hand-written file): only its own data, no shared template blocks
+      $local = ($d.local | ForEach-Object { '<p>' + (& $hx $_) + '</p>' }) -join "`n      "
+      $roads = ($c.roads | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join ''
+      $around = if ($d.around) { "<h3>$($S.around)</h3>`n      <ul class=""chips"">" + (($d.around | ForEach-Object { '<li>' + (& $hx $_) + '</li>' }) -join '') + '</ul>' } else { '' }
+      $areaH = if ($c.hub -eq 'streken') { $S.areaR } else { $S.area }
+      $cases = ($d.cases | ForEach-Object { "<div class=""card""><span class=""ic"">{{icon:$($_[0])}}</span><h3>$(& $hx $_[1])</h3><p>$(& $hx $_[2])</p></div>" }) -join "`n      "
+      $faqs = ($d.faq | ForEach-Object { "<details class=""faq"">`n        <summary>$(& $hx $_[0])</summary>`n        <p>$(& $hx $_[1])</p>`n      </details>" }) -join "`n      "
+      $kids = @($cities | Where-Object { $_.hub -eq $c.id -and -not $_.$lang.redirect })
+      $towns = ''
+      if ($kids.Count) {
+        $tl = ($kids | ForEach-Object { $n = $_.$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong></a>" }) -join ''
+        $towns = "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$(& $fmt $S.townsH)</h2></div>`n    <div class=""city-links"">$tl</div>`n  </div>`n</section>`n"
+      }
+      $near = ($c.near | ForEach-Object { $n = $byId[$_].$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong></a>" }) -join ''
+      $body = (& $hero (& $hx $d.intro)) + @"
 $towns
 <section class="section white">
   <div class="wrap split">
@@ -538,62 +565,32 @@ $towns
       <h3>$($S.roads)</h3>
       <ul class="chips">$roads</ul>
     </div>
-    <figure class="photo">
-      $(if ($img.webp) { "<img src=""$($img.webp)-1200.webp"" srcset=""$($img.webp)-800.webp 800w, $($img.webp)-1200.webp 1200w"" sizes=""(max-width:760px) 100vw, 50vw""" } else { "<img src=""$($img.src)""" }) width="$($img.w)" height="$($img.h)" alt="$($img[$lang])" loading="lazy">
-    </figure>
+    $photo
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="sec-head"><h2>$(& $fmt $S.casesH)</h2><p>$($S.casesP)</p></div>
+    <div class="sec-head"><h2>$(& $fmt $S.casesH)</h2></div>
     <div class="grid g3">
       $cases
     </div>
   </div>
 </section>
-
-<section class="section dark">
-  <div class="wrap">
-    <div class="sec-head"><h2>$(& $fmt $S.stepsH)</h2><p>$($S.stepsP)</p></div>
-    <div class="steps">
-      $steps
-    </div>
-  </div>
-</section>
-
-<section class="section white">
-  <div class="wrap">
-    <div class="sec-head"><h2>$(& $fmt $S.svc)</h2></div>
-    <div class="grid g4">
-      $cards
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap split">
-    <div class="prose">
-      <h2>$(& $fmt $S.priceH)</h2>
-      <p>$($S.priceP)</p>
-      <ul class="ticks">$price</ul>
-      <p><a href="$($S.tarifs)">$($S.priceA)</a></p>
-    </div>
-    <div class="note warn"><p>$($S.warn)</p></div>
-  </div>
-</section>
-
+$(& $mergedHtml $lang $path)
 <section class="section white">
   <div class="wrap">
     <div class="sec-head"><h2>$($S.faqH)</h2></div>
     <div class="faqs">
       $faqs
     </div>
+    <p>$($S.regionNote)</p>
     <h2 class="near-h">$($S.near)</h2>
     <div class="city-links">$near</div>
   </div>
 </section>
 "@
+    }
     $meta = @{ path = "$($S.prefix)$($d.slug)/"; title = (& $fmt $S.title); description = (& $fmt $S.desc).Replace('&amp;', '&'); crumb = $d.name; image = $img.src }
     $meta.title = $meta.title.Replace('&amp;', '&')
     if ($meta.description.Length -gt 160) { $meta.description = (& $fmt $S.descShort).Replace('&amp;', '&') }
@@ -608,10 +605,10 @@ $towns
 $cityList = @{}
 foreach ($lang in 'nl', 'fr') {
   foreach ($h in $hubs.Keys) {
-    $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h } | ForEach-Object { $n = $_.$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
+    $cityList["$lang|$h"] = '<div class="city-links">' + (($cities | Where-Object { $_.hub -eq $h -and -not $_.$lang.redirect } | ForEach-Object { $n = $_.$lang; "<a href=""$(& $cityHref $n $lang)""><strong>$(& $hx $n.name)</strong><span>$(& $hx $n.area)</span></a>" }) -join '') + '</div>'
   }
   # {{cities:towns}} -> every town that sits under a region page, alphabetical, as compact links
-  $cityList["$lang|towns"] = '<ul class="chips chip-links">' + (($cities | Where-Object { $_.hub -and $byId[$_.hub] } | Sort-Object { $_.$lang.name } | ForEach-Object { $n = $_.$lang; "<li><a href=""$(& $cityHref $n $lang)"">$(& $hx $n.name)</a></li>" }) -join '') + '</ul>'
+  $cityList["$lang|towns"] = '<ul class="chips chip-links">' + (($cities | Where-Object { $_.hub -and $byId[$_.hub] -and -not $_.$lang.redirect } | Sort-Object { $_.$lang.name } | ForEach-Object { $n = $_.$lang; "<li><a href=""$(& $cityHref $n $lang)"">$(& $hx $n.name)</a></li>" }) -join '') + '</ul>'
 }
 # English pages list the Dutch town pages (there are no English town pages); Brussels lists the French ones
 foreach ($k in @($cityList.Keys | Where-Object { $_ -like 'nl|*' })) {
@@ -708,6 +705,7 @@ $ld
   $html = $html.Replace('{{tel}}', 'tel:+3233756779')
   $html = $html.Replace('{{zones}}', $T.zones).Replace('{{langs}}', $langs)
   $html = [regex]::Replace($html, '\{\{icon:([a-z0-9-]+)\}\}', { param($m) $n = $m.Groups[1].Value; if (-not $icons.ContainsKey($n)) { throw "Unknown icon $n" }; $icons[$n] })
+  $html = $html.Replace('{{merged}}', (& $mergedHtml $p.lang $path))
   $html = [regex]::Replace($html, '\{\{cities:([a-z-]+)\}\}', { param($m) $cityList["$($p.lang)|$($m.Groups[1].Value)"] })
   if ($html -match '\{\{') { throw "$($p.lang)/$($p.key): unreplaced token" }
   if ($base) { $html = [regex]::Replace($html, '(href|src)="/(?!/)', "`$1=`"$base/") }
@@ -726,7 +724,7 @@ $ld
 foreach ($st in $stubs) {
   $dir = Join-Path $root ($st.path.Trim('/')); New-Item -ItemType Directory -Force $dir | Out-Null
   $msg = if ($st.lang -eq 'fr') { 'Cette page a été regroupée : <a href="' + $st.to + '">continuer</a>.' } else { 'Deze pagina is samengevoegd: <a href="' + $st.to + '">verder</a>.' }
-  $stub = "<!doctype html>`n<html lang=""$($L[$st.lang].html)"">`n<head>`n<meta charset=""utf-8"">`n<title>Fast Dépannage</title>`n<link rel=""canonical"" href=""$site$($st.to)"">`n<meta http-equiv=""refresh"" content=""0; url=$($st.to)"">`n</head>`n<body><p>$msg</p></body>`n</html>`n"
+  $stub = "<!doctype html>`n<html lang=""$($L[$st.lang].html)"">`n<head>`n<meta charset=""utf-8"">`n<title>Fast Dépannage</title>`n<meta name=""robots"" content=""noindex"">`n<link rel=""canonical"" href=""$site$($st.to)"">`n<meta http-equiv=""refresh"" content=""0; url=$($st.to)"">`n</head>`n<body><p>$msg</p></body>`n</html>`n"
   [IO.File]::WriteAllText((Join-Path $dir 'index.html'), $stub, $utf8)
 }
 $sm = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n"

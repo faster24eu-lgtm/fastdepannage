@@ -20,7 +20,24 @@ $base = ''
 $m0 = [regex]::Match($pages['/'], 'href="([^"]*)/assets/style\.css"'); if ($m0.Success) { $base = $m0.Groups[1].Value }
 $canon = @{}; $titles = @{}; $descs = @{}
 
+# merged-town stubs (meta refresh): noindex, canonical = refresh target, target is a real indexable page
+$stubs = @{}
 foreach ($path in $pages.Keys) {
+  $r = [regex]::Match($pages[$path], '<meta http-equiv="refresh" content="0; url=([^"]+)"')
+  if ($r.Success) { $stubs[$path] = $r.Groups[1].Value }
+}
+foreach ($path in $stubs.Keys) {
+  $h = $pages[$path]; $to = $stubs[$path]
+  if ($base -and $to.StartsWith($base + '/')) { $to = $to.Substring($base.Length) }
+  if ($h -notmatch '<meta name="robots" content="noindex') { Flag $path 'redirect stub without noindex' }
+  $c = [regex]::Match($h, '<link rel="canonical" href="([^"]+)"').Groups[1].Value
+  if (-not $c.EndsWith($to)) { Flag $path "redirect stub canonical $c does not match target $to" }
+  if (-not $pages.ContainsKey($to)) { Flag $path "redirects to missing page $to" }
+  elseif ($stubs.ContainsKey($to) -or $pages[$to] -match 'content="noindex') { Flag $path "redirects to a page that is not indexable: $to" }
+}
+
+foreach ($path in $pages.Keys) {
+  if ($stubs.ContainsKey($path)) { continue }
   $h = $pages[$path]
   $noindex = $h -match '<meta name="robots" content="noindex'
   $t = [regex]::Match($h, '<title>([^<]*)</title>').Groups[1].Value
@@ -34,7 +51,7 @@ foreach ($path in $pages.Keys) {
   }
   $h1 = [regex]::Matches($h, '<h1[\s>]').Count
   if ($h1 -ne 1) { Flag $path "$h1 h1 tags" }
-  if ($h -notmatch '<html lang="(nl|fr)-BE">') { Flag $path 'missing html lang' }
+  if ($h -notmatch '<html lang="(nl-BE|fr-BE|en)">') { Flag $path 'missing html lang' }
   $c = [regex]::Match($h, '<link rel="canonical" href="([^"]+)"').Groups[1].Value
   if (-not $c) { Flag $path 'no canonical' }
   elseif (-not $c.EndsWith($path)) { Flag $path "canonical points elsewhere: $c" }
@@ -51,7 +68,7 @@ foreach ($path in $pages.Keys) {
     if ($base -and $u.StartsWith($base + '/')) { $u = $u.Substring($base.Length) }
     if ($u -match '\.(css|js|svg|png|jpe?g|webp|avif|ico|xml|txt|html)$') { if (-not (Test-Path (Join-Path $root $u.TrimStart('/')))) { Flag $path "missing file $u" }; continue }
     if (-not $u.EndsWith('/')) { Flag $path "link without trailing slash $u"; continue }
-    if (-not $pages.ContainsKey($u)) { Flag $path "broken link $u" }
+    if (-not $pages.ContainsKey($u)) { Flag $path "broken link $u" } elseif ($stubs.ContainsKey($u)) { Flag $path "link to redirected page $u" }
   }
   # JSON-LD must parse
   foreach ($j in [regex]::Matches($h, '<script type="application/ld\+json">([\s\S]*?)</script>')) {
