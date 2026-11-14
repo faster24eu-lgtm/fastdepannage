@@ -62,8 +62,8 @@ $L.fr = @{
           <a href="/fr/anvers/">Anvers</a>
           <a href="/fr/gand/">Gand</a>
           <a href="/fr/bruges-cote/">Bruges &amp; la Côte</a>
-          <a href="/fr/depannage/vallee-de-la-dyle/">Louvain et vallée de la Dyle</a>
-          <a href="/fr/depannage/klein-brabant/">Malines et Klein-Brabant</a>
+          <a href="/fr/depannage/louvain/">Louvain</a>
+          <a href="/fr/depannage/malines/">Malines</a>
           <a href="/fr/zones-rurales/">Zones rurales</a>
         </div>
       </div>
@@ -116,8 +116,8 @@ $L.fr = @{
           <li><a href="/fr/anvers/">Dépannage Anvers</a></li>
           <li><a href="/fr/gand/">Dépannage Gand</a></li>
           <li><a href="/fr/bruges-cote/">Bruges &amp; la Côte</a></li>
-          <li><a href="/fr/depannage/vallee-de-la-dyle/">Louvain et vallée de la Dyle</a></li>
-          <li><a href="/fr/depannage/klein-brabant/">Malines et Klein-Brabant</a></li>
+          <li><a href="/fr/depannage/louvain/">Dépannage Louvain</a></li>
+          <li><a href="/fr/depannage/malines/">Dépannage Malines</a></li>
           <li><a href="/fr/zones-rurales/">Zones rurales</a></li>
         </ul>
       </div>
@@ -341,10 +341,23 @@ $L.en = @{
 '@
 }
 
-$business = @'
-{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}],"telephone":"+3233756779"}
-'@
-$business = $business.Replace('https://fastdepannage.com', $site)
+# Business schema (home and contact pages only): brand, phone, 24/7 and the 8 hub areas.
+# No address, VAT number or email on purpose (the owner does not want company details on the site).
+$bizArea = @{
+  nl = @('Brussel', 'Vlaamse Rand', 'Antwerpen', 'Gent', 'Brugge en de kust', 'Leuven', 'Mechelen', 'Platteland van Vlaanderen')
+  fr = @('Bruxelles', 'Périphérie flamande', 'Anvers', 'Gand', 'Bruges et la côte', 'Louvain', 'Malines', 'Zones rurales de Flandre')
+  en = @('Brussels', 'Flemish periphery', 'Antwerp', 'Ghent', 'Bruges and the coast', 'Leuven', 'Mechelen', 'Rural Flanders')
+}
+$bizDesc = @{
+  nl = 'Takeldienst en pechverhelping, 24 op 7, in Brussel en Vlaanderen. De prijs krijgt u aan de telefoon voor de takelwagen vertrekt.'
+  fr = 'Dépannage et remorquage 24h/24 à Bruxelles et en Flandre. Le prix est donné au téléphone avant le départ de la dépanneuse.'
+  en = '24/7 towing and roadside assistance in Brussels and Flanders. You get the price on the phone before the tow truck sets off.'
+}
+$bizLd = {
+  param($lang, $pageUrl)
+  $area = ($bizArea[$lang] | ForEach-Object { '{"@type":"Place","name":"' + $_ + '"}' }) -join ','
+  '{"@context":"https://schema.org","@type":["EmergencyService","AutomotiveBusiness"],"@id":"' + $site + '/#entreprise","name":"Fast Dépannage","url":"' + $site + '/","mainEntityOfPage":"' + $pageUrl + '","description":"' + $bizDesc[$lang] + '","image":"' + $site + '/assets/img/depanneuse-double-chargement.jpg","telephone":"+3233756779","contactPoint":{"@type":"ContactPoint","telephone":"+3233756779","contactType":"emergency","availableLanguage":["Dutch","French","English"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}},"knowsLanguage":["nl","fr","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[' + $area + ']}'
+}
 
 $ads = @'
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18517785509"></script>
@@ -506,6 +519,21 @@ $mergedHtml = {
   $items = ($list | Sort-Object { $_[0] } | ForEach-Object { "<p><strong>$($_[0].Replace('&', '&amp;'))</strong> &ndash; $($_[1].Replace('&', '&amp;'))</p>" }) -join "`n      "
   "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$($mergedH[$lang])</h2></div>`n    <div class=""prose"">`n      $items`n    </div>`n  </div>`n</section>`n"
 }
+# Second clean-up (November 2026): only the 8 hubs per language stay. Every town and region page
+# becomes a redirect stub to its hub. Leuven and Mechelen are hubs themselves. Region pages and the
+# towns under them go to the rural hub (/platteland/, /fr/zones-rurales/).
+$keepHub = @('leuven', 'mechelen')
+foreach ($c in $cities) {
+  foreach ($lang in 'nl', 'fr') {
+    $d = $c.$lang
+    if ($keepHub -contains $c.id) { $d.PSObject.Properties.Remove('redirect'); continue }
+    $to = if ($hubs[$c.hub]) { $hubs[$c.hub][$lang][1] }
+      elseif ($keepHub -contains $c.hub) { "$($CT[$lang].prefix)$($byId[$c.hub].$lang.slug)/" }
+      elseif ($c.id -eq 'keerbergen') { "$($CT[$lang].prefix)$($byId['mechelen'].$lang.slug)/" }
+      else { $hubs['streken'][$lang][1] }
+    $d | Add-Member -NotePropertyName redirect -NotePropertyValue $to -Force
+  }
+}
 $stubs = @(); $redir = @{}
 # link to a town page, or to the page it was merged into
 $cityHref = { param($n, $lang) if ($n.redirect) { $n.redirect } else { "$($CT[$lang].prefix)$($n.slug)/" } }
@@ -638,15 +666,16 @@ foreach ($p in $all) {
   $robots = if ($meta.noindex) { 'noindex' } else { 'index,follow' }
   $img = if ($meta.image) { $meta.image } else { '/assets/img/depanneuse-double-chargement.jpg' }
 
-  $hreflang = ''
+  $hreflang = ''; $smAlt = ''
   $set = @('fr', 'nl', 'en' | Where-Object { $byKey[$p.key][$_] -and -not $byKey[$p.key][$_].meta.noindex })
   if (-not $meta.noindex -and $set.Count -gt 1) {
     $hreflang = ($set | ForEach-Object { "<link rel=""alternate"" hreflang=""$($L[$_].hl)"" href=""$site$($byKey[$p.key][$_].meta.path)"">" }) -join "`n"
     $def = if ($set -contains 'nl') { 'nl' } else { $set[0] }
     $hreflang += "`n<link rel=""alternate"" hreflang=""x-default"" href=""$site$($byKey[$p.key][$def].meta.path)"">"
+    $smAlt = (($set | ForEach-Object { "<xhtml:link rel=""alternate"" hreflang=""$($L[$_].hl)"" href=""$site$($byKey[$p.key][$_].meta.path)""/>" }) -join '') + "<xhtml:link rel=""alternate"" hreflang=""x-default"" href=""$site$($byKey[$p.key][$def].meta.path)""/>"
   }
 
-  $ld = '<script type="application/ld+json">' + $business.Trim() + '</script>'
+  $ld = if ($p.key -eq 'index' -or $p.key -eq 'contact') { '<script type="application/ld+json">' + (& $bizLd $p.lang $url) + '</script>' } else { '' }
   # BreadcrumbList from the visible crumbs: <a href="/x/">Name</a> / ... / current page
   $cm = [regex]::Match($p.body, '<div class="crumbs">([\s\S]*?)</div>')
   if ($cm.Success -and $meta.crumb) {
@@ -717,7 +746,7 @@ $ld
     $out = Join-Path $dir 'index.html'
   }
   [IO.File]::WriteAllText($out, $html, $utf8)
-  if (-not $meta.noindex) { $sitemap += [pscustomobject]@{ url = $url; mod = (Get-LastMod $p.file); prio = if ($path -eq '/' -or $path -eq '/nl/') { '1.0' } else { '0.8' } } }
+  if (-not $meta.noindex) { $sitemap += [pscustomobject]@{ url = $url; alt = $smAlt; mod = (Get-LastMod $p.file); prio = if ($path -eq '/' -or $path -eq '/nl/') { '1.0' } else { '0.8' } } }
   Write-Host "built $path"
 }
 
@@ -727,8 +756,8 @@ foreach ($st in $stubs) {
   $stub = "<!doctype html>`n<html lang=""$($L[$st.lang].html)"">`n<head>`n<meta charset=""utf-8"">`n<title>Fast Dépannage</title>`n<meta name=""robots"" content=""noindex"">`n<link rel=""canonical"" href=""$site$($st.to)"">`n<meta http-equiv=""refresh"" content=""0; url=$($st.to)"">`n</head>`n<body><p>$msg</p></body>`n</html>`n"
   [IO.File]::WriteAllText((Join-Path $dir 'index.html'), $stub, $utf8)
 }
-$sm = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n"
-foreach ($s in ($sitemap | Sort-Object prio -Descending)) { $sm += "  <url><loc>$($s.url)</loc><lastmod>$($s.mod)</lastmod><priority>$($s.prio)</priority></url>`n" }
+$sm = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">' + "`n"
+foreach ($s in ($sitemap | Sort-Object prio -Descending)) { $sm += "  <url><loc>$($s.url)</loc>$($s.alt)<lastmod>$($s.mod)</lastmod><priority>$($s.prio)</priority></url>`n" }
 $sm += '</urlset>' + "`n"
 [IO.File]::WriteAllText((Join-Path $root 'sitemap.xml'), $sm, $utf8)
 [IO.File]::WriteAllText((Join-Path $root 'robots.txt'), "User-agent: *`nAllow: /`n`nSitemap: $site/sitemap.xml`n", $utf8)

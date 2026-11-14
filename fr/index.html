@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css?v=20261113">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutomotiveBusiness","additionalType":"https://en.wikipedia.org/wiki/Tow_truck","@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","priceRange":"€€","knowsLanguage":["fr","nl","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"AdministrativeArea","name":"Brussels Hoofdstedelijk Gewest"},{"@type":"AdministrativeArea","name":"Vlaams-Brabant"},{"@type":"AdministrativeArea","name":"Antwerpen"},{"@type":"AdministrativeArea","name":"Oost-Vlaanderen"},{"@type":"AdministrativeArea","name":"West-Vlaanderen"},{"@type":"AdministrativeArea","name":"Limburg"}],"telephone":"+3233756779"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["EmergencyService","AutomotiveBusiness"],"@id":"https://fastdepannage.com/#entreprise","name":"Fast Dépannage","url":"https://fastdepannage.com/","mainEntityOfPage":"https://fastdepannage.com/fr/","description":"Dépannage et remorquage 24h/24 à Bruxelles et en Flandre. Le prix est donné au téléphone avant le départ de la dépanneuse.","image":"https://fastdepannage.com/assets/img/depanneuse-double-chargement.jpg","telephone":"+3233756779","contactPoint":{"@type":"ContactPoint","telephone":"+3233756779","contactType":"emergency","availableLanguage":["Dutch","French","English"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}},"knowsLanguage":["nl","fr","en"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"Place","name":"Bruxelles"},{"@type":"Place","name":"Périphérie flamande"},{"@type":"Place","name":"Anvers"},{"@type":"Place","name":"Gand"},{"@type":"Place","name":"Bruges et la côte"},{"@type":"Place","name":"Louvain"},{"@type":"Place","name":"Malines"},{"@type":"Place","name":"Zones rurales de Flandre"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un dépannage à Bruxelles ?","acceptedAnswer":{"@type":"Answer","text":"Le prix dépend de l'endroit où vous êtes, de la destination, de l'heure et du type de véhicule. On vous donne un prix ferme au téléphone, avant le départ du camion. La page Tarifs explique ce qui fait varier le montant."}},{"@type":"Question","name":"En combien de temps êtes-vous là ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend de l'endroit et du trafic. On vous annonce une heure d'arrivée réaliste dès votre appel plutôt qu'une promesse de « 15 minutes partout » qu'aucun dépanneur ne peut tenir à Bruxelles à l'heure de pointe."}},{"@type":"Question","name":"Je suis assuré chez Touring ou VAB, puis-je quand même faire appel à vous ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Votre assistance reste la première chose à essayer si votre contrat la couvre. Si l'attente est trop longue, si vous n'êtes pas couvert ou si vous voulez choisir votre garage, vous pouvez nous appeler directement. Gardez la facture : certains contrats remboursent sur justificatif."}},{"@type":"Question","name":"Vous parlez vraiment français ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Notre base est à Anvers, mais on travaille tous les jours en français, en néerlandais et en anglais. Si le garage de destination est flamand, on s'occupe de la conversation avec lui."}},{"@type":"Question","name":"Comment trouver un dépanneur autour de moi, maintenant ?","acceptedAnswer":{"@type":"Answer","text":"Appelez-nous et dites-nous où vous êtes. Vous recevez tout de suite l'heure d'arrivée et le prix, et vous décidez."}},{"@type":"Question","name":"Où emmenez-vous la voiture ?","acceptedAnswer":{"@type":"Answer","text":"Où vous voulez : votre garage habituel, le concessionnaire de la marque, votre domicile ou un parking sécurisé si le garage est fermé la nuit. Pour une longue distance, on fixe le prix au téléphone."}}]}</script>
 </head>
 <body>
@@ -64,8 +64,8 @@
           <a href="/fr/anvers/">Anvers</a>
           <a href="/fr/gand/">Gand</a>
           <a href="/fr/bruges-cote/">Bruges &amp; la Côte</a>
-          <a href="/fr/depannage/vallee-de-la-dyle/">Louvain et vallée de la Dyle</a>
-          <a href="/fr/depannage/klein-brabant/">Malines et Klein-Brabant</a>
+          <a href="/fr/depannage/louvain/">Louvain</a>
+          <a href="/fr/depannage/malines/">Malines</a>
           <a href="/fr/zones-rurales/">Zones rurales</a>
         </div>
       </div>
@@ -220,17 +220,17 @@
         <p>Bruges, Ostende, Knokke, La Panne. Panne en vacances, on vous ramène à Bruxelles.</p>
         <span class="more">Bruges et la Côte <svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span>
       </a>
-      <a class="card card-link" href="/fr/depannage/vallee-de-la-dyle/">
+      <a class="card card-link" href="/fr/depannage/louvain/">
         <span class="ic"><svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg></span>
-        <h3>Louvain et vallée de la Dyle</h3>
-        <p>Louvain, Tervuren, Overijse : l'E40, l'E411 et la forêt de Soignes.</p>
-        <span class="more">Vallée de la Dyle <svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span>
+        <h3>Louvain</h3>
+        <p>Ville étudiante, Gasthuisberg et l'échangeur de l'E40 et de l'E314.</p>
+        <span class="more">Dépannage à Louvain <svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span>
       </a>
-      <a class="card card-link" href="/fr/depannage/klein-brabant/">
+      <a class="card card-link" href="/fr/depannage/malines/">
         <span class="ic"><svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg></span>
-        <h3>Malines et Klein-Brabant</h3>
-        <p>Malines, Bornem et Puurs, entre l'E19, l'A12 et l'Escaut.</p>
-        <span class="more">Klein-Brabant <svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span>
+        <h3>Malines</h3>
+        <p>À mi-chemin entre Bruxelles et Anvers, sur l'E19.</p>
+        <span class="more">Dépannage à Malines <svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span>
       </a>
       <a class="card card-link" href="/fr/zones-rurales/">
         <span class="ic"><svg class="i" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l4 -14"/><path d="M16 5l4 14"/><path d="M12 8v-2"/><path d="M12 13v-2"/><path d="M12 18v-2"/></svg></span>
@@ -331,8 +331,8 @@
           <li><a href="/fr/anvers/">Dépannage Anvers</a></li>
           <li><a href="/fr/gand/">Dépannage Gand</a></li>
           <li><a href="/fr/bruges-cote/">Bruges &amp; la Côte</a></li>
-          <li><a href="/fr/depannage/vallee-de-la-dyle/">Louvain et vallée de la Dyle</a></li>
-          <li><a href="/fr/depannage/klein-brabant/">Malines et Klein-Brabant</a></li>
+          <li><a href="/fr/depannage/louvain/">Dépannage Louvain</a></li>
+          <li><a href="/fr/depannage/malines/">Dépannage Malines</a></li>
           <li><a href="/fr/zones-rurales/">Zones rurales</a></li>
         </ul>
       </div>
