@@ -519,21 +519,6 @@ $mergedHtml = {
   $items = ($list | Sort-Object { $_[0] } | ForEach-Object { "<p><strong>$($_[0].Replace('&', '&amp;'))</strong> &ndash; $($_[1].Replace('&', '&amp;'))</p>" }) -join "`n      "
   "`n<section class=""section white"">`n  <div class=""wrap"">`n    <div class=""sec-head""><h2>$($mergedH[$lang])</h2></div>`n    <div class=""prose"">`n      $items`n    </div>`n  </div>`n</section>`n"
 }
-# Second clean-up (November 2026): only the 8 hubs per language stay. Every town and region page
-# becomes a redirect stub to its hub. Leuven and Mechelen are hubs themselves. Region pages and the
-# towns under them go to the rural hub (/platteland/, /fr/zones-rurales/).
-$keepHub = @('leuven', 'mechelen')
-foreach ($c in $cities) {
-  foreach ($lang in 'nl', 'fr') {
-    $d = $c.$lang
-    if ($keepHub -contains $c.id) { $d.PSObject.Properties.Remove('redirect'); continue }
-    $to = if ($hubs[$c.hub]) { $hubs[$c.hub][$lang][1] }
-      elseif ($keepHub -contains $c.hub) { "$($CT[$lang].prefix)$($byId[$c.hub].$lang.slug)/" }
-      elseif ($c.id -eq 'keerbergen') { "$($CT[$lang].prefix)$($byId['mechelen'].$lang.slug)/" }
-      else { $hubs['streken'][$lang][1] }
-    $d | Add-Member -NotePropertyName redirect -NotePropertyValue $to -Force
-  }
-}
 $stubs = @(); $redir = @{}
 # link to a town page, or to the page it was merged into
 $cityHref = { param($n, $lang) if ($n.redirect) { $n.redirect } else { "$($CT[$lang].prefix)$($n.slug)/" } }
